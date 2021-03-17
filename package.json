@@ -1,0 +1,53 @@
+{
+  "name": "svelterial",
+  "version": "0.0.1",
+  "private": "true",
+  "description": "",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheComputerM/svelterial.git"
+  },
+  "author": "TheComputerM",
+  "homepage": "https://github.com/TheComputerM/svelterial#readme",
+  "bugs": {
+    "url": "https://github.com/TheComputerM/svelterial/issues"
+  },
+  "main": "index.js",
+  "scripts": {
+    "fmt": "prettier . -w --plugin-search-dir=.",
+    "lint": "concurrently \"pnpm:lint:js\" \"pnpm:lint:css\"",
+    "lint-staged": "lint-staged",
+    "lint:css": "stylelint **/*.scss --syntax scss",
+    "lint:css:fix": "stylelint **/*.scss --syntax scss --fix",
+    "lint:fix": "concurrently \"pnpm:lint:js:fix\" \"pnpm:lint:css:fix\"",
+    "lint:js": "eslint . --ext .svelte,.js",
+    "lint:js:fix": "eslint . --ext .svelte,.js --fix",
+    "prepare": "husky install",
+    "changeset": "changeset"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.14.1",
+    "@typescript-eslint/eslint-plugin": "^4.18.0",
+    "@typescript-eslint/parser": "^4.18.0",
+    "concurrently": "^6.0.0",
+    "eslint": "^7.22.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-svelte3": "^3.1.2",
+    "husky": "^5.1.3",
+    "lint-staged": "^10.5.4",
+    "prettier": "^2.2.1",
+    "prettier-plugin-package": "^1.3.0",
+    "prettier-plugin-svelte": "^2.2.0",
+    "stylelint": "^13.12.0",
+    "stylelint-config-standard": "^21.0.0",
+    "stylelint-scss": "^3.19.0",
+    "typescript": "^4.2.3"
+  },
+  "lint-staged": {
+    "*.scss": "stylelint --syntax scss --fix",
+    "*.{js,ts,svelte}": "eslint --ext .svelte,.js --fix",
+    "*.{js,ts,svelte,scss,md}": "prettier -w --plugin-search-dir=."
+  }
+}

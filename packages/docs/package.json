@@ -1,0 +1,35 @@
+{
+  "name": "@svelterial/docs",
+  "version": "0.0.1",
+  "private": "true",
+  "description": "",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheComputerM/svelterial.git",
+    "directory": "packages/docs"
+  },
+  "author": "TheComputerM",
+  "homepage": "https://github.com/TheComputerM/svelterial#readme",
+  "bugs": {
+    "url": "https://github.com/TheComputerM/svelterial/issues"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "svelte",
+    "sveltejs",
+    "svelte-components",
+    "material-design",
+    "material",
+    "material-theme",
+    "material-components",
+    "component-library",
+    "svelte-material",
+    "ui",
+    "ui-components",
+    "ui-kit"
+  ]
+}
