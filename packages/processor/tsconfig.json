@@ -1,8 +1,16 @@
 {
   "compilerOptions": {
-    "outDir": "dist",
+    "target": "ES2019",
+    "module": "ES2020",
+    "moduleResolution": "node",
+    "noEmitOnError": true,
+    "lib": ["ES2020"],
+    "esModuleInterop": false,
+    "allowSyntheticDefaultImports": true,
     "declaration": true,
-    "target": "ES5"
+    "emitDeclarationOnly": true,
+    "outDir": "dist"
   },
-  "include": ["src/**/*"]
+  "include": ["src/index.ts"],
+  "exclude": ["node_modules/**/*", "tests/**/*"]
 }

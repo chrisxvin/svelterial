@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`arrays 1`] = `
+"<style svelterial name=\\"Component\\">:global(.width-1){width:10em}:global(.width-2){width:20em}:global(.width-3){width:30em}:global(.width-4){width:40em}:global(.width-5){width:50em}:global(.height-1){height:10em}:global(.height-3){height:30em}:global(.height-5){height:50em}:global(.color-red){color:red}:global(.color-blue){color:blue}:global(.color-green){color:green}</style>
+"
+`;
+
+exports[`basic 1`] = `
+"<style svelterial name=\\"Component\\">:global(h1){color:red}</style>
+"
+`;
+
+exports[`import 1`] = `
+"<style svelterial name=\\"Component\\">:global(h1){color:red}</style>
+"
+`;
+
+exports[`maps 1`] = `
+"<style svelterial name=\\"Component\\">:global(h1){font-size:200px}</style>
+"
+`;
+
+exports[`mixins 1`] = `
+"<style svelterial name=\\"Component\\">:global(h1),:global(h2),:global(h3){color:red;font-size:4em}</style>
+"
+`;
+
+exports[`nesting 1`] = `
+"<style svelterial name=\\"Component\\">:global(div h1){font-size:16px}</style>
+"
+`;
+
+exports[`src 1`] = `
+"<style svelterial name=\\"Component\\" src=\\"./input.scss\\">:global(div h1){font-size:16}</style>
+"
+`;
