@@ -1,3 +1,4 @@
+import { isPlainObject } from 'is-plain-object';
 import globalStyles from './global';
 import variableTransformer from './variableTransformer';
 
@@ -12,12 +13,16 @@ interface SvelterialPlugin {
   variables: object;
 }
 
-export interface Config {
-  theme: object;
-  globals: object;
-  variables: object;
+interface ConfigOptions {
+  cacheVariables: boolean;
+}
 
-  plugins: SvelterialPlugin[];
+export interface Config {
+  settings?: object;
+  variables?: object;
+  options?: ConfigOptions;
+
+  plugins?: SvelterialPlugin[];
 }
 
 interface Processor {
@@ -30,7 +35,25 @@ interface Processor {
   filename: string;
 }
 
-export default (config: Config) => ({
+// For caching variables.
+let cache;
+
+const defaultConfig: Config = {
+  settings: {},
+  variables: {},
+  options: {
+    cacheVariables: true,
+  },
+  plugins: [],
+};
+
+function pluginVariables(variables: object, settings: object) {
+  if (isPlainObject(variables)) return variables;
+  if (typeof variables === 'function') return variables(settings);
+  return {};
+}
+
+export default (_config: Config) => ({
   async style({ content, attributes: info, filename }: Processor) {
     if (!info.svelterial) return null;
 
@@ -38,9 +61,10 @@ export default (config: Config) => ({
       throw new Error('SVELTERIAL: The name of a plugin has not been defined');
     }
 
-    let variables = {};
-    let input = content;
-    const dependencies = [];
+    let variables: string = '';
+    let input: string = content;
+    const config: Config = deepmerge(defaultConfig, _config);
+    const dependencies: string[] = [];
     const plugins = config.plugins.flat(Infinity);
 
     /**
@@ -55,16 +79,39 @@ export default (config: Config) => ({
     /**
      * Sets the SCSS variables that are to be used in the plugin.
      */
-    if (info.name === 'APP') {
-      variables = config.theme;
+    if (config.options.cacheVariables) {
+      if (!cache) {
+        // caching strings of sass variables.
+        cache = {
+          globalVariables: variableTransformer({
+            settings: config?.settings || {},
+          }),
+          variables: plugins.reduce((accumulator, plugin) => {
+            const userConfig = config.variables?.[plugin.name] || {};
+            const mergedConfig = deepmerge(
+              pluginVariables(plugin.variables, config.settings),
+              userConfig,
+            );
+            accumulator[plugin.name] = variableTransformer(mergedConfig);
+            return accumulator;
+          }, {}),
+        };
+      }
+
+      variables = `${cache.globalVariables}\n${cache.variables[info.name]}`;
     } else {
-      const plugin = plugins.find(({ name }) => info.name === name);
-      const defaultConfig = plugin?.variables || {};
-      const userConfig = config?.variables?.[info.name] || {};
-      variables = deepmerge(defaultConfig, userConfig);
+      const plugin = plugins.find((p) => p.name === info.name);
+      const userConfig = config.variables?.[plugin.name] || {};
+      const transformedVars = variableTransformer(
+        deepmerge(pluginVariables(plugin.variables, config.settings), userConfig),
+      );
+      const globalVariables = variableTransformer({
+        settings: config.settings,
+      });
+      variables = `${globalVariables}\n${transformedVars}`;
     }
 
-    input = `${variableTransformer(variables)}\n${input}`;
+    input = `${variables}\n${input}`;
 
     const sassOutput = sass.renderSync({
       data: input,
