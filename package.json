@@ -2,7 +2,7 @@
   "name": "svelterial",
   "version": "0.0.1",
   "private": "true",
-  "description": "",
+  "description": "Monorepo for the svelterial packages",
   "license": "MIT",
   "repository": {
     "type": "git",
