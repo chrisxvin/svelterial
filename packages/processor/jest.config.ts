@@ -3,4 +3,5 @@ module.exports = {
     '^.+\\.tsx?$': 'ts-jest',
   },
   testMatch: ['**/tests/**/*.ts'],
+  testPathIgnorePatterns: ['/tests/samples/'],
 };

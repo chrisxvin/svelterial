@@ -6,8 +6,8 @@ const path = require('path');
 
 async function render(file: string) {
   const folder = path.join(__dirname, `./samples/${file}`);
+  const config = await import(path.join(folder, '_config.ts'));
   process.chdir(folder);
-  const config = await import(path.join(folder, '_config.js'));
   config.options = {
     cacheVariables: false,
   };
