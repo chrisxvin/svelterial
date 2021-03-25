@@ -45,7 +45,7 @@ const defaultConfig: Config = {
 
 function parseVariables(config: Config) {
   const { variables, plugins } = config;
-  return plugins.reduce((acc: object, plugin) => {
+  return plugins.flat(Infinity).reduce((acc: object, plugin) => {
     const userConfig = variables?.[plugin.name] || {};
     if (isPlainObject(plugin.defaults)) {
       acc[plugin.name] = deepmerge(plugin.defaults, userConfig);

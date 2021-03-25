@@ -21,7 +21,10 @@ test.each([
   'nesting',
 
   // Checks if it can import file using '@import'.
-  'import',
+  '@import',
+
+  // Checks if files can be imported using '@use'.
+  '@use',
 
   // Checks if it can import file using 'src' attribute.
   'src',
@@ -30,13 +33,16 @@ test.each([
   'arrays',
 
   // Features such as mixins.
-  'mixins',
+  '@mixin',
 
   // Features such as scss maps and object variables.
   'maps',
 
   // Test the variables option in the config file.
   'variables',
+
+  // Test multiple plugins in one config file.
+  'multiple-plugins',
 
   // Test the settings option in the config file.
   'settings',

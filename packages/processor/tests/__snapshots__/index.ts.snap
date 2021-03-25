@@ -1,5 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`transform @import 1`] = `
+"<style svelterial>:global(h1){color:red}</style>
+"
+`;
+
+exports[`transform @mixin 1`] = `
+"<style svelterial>:global(h1),:global(h2),:global(h3){color:red;font-size:4em}</style>
+"
+`;
+
+exports[`transform @use 1`] = `
+"<style svelterial>:global(h1){color:red}</style>
+"
+`;
+
 exports[`transform arrays 1`] = `
 "<style svelterial>:global(.width-1){width:10em}:global(.width-2){width:20em}:global(.width-3){width:30em}:global(.width-4){width:40em}:global(.width-5){width:50em}:global(.height-1){height:10em}:global(.height-3){height:30em}:global(.height-5){height:50em}:global(.color-red){color:red}:global(.color-blue){color:blue}:global(.color-green){color:green}</style>
 "
@@ -22,6 +37,11 @@ exports[`transform maps 1`] = `
 
 exports[`transform mixins 1`] = `
 "<style svelterial>:global(h1),:global(h2),:global(h3){color:red;font-size:4em}</style>
+"
+`;
+
+exports[`transform multiple-plugins 1`] = `
+"<style svelterial>:global(h1){font-size:16px;color:red;font-family:\\"Roboto\\"}</style>
 "
 `;
 
