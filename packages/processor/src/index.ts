@@ -10,7 +10,8 @@ const { readFileSync } = require('fs');
 
 interface SvelterialPlugin {
   name: string;
-  variables: object;
+  // eslint-disable-next-line no-unused-vars
+  defaults: object | ((vars: object) => object);
 }
 
 interface ConfigOptions {
@@ -18,7 +19,6 @@ interface ConfigOptions {
 }
 
 export interface Config {
-  settings?: object;
   variables?: object;
   options?: ConfigOptions;
 
@@ -35,11 +35,7 @@ interface Processor {
   filename: string;
 }
 
-// For caching variables.
-let cache;
-
 const defaultConfig: Config = {
-  settings: {},
   variables: {},
   options: {
     cacheVariables: true,
@@ -47,101 +43,104 @@ const defaultConfig: Config = {
   plugins: [],
 };
 
-function pluginVariables(variables: object, settings: object) {
-  if (isPlainObject(variables)) return variables;
-  if (typeof variables === 'function') return variables(settings);
-  return {};
+function parseVariables(config: Config) {
+  const { variables, plugins } = config;
+  return plugins.reduce((acc: object, plugin) => {
+    const userConfig = variables?.[plugin.name] || {};
+    if (isPlainObject(plugin.defaults)) {
+      acc[plugin.name] = deepmerge(plugin.defaults, userConfig);
+    } else {
+      // TODO: fix this
+      // @ts-ignore
+      const pluginConfig = plugin.defaults(acc);
+      acc[plugin.name] = deepmerge(pluginConfig, userConfig);
+    }
+
+    return acc;
+  }, {});
 }
 
-export default (_config: Config) => ({
-  async style({ content, attributes: info, filename }: Processor) {
-    if (!info.svelterial) return null;
+export default (_config: Config) => {
+  // For caching variables
+  const cache = {
+    config: null,
+    variables: null,
+    set: false,
+  };
 
-    if (!info.name) {
-      throw new Error('SVELTERIAL: The name of a plugin has not been defined');
-    }
+  return {
+    async style({ content, attributes: info, filename }: Processor) {
+      if (!info.svelterial) return null;
 
-    let variables: string = '';
-    let input: string = content;
-    const config: Config = deepmerge(defaultConfig, _config);
-    const dependencies: string[] = [];
-    const plugins = config.plugins.flat(Infinity);
+      let input: string = content;
+      const dependencies: string[] = [];
 
-    /**
-     * Processing file if there is a 'src' attribute.
-     */
-    if (info.src) {
-      const importedFilePath = path.resolve(path.dirname(filename), info.src);
-      input = readFileSync(importedFilePath).toString();
-      dependencies.push(importedFilePath);
-    }
+      const config: Config = cache.config || deepmerge(defaultConfig, _config);
 
-    /**
-     * Sets the SCSS variables that are to be used in the plugin.
-     */
-    if (config.options.cacheVariables) {
-      if (!cache) {
-        // caching strings of sass variables.
-        cache = {
-          globalVariables: variableTransformer({
-            settings: config?.settings || {},
-          }),
-          variables: plugins.reduce((accumulator, plugin) => {
-            const userConfig = config.variables?.[plugin.name] || {};
-            const mergedConfig = deepmerge(
-              pluginVariables(plugin.variables, config.settings),
-              userConfig,
-            );
-            accumulator[plugin.name] = variableTransformer(mergedConfig);
-            return accumulator;
-          }, {}),
-        };
+      if (config.options.cacheVariables) {
+        if (!cache.set) {
+          cache.config = deepmerge(defaultConfig, _config);
+          cache.variables = parseVariables(config);
+          cache.set = true;
+        }
       }
 
-      variables = `${cache.globalVariables}\n${cache.variables[info.name]}`;
-    } else {
-      const plugin = plugins.find((p) => p.name === info.name);
-      const userConfig = config.variables?.[plugin.name] || {};
-      const transformedVars = variableTransformer(
-        deepmerge(pluginVariables(plugin.variables, config.settings), userConfig),
-      );
-      const globalVariables = variableTransformer({
-        settings: config.settings,
+      const variables = cache.variables || parseVariables(config);
+
+      /**
+       * Processing file if there is a 'src' attribute.
+       */
+      if (info.src) {
+        const importedFilePath = path.resolve(path.dirname(filename), info.src);
+        input = readFileSync(importedFilePath).toString();
+        dependencies.push(importedFilePath);
+      }
+
+      const sassOutput = sass.renderSync({
+        data: input,
+        outFile: `${filename}.css`,
+        outputStyle: 'compressed',
+        sourceMap: true,
+        omitSourceMapUrl: true,
+        includePaths: [process.cwd()],
+        importer: [
+          (url: string) => {
+            if (!url.startsWith('svelterial')) return null;
+
+            // Name of the imported plugin.
+            const name = url.split('/')[1];
+
+            /**
+             * Returns the SCSS variables that are to be used in the plugin.
+             */
+            return {
+              contents: variableTransformer(variables[name] || {}),
+            };
+          },
+        ],
       });
-      variables = `${globalVariables}\n${transformedVars}`;
-    }
 
-    input = `${variables}\n${input}`;
+      dependencies.concat(sassOutput.stats.includedFiles);
 
-    const sassOutput = sass.renderSync({
-      data: input,
-      outFile: `${filename}.css`,
-      outputStyle: 'compressed',
-      sourceMap: true,
-      omitSourceMapUrl: true,
-      includePaths: [process.cwd()],
-    });
+      const output = await postcss([globalStyles()]).process(sassOutput.css.toString(), {
+        from: filename,
+        map: { prev: sassOutput.map.toString(), inline: false },
+      });
 
-    dependencies.concat(sassOutput.stats.includedFiles);
+      dependencies.concat(
+        output.messages.reduce((acc, msg) => {
+          if (msg.type !== 'dependency') return acc;
+          acc.push(msg.file);
 
-    const output = await postcss([globalStyles()]).process(sassOutput.css.toString(), {
-      from: filename,
-      map: { prev: sassOutput.map.toString(), inline: false },
-    });
+          return acc;
+        }, []),
+      );
 
-    dependencies.concat(
-      output.messages.reduce((acc, msg) => {
-        if (msg.type !== 'dependency') return acc;
-        acc.push(msg.file);
-
-        return acc;
-      }, []),
-    );
-
-    return {
-      code: output.css,
-      map: output.map,
-      dependencies,
-    };
-  },
-});
+      return {
+        code: output.css,
+        map: output.map,
+        dependencies,
+      };
+    },
+  };
+};

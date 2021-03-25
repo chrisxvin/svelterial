@@ -2,7 +2,7 @@ module.exports = {
   plugins: [
     {
       name: 'Component',
-      variables: {
+      defaults: {
         sizes: {
           sm: '200px',
           md: '400px',

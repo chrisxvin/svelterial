@@ -8,9 +8,6 @@ async function render(file: string) {
   const folder = path.join(__dirname, `./samples/${file}`);
   const config = await import(path.join(folder, '_config.ts'));
   process.chdir(folder);
-  config.options = {
-    cacheVariables: false,
-  };
   const source = readFileSync(path.join(folder, 'input.svelte')).toString();
   const { code } = await preprocess(source, processor(config), { filename: file });
   return code;

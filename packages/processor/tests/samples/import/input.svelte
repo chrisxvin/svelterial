@@ -1,3 +1,4 @@
-<style svelterial name="Component">
+<style svelterial>
+  @import 'svelterial/Component';
   @import './input.scss';
 </style>

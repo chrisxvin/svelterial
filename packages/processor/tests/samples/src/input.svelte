@@ -1,2 +1,2 @@
-<style svelterial name="Component" src="./input.scss">
+<style svelterial src="./input.scss">
 </style>

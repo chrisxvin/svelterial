@@ -1,4 +1,5 @@
-<style svelterial name="Component">
+<style svelterial>
+  @import 'svelterial/Component';
   @for $i from 1 through 5 {
     .width-#{$i} {
       width: #{$i}0em;

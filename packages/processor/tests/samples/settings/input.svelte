@@ -1,9 +1,6 @@
-<style svelterial name="Component">
+<style svelterial>
+  @import 'svelterial/Component';
   h1 {
     color: $color;
-  }
-
-  h2 {
-    size: map-get($settings, 'size');
   }
 </style>

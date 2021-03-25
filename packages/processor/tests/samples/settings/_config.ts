@@ -1,13 +1,15 @@
 module.exports = {
-  settings: {
-    red: 'red',
-    size: '64px',
-  },
   plugins: [
     {
+      name: 'Settings',
+      defaults: {
+        red: 'red',
+      },
+    },
+    {
       name: 'Component',
-      variables: (settings) => ({
-        color: settings.red,
+      defaults: (vars) => ({
+        color: vars.Settings.red,
       }),
     },
   ],

@@ -1,46 +1,46 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`transform arrays 1`] = `
-"<style svelterial name=\\"Component\\">:global(.width-1){width:10em}:global(.width-2){width:20em}:global(.width-3){width:30em}:global(.width-4){width:40em}:global(.width-5){width:50em}:global(.height-1){height:10em}:global(.height-3){height:30em}:global(.height-5){height:50em}:global(.color-red){color:red}:global(.color-blue){color:blue}:global(.color-green){color:green}</style>
+"<style svelterial>:global(.width-1){width:10em}:global(.width-2){width:20em}:global(.width-3){width:30em}:global(.width-4){width:40em}:global(.width-5){width:50em}:global(.height-1){height:10em}:global(.height-3){height:30em}:global(.height-5){height:50em}:global(.color-red){color:red}:global(.color-blue){color:blue}:global(.color-green){color:green}</style>
 "
 `;
 
 exports[`transform basic 1`] = `
-"<style svelterial name=\\"Component\\">:global(h1){color:red}</style>
+"<style svelterial>:global(h1){color:red}</style>
 "
 `;
 
 exports[`transform import 1`] = `
-"<style svelterial name=\\"Component\\">:global(h1){color:red}</style>
+"<style svelterial>:global(h1){color:red}</style>
 "
 `;
 
 exports[`transform maps 1`] = `
-"<style svelterial name=\\"Component\\">:global(h1){font-size:200px}</style>
+"<style svelterial>:global(h1){font-size:200px}</style>
 "
 `;
 
 exports[`transform mixins 1`] = `
-"<style svelterial name=\\"Component\\">:global(h1),:global(h2),:global(h3){color:red;font-size:4em}</style>
+"<style svelterial>:global(h1),:global(h2),:global(h3){color:red;font-size:4em}</style>
 "
 `;
 
 exports[`transform nesting 1`] = `
-"<style svelterial name=\\"Component\\">:global(div h1){font-size:16px}</style>
+"<style svelterial>:global(div h1){font-size:16px}</style>
 "
 `;
 
 exports[`transform settings 1`] = `
-"<style svelterial name=\\"Component\\">:global(h1){color:red}:global(h2){size:64px}</style>
+"<style svelterial>:global(h1){color:red}</style>
 "
 `;
 
 exports[`transform src 1`] = `
-"<style svelterial name=\\"Component\\" src=\\"./input.scss\\">:global(div h1){font-size:16}</style>
+"<style svelterial src=\\"./input.scss\\">:global(div h1){font-size:16}</style>
 "
 `;
 
 exports[`transform variables 1`] = `
-"<style svelterial name=\\"Component\\">:global(h1){color:blue}</style>
+"<style svelterial>:global(h1){color:blue}</style>
 "
 `;

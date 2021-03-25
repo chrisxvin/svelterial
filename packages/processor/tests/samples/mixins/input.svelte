@@ -1,4 +1,5 @@
-<style svelterial name="Component">
+<style svelterial>
+  @import 'svelterial/Component';
   @mixin heading-text {
     color: $color;
     font-size: 4em;

@@ -2,7 +2,7 @@ module.exports = {
   plugins: [
     {
       name: 'Component',
-      variables: {
+      defaults: {
         color: 'red',
       },
     },
