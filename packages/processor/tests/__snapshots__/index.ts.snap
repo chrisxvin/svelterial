@@ -25,18 +25,8 @@ exports[`transform basic 1`] = `
 "
 `;
 
-exports[`transform import 1`] = `
-"<style svelterial>:global(h1){color:red}</style>
-"
-`;
-
 exports[`transform maps 1`] = `
 "<style svelterial>:global(h1){font-size:200px}</style>
-"
-`;
-
-exports[`transform mixins 1`] = `
-"<style svelterial>:global(h1),:global(h2),:global(h3){color:red;font-size:4em}</style>
 "
 `;
 
