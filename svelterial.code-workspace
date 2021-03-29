@@ -9,10 +9,6 @@
         "path": "packages/docs"
       },
       {
-        "name": "Preprocessor",
-        "path": "packages/processor"
-      },
-      {
         "name": "Root",
         "path": "."
       }

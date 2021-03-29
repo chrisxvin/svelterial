@@ -30,8 +30,5 @@
     "ui",
     "ui-components",
     "ui-kit"
-  ],
-  "devDependencies": {
-    "@svelterial/processor": "workspace:*"
-  }
+  ]
 }
