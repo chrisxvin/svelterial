@@ -1,3 +1,2 @@
-- [**packages/core**](core) - The main package containing all base components.
-- [**packages/processor**](processor) - A processor that uses sass and postcss to transform svelterial plugins.
 - [**packages/docs**](docs) - The documentation site for svelterial.
+- [**packages/core**](core) - The main package containing all base components.
