@@ -1,6 +1,6 @@
 module.exports = {
   parser: '@typescript-eslint/parser',
-  plugins: ['@typescript-eslint', 'svelte3'],
+  plugins: ['svelte3', '@typescript-eslint'],
   env: {
     es6: true,
     browser: true,
@@ -17,6 +17,11 @@ module.exports = {
     {
       files: ['*.svelte'],
       processor: 'svelte3/svelte3',
+      rules: {
+        'import/no-mutable-exports': 'off',
+        'import/no-unresolved': 'off',
+        'import/prefer-default-export': 'off',
+      },
     },
   ],
   rules: {
