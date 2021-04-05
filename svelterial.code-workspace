@@ -1,33 +1,33 @@
 {
-    "folders": [
-      {
-        "name": "Svelterial",
-        "path": "packages/core"
-      },
-      {
-        "name": "Documentation",
-        "path": "packages/docs"
-      },
-      {
-        "name": "Root",
-        "path": "."
-      }
-    ],
-    "extensions": {
-      "recommendations": [
-        "svelte.svelte-vscode",
-        "dbaeumer.vscode-eslint",
-        "esbenp.prettier-vscode"
-      ]
+  "folders": [
+    {
+      "name": "Documentation",
+      "path": "packages/docs"
     },
-    "settings": {
-      "files.exclude": {
-        "packages/": true,
-        "node_modules/": true
-      },
-      "[markdown]": {
-        "editor.wordWrap": "on"
-      },
-      "files.eol": "\n"
+    {
+      "name": "Core",
+      "path": "packages/core"
     },
+    {
+      "name": "Root",
+      "path": "."
+    }
+  ],
+  "extensions": {
+    "recommendations": [
+      "svelte.svelte-vscode",
+      "dbaeumer.vscode-eslint",
+      "esbenp.prettier-vscode"
+    ]
+  },
+  "settings": {
+    "files.exclude": {
+      "packages/": true,
+      "node_modules/": true
+    },
+    "[markdown]": {
+      "editor.wordWrap": "on"
+    },
+    "files.eol": "\n"
   }
+}
