@@ -1,21 +1,28 @@
 {
-  "name": "@svelterial/docs",
-  "version": "0.0.1",
-  "private": "true",
-  "description": "",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/svelterialjs/svelterial.git",
-    "directory": "packages/docs"
+  "name": "@svelterialjs/docs",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">= 12.17.0"
   },
-  "author": "TheComputerM",
-  "homepage": "https://github.com/svelterialjs/svelterial#readme",
-  "bugs": {
-    "url": "https://github.com/svelterialjs/svelterial/issues"
-  },
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "svelte-kit build",
+    "dev": "svelte-kit dev",
+    "start": "svelte-kit start"
+  },
+  "dependencies": {
+    "@svelterialjs/core": "workspace:*"
+  },
+  "devDependencies": {
+    "@sveltejs/adapter-static": "next",
+    "@sveltejs/kit": "next",
+    "@svelterialjs/processor": "latest",
+    "sass": "^1.32.8",
+    "svelte": "^3.37.0",
+    "svelte-preprocess": "^4.7.0",
+    "tslib": "^2.1.0",
+    "typescript": "^4.2.3",
+    "vite": "^2.1.5"
   }
 }
