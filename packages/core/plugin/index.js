@@ -1,12 +1,14 @@
 const MaterialApp = {
   name: 'MaterialApp',
   defaults: {
+    fontSize: '16px',
+    lineHeight: 1.5,
     themes: {
       light: {
         surface: '#fff',
       },
       dark: {
-        surface: '212121',
+        surface: '#212121',
       },
     },
   },
@@ -15,11 +17,7 @@ const MaterialApp = {
 const Button = {
   name: 'Button',
   defaults: {
-    'border-radius': '2px',
-    'focus-opcity': 0.24,
-    'hover-opacity': 0.08,
-    'active-opacity': 0.18,
-    'icon-padding': '12px',
+    borderRadius: '4px',
     sizes: {
       'x-small': 20,
       small: 28,
@@ -37,4 +35,4 @@ const Button = {
   },
 };
 
-export default [MaterialApp, Button];
+module.exports = [MaterialApp, Button];

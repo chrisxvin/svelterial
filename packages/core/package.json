@@ -1,5 +1,5 @@
 {
-  "name": "@svelterial/core",
+  "name": "@svelterialjs/core",
   "version": "0.0.1",
   "description": "",
   "license": "MIT",
@@ -13,22 +13,42 @@
   "bugs": {
     "url": "https://github.com/svelterialjs/svelterial/issues"
   },
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "module": "./components/index.js",
+  "exports": {
+    ".": {
+      "import": "./components/index.js"
+    },
+    "./plugin": {
+      "default": "./plugin/index.js"
+    }
   },
+  "scripts": {
+    "minimal": "svelterial-minimal",
+    "types": "sveld && svelterial-types"
+  },
+  "files": [
+    "components",
+    "minimal",
+    "types"
+  ],
   "keywords": [
     "svelte",
     "sveltejs",
     "svelterial",
     "material-design",
     "material",
-    "material-theme",
     "material-components",
     "component-library",
     "svelte-material",
     "ui",
-    "ui-components",
-    "ui-kit"
-  ]
+    "ui-components"
+  ],
+  "devDependencies": {
+    "@svelterialjs/pluginutils": "^0.0.2",
+    "@svelterialjs/processor": "^0.1.0",
+    "sveld": "^0.7.1",
+    "svelte": "^3.37.0"
+  },
+  "types": "./types/index.d.ts",
+  "svelte": "./components/index.js"
 }

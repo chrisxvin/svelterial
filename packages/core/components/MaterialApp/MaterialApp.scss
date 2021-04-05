@@ -1,0 +1,33 @@
+@import 'svelterial/MaterialApp';
+
+html {
+  font-size: $fontSize;
+}
+
+body,
+html {
+  height: 100%;
+}
+
+.s-app {
+  height: 100%;
+  line-height: $lineHeight;
+  background-color: var(--s-surface);
+}
+
+@each $themeName, $theme in $themes {
+  .theme--#{$themeName} {
+    @each $key, $value in $theme {
+      --s-#{$key}: #{$value};
+    }
+  }
+}
+
+@each $color in ('primary', 'secondary') {
+  .bg--#{$color} {
+    background-color: var(--s-#{$color});
+  }
+  .text--#{$color} {
+    color: var(--s-#{$color});
+  }
+}
