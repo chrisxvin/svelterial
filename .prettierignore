@@ -3,3 +3,4 @@ build
 minimal
 types
 .svelte
+pnpm-lock.yaml
