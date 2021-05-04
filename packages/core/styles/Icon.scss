@@ -1,0 +1,41 @@
+.s-icon {
+  color: var(--s-text-secondary);
+  font-size: var(--s-icon-size);
+  transform: rotate(var(--icon-rotate, 0deg));
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-flex;
+  font-feature-settings: 'liga';
+  justify-content: center;
+  position: relative;
+  align-items: center;
+  text-indent: 0;
+  vertical-align: middle;
+  cursor: inherit;
+  user-select: none;
+  direction: ltr;
+  transition: 300ms cubic-bezier(0.25, 0.8, 0.5, 1), visibility 0s;
+
+  &.is-spinning {
+    animation: infinite spin linear 1s;
+  }
+
+  & > svg {
+    fill: currentColor;
+  }
+}
+
+.s-icon--disabled {
+  color: var(--s-disabled);
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}

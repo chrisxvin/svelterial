@@ -13,11 +13,11 @@ $elevation: 2 !default;
 
 $sizes: map-merge(
   (
-    'x-small': 1.25rem,
-    'small': 1.75rem,
-    'default': 2.25rem,
-    'large': 2.75rem,
-    'x-large': 3.25rem,
+    'x-small': 20px,
+    'small': 28px,
+    'default': 36px,
+    'large': 44px,
+    'x-large': 52px,
   ),
   $sizes
 );

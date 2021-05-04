@@ -1,0 +1,31 @@
+.s-avatar {
+  align-items: center;
+  display: inline-flex;
+  justify-content: center;
+  line-height: normal;
+  position: relative;
+  text-align: center;
+  vertical-align: middle;
+  overflow: hidden;
+  width: var(--size, 48px);
+  height: var(--size, 48px);
+  border-radius: 50%;
+
+  .s-icon,
+  img,
+  svg {
+    color: inherit;
+    border-radius: inherit;
+    display: inline-flex;
+    height: inherit;
+    width: inherit;
+  }
+}
+
+.s-avatar--tile {
+  border-radius: 0;
+}
+
+.s-avatar--rounded {
+  border-radius: 4px;
+}

@@ -13,6 +13,10 @@
       "path": "packages/grid"
     },
     {
+      "name": "AppBar",
+      "path": "packages/appbar"
+    },
+    {
       "name": "Table",
       "path": "packages/table"
     },
@@ -39,6 +43,10 @@
     {
       "name": "Skeleton",
       "path": "packages/skeleton"
+    },
+    {
+      "name": "Testing",
+      "path": "testing"
     },
     {
       "name": "Root",

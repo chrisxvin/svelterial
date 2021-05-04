@@ -14,9 +14,9 @@
 <style svelterial>
   .s-row {
     display: flex;
-    margin-left: -0.75rem;
-    margin-right: -0.75rem;
-    margin-top: -0.75rem;
-    margin-bottom: -0.75rem;
+    flex: 0 1 auto;
+    flex-wrap: wrap;
+    margin-left: -0.5rem;
+    margin-right: -0.5rem;
   }
 </style>

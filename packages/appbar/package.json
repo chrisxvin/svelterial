@@ -1,7 +1,7 @@
 {
-  "name": "@svelterialjs/core",
+  "name": "@svelterialjs/appbar",
   "version": "0.0.0",
-  "description": "The main package containing all base components.",
+  "description": "A Svelterial package for adding an app bar",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -18,23 +18,8 @@
     ".": {
       "default": "./index.js"
     },
-    "./MaterialApp.svelte": {
-      "default": "./MaterialApp.svelte"
-    },
-    "./Button.svelte": {
-      "default": "./Button.svelte"
-    },
-    "./Divider.svelte": {
-      "default": "./Default.svelte"
-    },
-    "./Icon.svelte": {
-      "default": "./Icon.svelte"
-    },
-    "./Avatar.svelte": {
-      "default": "./Avatar.svelte"
-    },
-    "./Alert.svelte": {
-      "default": "./Alert.svelte"
+    "./AppBar.svelte": {
+      "default": "./AppBar.svelte"
     }
   },
   "keywords": [

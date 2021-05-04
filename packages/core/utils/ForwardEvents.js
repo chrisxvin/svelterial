@@ -12,18 +12,20 @@ import { bubble, listen } from 'svelte/internal';
  */
 function ForwardEvents(component) {
   return (node) => {
-    const events = Object.keys(component.$$.callbacks);
-    const listeners = [];
+    if (component) {
+      const events = Object.keys(component.$$.callbacks);
+      const listeners = [];
 
-    events.forEach((event) =>
-      listeners.push(listen(node, event, (e) => bubble(component, e))),
-    );
+      events.forEach((event) =>
+        listeners.push(listen(node, event, (e) => bubble(component, e))),
+      );
 
-    return {
-      destroy: () => {
-        listeners.forEach((listener) => listener());
-      },
-    };
+      return {
+        destroy: () => {
+          listeners.forEach((listener) => listener());
+        },
+      };
+    }
   };
 }
 

@@ -1,22 +1,18 @@
-@use 'svelterial/settings/breakpoints' as bp;
-
-$grid: (
-  xs: bp.$xs,
-  sm: bp.$sm,
-  md: bp.$md,
-  lg: bp.$lg,
-  xl: bp.$xl,
-);
+@use 'svelterial/settings/breakpoints?self' as bp;
+@use 'svelterial/spacer?self' as spacer;
 
 .s-col {
   display: block;
-  flex: 1 1 0;
-  padding: 0.75rem;
-  @each $name, $value in $grid {
+  flex: 1 0 0;
+  max-width: 100%;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+
+  @each $name, $value in bp.$default {
     @media only screen and (min-width: $value) {
       &:not(.is-#{$name}-auto) {
-        flex: none;
-        width: calc(100% / var(--s-#{$name}));
+        flex: 0 0 calc(100% / var(--s-#{$name}));
+        max-width: calc(100% / var(--s-#{$name}));
       }
     }
   }

@@ -26,7 +26,7 @@ function ForwardActions(node, actions = []) {
   return {
     update(newActions) {
       lifecycle.forEach((action, i) => {
-        if (action.update) {
+        if (action && action.update) {
           const newAction = newActions[i];
           const newOptions = Array.isArray(newAction) ? newAction[1] : null;
           action.update(newOptions);
@@ -35,7 +35,7 @@ function ForwardActions(node, actions = []) {
     },
     destroy() {
       lifecycle.forEach((action) => {
-        if (action.destroy) action.destroy();
+        if (action && action.destroy) action.destroy();
       });
     },
   };
