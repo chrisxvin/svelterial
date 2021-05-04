@@ -1,15 +1,15 @@
 {
-  "name": "@svelterialjs/core",
+  "name": "@svelterialjs/table",
   "version": "0.0.0",
-  "description": "The main package containing all base components.",
+  "description": "A Svelterial package for adding tables.",
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/svelterialjs/svelterial.git",
-    "directory": "packages/core"
+    "directory": "packages/table"
   },
   "author": "TheComputerM",
-  "homepage": "https://github.com/svelterialjs/svelterial/tree/main/packages/core#readme",
+  "homepage": "https://github.com/svelterialjs/svelterial/tree/main/packages/table#readme",
   "bugs": {
     "url": "https://github.com/svelterialjs/svelterial/issues"
   },
@@ -17,12 +17,6 @@
   "exports": {
     ".": {
       "default": "./index.js"
-    },
-    "./MaterialApp.svelte": {
-      "default": "./MaterialApp.svelte"
-    },
-    "./Button.svelte": {
-      "default": "./Button.svelte"
     }
   },
   "keywords": [
@@ -30,9 +24,6 @@
     "sveltejs",
     "svelterial",
     "material",
-    "material-components",
-    "component-library",
-    "svelte-material",
     "ui"
   ],
   "types": "./types/index.d.ts",

@@ -1,0 +1,62 @@
+@use 'svelterial/themes?self' as t;
+
+body,
+html {
+  height: 100%;
+}
+
+@function flatten($map, $prefix: '') {
+  $output: ();
+  @each $name, $value in $map {
+    @if type-of($value) == 'map' {
+      $output: map-merge($output, flatten($value, '#{$prefix}#{$name}-'));
+    } @else {
+      $output: map-merge(
+        $output,
+        (
+          '#{$prefix}#{$name}': $value,
+        )
+      );
+    }
+  }
+  @return $output;
+}
+
+@each $themeName, $theme in t.$default {
+  .theme--#{$themeName} {
+    @each $key, $value in flatten($theme) {
+      --s-#{$key}: #{$value};
+    }
+  }
+}
+
+.s-app {
+  height: 100%;
+  line-height: 1.5;
+  background-color: var(--s-body-bg);
+  font-family: 'Roboto', 'Segoe UI', sans-serif;
+}
+
+@each $color in ('primary', 'secondary') {
+  .s-#{$color} {
+    background-color: var(--s-#{$color}-base) !important;
+    color: var(--s-#{$color}-text) !important;
+  }
+}
+
+.s-ripple-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.s-ripple {
+  position: absolute;
+  color: inherit;
+  border-radius: 50%;
+  pointer-events: none;
+  width: 100px;
+  height: 100px;
+  margin-top: -50px;
+  margin-left: -50px;
+  transform: scale(0) translate(0, 0);
+}

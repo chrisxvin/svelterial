@@ -9,5 +9,5 @@
   <slot />
 </main>
 
-<style svelterial from="./MaterialApp.scss">
+<style svelterial="./styles/MaterialApp.scss">
 </style>

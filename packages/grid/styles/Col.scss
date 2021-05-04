@@ -1,0 +1,23 @@
+@use 'svelterial/settings/breakpoints' as bp;
+
+$grid: (
+  xs: bp.$xs,
+  sm: bp.$sm,
+  md: bp.$md,
+  lg: bp.$lg,
+  xl: bp.$xl,
+);
+
+.s-col {
+  display: block;
+  flex: 1 1 0;
+  padding: 0.75rem;
+  @each $name, $value in $grid {
+    @media only screen and (min-width: $value) {
+      &:not(.is-#{$name}-auto) {
+        flex: none;
+        width: calc(100% / var(--s-#{$name}));
+      }
+    }
+  }
+}

@@ -1,15 +1,15 @@
 {
-  "name": "@svelterialjs/core",
+  "name": "@svelterialjs/grid",
   "version": "0.0.0",
-  "description": "The main package containing all base components.",
+  "description": "A Svelterial package for adding grids.",
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/svelterialjs/svelterial.git",
-    "directory": "packages/core"
+    "directory": "packages/grid"
   },
   "author": "TheComputerM",
-  "homepage": "https://github.com/svelterialjs/svelterial/tree/main/packages/core#readme",
+  "homepage": "https://github.com/svelterialjs/svelterial/tree/main/packages/grid#readme",
   "bugs": {
     "url": "https://github.com/svelterialjs/svelterial/issues"
   },
@@ -18,11 +18,17 @@
     ".": {
       "default": "./index.js"
     },
-    "./MaterialApp.svelte": {
-      "default": "./MaterialApp.svelte"
+    "./Row.svelte": {
+      "default": "./Row.svelte"
     },
-    "./Button.svelte": {
-      "default": "./Button.svelte"
+    "./Col.svelte": {
+      "default": "./Col.svelte"
+    },
+    "./Grid.svelte": {
+      "default": "./Grid.svelte"
+    },
+    "./GridCell.svelte": {
+      "default": "./GridCell.svelte"
     }
   },
   "keywords": [
@@ -30,9 +36,6 @@
     "sveltejs",
     "svelterial",
     "material",
-    "material-components",
-    "component-library",
-    "svelte-material",
     "ui"
   ],
   "types": "./types/index.d.ts",

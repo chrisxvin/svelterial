@@ -1,0 +1,183 @@
+@use 'svelterial/settings/shadows?self' as shadows;
+
+$borderRadius: 4px !default;
+$sizes: () !default;
+$fabSizes: () !default;
+$fontSizes: () !default;
+$letterSpacing: 1.4px !default;
+$textTransform: uppercase !default;
+$fontWeight: 500 !default;
+$elevation: 2 !default;
+
+@import 'svelterial/Button';
+
+$sizes: map-merge(
+  (
+    'x-small': 1.25rem,
+    'small': 1.75rem,
+    'default': 2.25rem,
+    'large': 2.75rem,
+    'x-large': 3.25rem,
+  ),
+  $sizes
+);
+
+$fabSizes: map-merge(
+  (
+    'x-small': 32px,
+    'small': 40px,
+    'default': 56px,
+    'large': 64px,
+    'x-large': 72px,
+  ),
+  $fabSizes
+);
+
+$fontSizes: map-merge(
+  (
+    'x-small': 0.625rem,
+    'small': 0.75rem,
+    'default': 0.875rem,
+    'large': 0.875rem,
+    'x-large': 1rem,
+  ),
+  $fontSizes
+);
+
+.s-btn {
+  align-items: center;
+  border-radius: $borderRadius;
+  display: inline-flex;
+  flex: 0 0 auto;
+  overflow: hidden;
+  position: relative;
+  outline: 0;
+  justify-content: center;
+  text-decoration: none;
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  transition-duration: 0.28s;
+  transition-property: box-shadow, transform, opacity;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  border: none;
+  cursor: pointer;
+
+  &::before {
+    background-color: currentColor;
+    border-radius: inherit;
+    color: inherit;
+    content: '';
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    transition: opacity 0.2s cubic-bezier(0.4, 0, 0.6, 1);
+  }
+
+  &:hover::before {
+    opacity: calc(var(--s-contrastOffset) * 3);
+  }
+
+  &:focus-within::before {
+    opacity: calc(var(--s-contrastOffset) * 4);
+  }
+}
+
+.s-btn:not(.s-btn--flat):not(.s-btn--text) {
+  box-shadow: map-get(shadows.$default, 's#{$elevation}');
+}
+
+.s-btn__content {
+  align-items: center;
+  color: inherit;
+  display: flex;
+  flex: 1 0 auto;
+  justify-content: inherit;
+  line-height: normal;
+  position: relative;
+  transition: inherit;
+  transition-property: opacity;
+  font-weight: $fontWeight;
+  letter-spacing: $letterSpacing;
+  text-transform: $textTransform;
+}
+
+.s-btn--dim {
+  &::before {
+    display: none;
+  }
+
+  & > .s-btn__content {
+    opacity: 0.62;
+  }
+
+  &:hover,
+  &:focus-within {
+    & > .s-btn__content {
+      opacity: 1;
+    }
+  }
+}
+
+.s-btn--raised,
+.s-btn--fab {
+  background-color: var(--s-body-elevated);
+}
+
+.s-btn--text {
+  background-color: transparent;
+}
+
+.s-btn--outlined {
+  border: thin solid var(--s-text-primary);
+}
+
+.s-btn--tile {
+  border-radius: 0;
+}
+
+.s-btn--block {
+  display: flex;
+  flex: 1 0 auto;
+  width: 100%;
+}
+
+.s-btn--rounded {
+  border-radius: 999px;
+}
+
+@each $name, $size in $fontSizes {
+  .s-btn--#{$name} {
+    font-size: $size;
+  }
+}
+
+@each $name, $size in $sizes {
+  .s-btn--#{$name}:not(.s-btn--fab):not(.s-btn--icon) {
+    height: $size;
+    min-width: round($size * 16 / 9);
+    padding: 0 ($size/2.25);
+  }
+}
+
+.s-btn--fab,
+.s-btn--icon {
+  min-height: 0;
+  min-width: 0;
+  padding: 0;
+  border-radius: 50%;
+}
+
+.s-btn--fab {
+  @each $name, $size in $fabSizes {
+    &.s-btn--#{$name} {
+      height: $size;
+      min-width: round($size * 16 / 9);
+      padding: 0 ($size/2.25);
+    }
+  }
+}

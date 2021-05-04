@@ -1,15 +1,15 @@
 {
-  "name": "@svelterialjs/core",
+  "name": "@svelterialjs/progress",
   "version": "0.0.0",
-  "description": "The main package containing all base components.",
+  "description": "A Svelterial package for adding progress bars.",
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/svelterialjs/svelterial.git",
-    "directory": "packages/core"
+    "directory": "packages/progress"
   },
   "author": "TheComputerM",
-  "homepage": "https://github.com/svelterialjs/svelterial/tree/main/packages/core#readme",
+  "homepage": "https://github.com/svelterialjs/svelterial/tree/main/packages/progress#readme",
   "bugs": {
     "url": "https://github.com/svelterialjs/svelterial/issues"
   },
@@ -18,11 +18,11 @@
     ".": {
       "default": "./index.js"
     },
-    "./MaterialApp.svelte": {
-      "default": "./MaterialApp.svelte"
+    "./Linear.svelte": {
+      "default": "./Linear.svelte"
     },
-    "./Button.svelte": {
-      "default": "./Button.svelte"
+    "./Circular.svelte": {
+      "default": "./Circular.svelte"
     }
   },
   "keywords": [
@@ -30,9 +30,6 @@
     "sveltejs",
     "svelterial",
     "material",
-    "material-components",
-    "component-library",
-    "svelte-material",
     "ui"
   ],
   "types": "./types/index.d.ts",

@@ -1,0 +1,12 @@
+@use 'svelterial/settings/breakpoints' as bp;
+
+.s-gridcell {
+  grid-column-end: span var(--s-colspan);
+  grid-row-end: span var(--s-rowspan);
+}
+
+@media only screen and (max-width: bp.$md - 1px) {
+  .s-gridcell {
+    grid-column-end: span 1;
+  }
+}

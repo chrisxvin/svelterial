@@ -1,0 +1,157 @@
+.s-progress-linear__background,
+.s-progress-linear__bar {
+  top: 0;
+  bottom: 0;
+  position: absolute;
+  transition: inherit;
+}
+
+.s-progress-linear__background {
+  background-color: var(--bg, var(--s-primary-base));
+}
+
+.s-progress-linear__bar {
+  &.is-determinate {
+    background-color: var(--color, var(--bg, var(--s-primary-base)));
+
+    &.is-striped {
+      background-image: linear-gradient(
+        135deg,
+        hsla(0, 0%, 100%, 0.25) 25%,
+        transparent 0,
+        transparent 50%,
+        hsla(0, 0%, 100%, 0.25) 0,
+        hsla(0, 0%, 100%, 0.25) 75%,
+        transparent 0,
+        transparent
+      );
+      background-size: 40px 40px;
+      background-repeat: repeat;
+    }
+  }
+
+  &.is-indeterminate {
+    right: auto;
+    width: auto;
+    will-change: left, right;
+    background-color: inherit;
+    animation-duration: 2.2s;
+    animation-iteration-count: infinite;
+
+    &.is-long {
+      animation-name: indeterminate-long;
+    }
+
+    &.is-short {
+      animation-name: indeterminate-short;
+    }
+  }
+}
+
+.s-progress-linear__stream {
+  color: var(--color, var(--bg, var(--s-primary-base)));
+  background: transparent !important;
+  animation: stream linear 0.25s infinite;
+  bottom: 0;
+  opacity: 0.3;
+  pointer-events: none;
+  position: absolute;
+  border-top: 4px dotted;
+  top: calc(50% - 2px);
+  transition: inherit;
+}
+
+.s-progress-linear--rounded {
+  border-radius: 4px;
+}
+
+.s-progress-linear--reversed {
+  .s-progress-linear__background,
+  .s-progress-linear__bar {
+    right: 0;
+  }
+
+  .s-progress-linear__bar.is-indeterminate {
+    animation-direction: reverse;
+  }
+
+  .s-progress-linear__stream {
+    right: auto;
+    animation-direction: reverse;
+  }
+}
+
+.s-progress-linear {
+  background: transparent;
+  overflow: hidden;
+  position: relative;
+  transition: 0.2s ease;
+  width: 100%;
+  color: var(--s-primary-bg);
+  height: var(--height, 4px);
+
+  &:not(.s-progress-linear--reversed) {
+    .s-progress-linear__background,
+    .s-progress-linear__bar {
+      left: 0;
+    }
+
+    .s-progress-linear__stream {
+      left: auto;
+      right: -8px;
+    }
+  }
+}
+
+.s-progress-linear__content {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  left: 0;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+@keyframes indeterminate-long {
+  0% {
+    left: -90%;
+    right: 100%;
+  }
+
+  60% {
+    left: -90%;
+    right: 100%;
+  }
+
+  100% {
+    left: 100%;
+    right: -35%;
+  }
+}
+
+@keyframes indeterminate-short {
+  0% {
+    left: -200%;
+    right: 100%;
+  }
+
+  60% {
+    left: 107%;
+    right: -8%;
+  }
+
+  100% {
+    left: 107%;
+    right: -8%;
+  }
+}
+
+@keyframes stream {
+  to {
+    transform: translateX(-8px);
+  }
+}
