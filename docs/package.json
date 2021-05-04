@@ -1,0 +1,22 @@
+{
+  "name": "docs",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "svelte-kit build",
+    "dev": "svelte-kit dev",
+    "preview": "svelte-kit preview"
+  },
+  "devDependencies": {
+    "@sveltejs/kit": "next",
+    "@svelterialjs/core": "workspace:*",
+    "@svelterialjs/progress": "workspace:*",
+    "svelte": "^3.38.2",
+    "svelte-preprocess": "^4.7.3",
+    "tslib": "^2.2.0",
+    "typescript": "^4.2.4",
+    "vite": "^2.2.4",
+    "vite-plugin-svelte-svelterial": "^0.0.5"
+  }
+}
