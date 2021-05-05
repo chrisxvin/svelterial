@@ -45,10 +45,6 @@
       "path": "packages/skeleton"
     },
     {
-      "name": "Testing",
-      "path": "testing"
-    },
-    {
       "name": "Root",
       "path": "."
     }
