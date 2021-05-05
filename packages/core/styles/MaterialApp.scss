@@ -1,3 +1,4 @@
+@use 'svelterial/settings' as settings;
 @use 'svelterial/themes?self' as t;
 
 body,
@@ -34,7 +35,7 @@ html {
   height: 100%;
   line-height: 1.5;
   background-color: var(--s-body-bg);
-  font-family: 'Roboto', 'Segoe UI', sans-serif;
+  color: var(--s-text-primary);
 }
 
 @each $color in ('primary', 'secondary') {
@@ -59,4 +60,58 @@ html {
   margin-top: -50px;
   margin-left: -50px;
   transform: scale(0) translate(0, 0);
+}
+
+@if not settings.$minimal {
+  .s-app {
+    font-family: 'Roboto', 'Segoe UI', sans-serif;
+  }
+
+  $headings: (
+    'h1': (
+      'size': 6rem,
+      'weight': 300,
+      'line-height': 6rem,
+      'letter-spacing': -0.015625em,
+    ),
+    'h2': (
+      'size': 3.75rem,
+      'weight': 300,
+      'line-height': 3.75rem,
+      'letter-spacing': -0.0083333333em,
+    ),
+    'h3': (
+      'size': 3rem,
+      'weight': 400,
+      'line-height': 3.125rem,
+      'letter-spacing': normal,
+    ),
+    'h4': (
+      'size': 2.125rem,
+      'weight': 400,
+      'line-height': 2.5rem,
+      'letter-spacing': 0.0073529412em,
+    ),
+    'h5': (
+      'size': 1.5rem,
+      'weight': 400,
+      'line-height': 2rem,
+      'letter-spacing': normal,
+    ),
+    'h6': (
+      'size': 1.25rem,
+      'weight': 500,
+      'line-height': 2rem,
+      'letter-spacing': 0.0125em,
+    ),
+  );
+
+  @each $heading, $map in $headings {
+    #{$heading} {
+      font-size: map-get($map, 'size');
+      font-weight: map-get($map, 'weight');
+      line-height: map-get($map, 'line-height');
+      letter-spacing: map-get($map, 'letter-spacing');
+    }
+  }
 }
