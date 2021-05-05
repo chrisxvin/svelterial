@@ -35,6 +35,9 @@
     },
     "./Alert.svelte": {
       "default": "./Alert.svelte"
+    },
+    "./Overlay.svelte": {
+      "default": "./Overlay.svelte"
     }
   },
   "keywords": [
