@@ -1,8 +1,2 @@
-<script lang="ts">
-  import MaterialApp from '@svelterialjs/core/MaterialApp.svelte';
-  import Linear from '@svelterialjs/progress/Linear.svelte';
-</script>
-
-<MaterialApp>
-  <Linear value={50} />
-</MaterialApp>
+<h1>Welcome to SvelteKit</h1>
+<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>

@@ -1,8 +1,8 @@
-const preprocess = require('svelte-preprocess');
-const svelterial = require('vite-plugin-svelte-svelterial');
+import preprocess from 'svelte-preprocess';
+import svelterial from 'vite-plugin-svelte-svelterial';
 
 /** @type {import('@sveltejs/kit').Config} */
-module.exports = {
+const config = {
   // Consult https://github.com/sveltejs/svelte-preprocess
   // for more information about preprocessors
   preprocess: preprocess(),
@@ -15,3 +15,5 @@ module.exports = {
     }),
   },
 };
+
+export default config;
