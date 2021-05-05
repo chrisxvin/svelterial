@@ -21,7 +21,7 @@
     "lint:css": "stylelint **/*.scss --syntax scss",
     "lint:css:fix": "pnpm lint:css -- --fix",
     "lint:fix": "concurrently \"pnpm:lint:js:fix\" \"pnpm:lint:css:fix\"",
-    "lint:js": "eslint . --ext .svelte,.js,.ts",
+    "lint:js": "eslint . --ext .svelte,.js",
     "lint:js:fix": "pnpm lint:js -- --fix",
     "preinstall": "npx only-allow pnpm",
     "prepare": "husky install",
