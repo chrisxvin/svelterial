@@ -1,13 +1,15 @@
 @use 'svelterial/settings/transitions' as t;
 @use 'svelterial/settings/shadows?self' as s;
 
+$height: 56px !default;
+$denseHeight: 48px !default;
+$prominentHeight: 128px !default;
 $borderRadius: 4px !default;
 $elevation: 4 !default;
-$app-bar-scrolled-title-padding-bottom: 9px !default;
 
 @import 'svelterial/AppBar';
 
-.s-app-bar {
+.s-appbar {
   background-color: var(--s-body-elevated);
   contain: layout;
   display: block;
@@ -17,73 +19,53 @@ $app-bar-scrolled-title-padding-bottom: 9px !default;
   z-index: 5;
   transition: 250ms t.$primary;
 
-  .s-app-bar__wrapper {
-    height: 56px;
-    align-items: center;
-    display: flex;
-    padding: 4px;
-
-    .s-btn.fab {
-      width: 48px;
-      height: 48px;
-    }
-  }
-
-  .s-app-bar__title {
-    padding-left: 16px;
-    font-size: 1.25rem;
-    line-height: 1.5;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-
-  &:not(.tile) {
-    border-top-left-radius: inherit;
-    border-top-right-radius: inherit;
-  }
-
-  &:not(.flat) {
+  &:not(.s-appbar--flat) {
     box-shadow: map-get(s.$default, 's#{$elevation}');
   }
+}
 
-  &.dense {
-    .s-app-bar__wrapper {
-      height: 48px;
-      padding: 0;
-    }
+.s-appbar__wrapper {
+  height: $height;
+  align-items: center;
+  display: flex;
+  padding: 4px;
+}
+
+.s-appbar__title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.s-appbar--rounded {
+  border-radius: $borderRadius;
+}
+
+.s-appbar--dense > .s-appbar__wrapper {
+  height: $denseHeight;
+  padding: 0;
+}
+
+.s-appbar--prominent {
+  & > .s-appbar__wrapper {
+    height: $prominentHeight;
+    align-items: flex-start;
   }
 
-  &.prominent {
-    .s-app-bar__wrapper {
-      height: 128px;
-      align-items: flex-start;
-    }
-
-    .s-app-bar__title {
-      align-self: flex-end;
-      padding-bottom: 6px;
-      padding-top: 0;
-    }
+  .s-appbar__title {
+    align-self: flex-end;
+    padding-bottom: 6px;
+    padding-top: 0;
   }
+}
 
-  &.fixed {
-    position: fixed;
-    top: 0;
-  }
+.s-appbar--fluid > .s-appbar__wrapper {
+  height: 100%;
+  width: 100%;
+}
 
-  &.absolute {
-    position: absolute;
-    top: 0;
-  }
-
-  &.hidden {
-    transform: translate(-100%);
-  }
-
-  &.collapsed {
-    border-bottom-right-radius: 24px;
-    max-width: 112px;
-    overflow: hidden;
-  }
+.s-appbar--collapsed {
+  border-bottom-right-radius: 24px;
+  max-width: 112px;
+  overflow: hidden;
 }

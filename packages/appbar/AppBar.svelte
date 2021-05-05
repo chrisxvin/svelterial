@@ -1,29 +1,53 @@
 <script>
+  /**
+   * The classes to add to the AppBar.
+   */
   let klass = '';
   export { klass as class };
 
-  export let tile = false;
+  /**
+   * If `true`, the bar will have a small border radius.
+   */
+  export let rounded = false;
+
+  /**
+   * If `true`, there will be no shadow of the bar.
+   */
   export let flat = false;
+
+  /**
+   * If `true`, reduces the height and padding of the bar.
+   */
   export let dense = false;
+
+  /**
+   * If `true`, increases the height of the bar and makes it prominent.
+   */
   export let prominent = false;
-  export let fixed = false;
-  export let absolute = false;
+
+  /**
+   * If `true`, makes the app bar the full height and with of the container.
+   */
+  export let fluid = false;
+
+  /**
+   * If `true`, makes the app bar collapsed.
+   */
   export let collapsed = false;
 </script>
 
 <header
-  class="s-app-bar {klass}"
-  class:tile
-  class:flat
-  class:dense
-  class:prominent
-  class:fixed
-  class:absolute
-  class:collapsed>
-  <div class="s-app-bar__wrapper">
+  class="s-appbar {klass}"
+  class:s-appbar--rounded={rounded}
+  class:s-appbar--flat={flat}
+  class:s-appbar--dense={dense}
+  class:s-appbar--prominent={prominent}
+  class:s-appbar--fluid={fluid}
+  class:s-appbar--collapsed={collapsed}>
+  <div class="s-appbar__wrapper">
     <slot name="icon" />
     {#if !collapsed}
-      <div class="s-app-bar__title">
+      <div class="s-appbar__title">
         <slot name="title" />
       </div>
     {/if}
