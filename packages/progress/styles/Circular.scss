@@ -1,11 +1,12 @@
-.s-circular-progress {
+.s-progress-circular {
   position: relative;
   display: inline-flex;
   vertical-align: middle;
   justify-content: center;
   align-items: center;
+  color: var(--progress-color, var(--s-primary-base));
 
-  svg {
+  & > svg {
     width: 100%;
     height: 100%;
     margin: auto;
@@ -18,25 +19,25 @@
   }
 }
 
-.s-circular-progress__underlay {
+.s-progress-circular__underlay {
   stroke: rgba(0, 0, 0, 0.1);
   z-index: 1;
 }
 
-.s-circular-progress__overlay {
+.s-progress-circular__overlay {
   stroke: currentColor;
   z-index: 2;
   transition: all 0.6s ease-in-out;
 }
 
-.s-circular-progress--indeterminate {
-  svg {
+.s-progress-circular--indeterminate {
+  & > svg {
     animation: rotate 1.4s linear infinite;
     transform-origin: center center;
     transition: all 0.2s ease-in-out;
   }
 
-  .s-circular-progress__overlay {
+  .s-progress-circular__overlay {
     animation: dash 1.4s ease-in-out infinite;
     stroke-linecap: round;
     stroke-dasharray: 80, 200;
@@ -44,7 +45,7 @@
   }
 }
 
-.s-circular-progress__content {
+.s-progress-circular__content {
   align-items: center;
   display: flex;
   justify-content: center;

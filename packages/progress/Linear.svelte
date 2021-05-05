@@ -1,8 +1,8 @@
 <script>
   /**
-   * @style {var(--s-primary-base)} --bg The background color of the progress bar.
-   * @style {4px} --height The height of the progress bar.
-   * @style {var(--bg)} --color The color of the bars of the progress bar.
+   * @style {var(--s-primary-base)} --progress-bg The background color of the progress bar.
+   * @style {4px} --progress-height The height of the progress bar.
+   * @style {var(--progress-bg)} --progress-color The color of the bars of the progress bar.
    */
 
   /**

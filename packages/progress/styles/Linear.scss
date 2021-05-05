@@ -7,12 +7,12 @@
 }
 
 .s-progress-linear__background {
-  background-color: var(--bg, var(--s-primary-base));
+  background-color: var(--progress-bg, var(--s-primary-base));
 }
 
 .s-progress-linear__bar {
   &.is-determinate {
-    background-color: var(--color, var(--bg, var(--s-primary-base)));
+    background-color: var(--progress-color, var(--progress-bg, var(--s-primary-base)));
 
     &.is-striped {
       background-image: linear-gradient(
@@ -49,7 +49,7 @@
 }
 
 .s-progress-linear__stream {
-  color: var(--color, var(--bg, var(--s-primary-base)));
+  color: var(--progress-color, var(--progress-bg, var(--s-primary-base)));
   background: transparent !important;
   animation: stream linear 0.25s infinite;
   bottom: 0;
@@ -88,7 +88,7 @@
   transition: 0.2s ease;
   width: 100%;
   color: var(--s-primary-bg);
-  height: var(--height, 4px);
+  height: var(--progress-height, 4px);
 
   &:not(.s-progress-linear--reversed) {
     .s-progress-linear__background,
