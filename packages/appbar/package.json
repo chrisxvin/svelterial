@@ -6,10 +6,10 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/svelterialjs/svelterial.git",
-    "directory": "packages/core"
+    "directory": "packages/appbar"
   },
   "author": "TheComputerM",
-  "homepage": "https://github.com/svelterialjs/svelterial/tree/main/packages/core#readme",
+  "homepage": "https://github.com/svelterialjs/svelterial/tree/main/packages/appbar#readme",
   "bugs": {
     "url": "https://github.com/svelterialjs/svelterial/issues"
   },
