@@ -62,6 +62,7 @@ $fontSizes: map-merge(
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   border: none;
   cursor: pointer;
+  color: inherit;
 
   &::before {
     background-color: currentColor;
@@ -84,6 +85,10 @@ $fontSizes: map-merge(
 
   &:focus-within::before {
     opacity: calc(var(--s-contrastOffset) * 4);
+  }
+
+  .s-icon {
+    color: inherit;
   }
 }
 
@@ -178,6 +183,15 @@ $fontSizes: map-merge(
       height: $size;
       min-width: round($size * 16 / 9);
       padding: 0 ($size/2.25);
+    }
+  }
+}
+
+.s-btn--icon {
+  @each $name, $size in $sizes {
+    &.s-btn--#{$name} {
+      height: $size;
+      width: $size;
     }
   }
 }
