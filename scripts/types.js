@@ -8,6 +8,7 @@ glob('./packages/*/package.json', {}).forEach((_pkg) => {
   const pkgRoot = path.dirname(pkgPath);
   const typesFolder = path.join(pkgRoot, 'types');
   const index = [];
+  if (!fs.existsSync(typesFolder)) fs.mkdirSync(typesFolder);
   glob('./*.svelte', {
     cwd: path.join(pkgRoot),
     filesOnly: true,
