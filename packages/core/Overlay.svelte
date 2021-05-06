@@ -1,4 +1,5 @@
 <script>
+  import { fade } from 'svelte/transition';
   import { current_component } from 'svelte/internal';
   import ForwardEvents from './utils/ForwardEvents';
   const events = ForwardEvents(current_component);
@@ -19,9 +20,18 @@
    * If `true`, then overlay will occupy space in container and not the whole page.
    */
   export let absolute = false;
+
+  export let fadein = {};
+
+  export let fadeout = {};
 </script>
 
-<div class="s-overlay {klass}" class:s-overlay--absolute={absolute} use:events>
+<div
+  class="s-overlay {klass}"
+  in:fade={fadein}
+  out:fade={fadeout}
+  class:s-overlay--absolute={absolute}
+  use:events>
   <div class="s-overlay__scrim" />
   <div class="s-overlay__content">
     <slot />
@@ -40,7 +50,7 @@
     right: 0;
     bottom: 0;
     pointer-events: auto;
-    z-index: var(--overlay-index, 5);
+    z-index: var(--overlay-index, 2);
   }
 
   .s-overlay__scrim {
