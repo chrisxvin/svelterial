@@ -181,8 +181,7 @@ $fontSizes: map-merge(
   @each $name, $size in $fabSizes {
     &.s-btn--#{$name} {
       height: $size;
-      min-width: round($size * 16 / 9);
-      padding: 0 ($size/2.25);
+      width: $size;
     }
   }
 }
