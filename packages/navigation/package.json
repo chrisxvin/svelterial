@@ -1,15 +1,15 @@
 {
-  "name": "@svelterialjs/appbar",
+  "name": "@svelterialjs/navigation",
   "version": "0.0.0",
-  "description": "A Svelterial package for adding an app bar",
+  "description": "A Svelterial package for adding navigation components",
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/svelterialjs/svelterial.git",
-    "directory": "packages/appbar"
+    "directory": "packages/navigation"
   },
   "author": "TheComputerM",
-  "homepage": "https://github.com/svelterialjs/svelterial/tree/main/packages/appbar#readme",
+  "homepage": "https://github.com/svelterialjs/svelterial/tree/main/packages/navigation#readme",
   "bugs": {
     "url": "https://github.com/svelterialjs/svelterial/issues"
   },
@@ -18,8 +18,14 @@
     ".": {
       "default": "./index.js"
     },
+    "./package.json": {
+      "default": "./package.json"
+    },
     "./AppBar.svelte": {
       "default": "./AppBar.svelte"
+    },
+    "./Drawer.svelte": {
+      "default": "./Drawer.svelte"
     }
   },
   "keywords": [

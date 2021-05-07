@@ -16,12 +16,22 @@ $elevation: 4 !default;
   flex: 1 1 auto;
   max-width: 100%;
   position: relative;
-  z-index: 5;
+  z-index: 10;
   transition: 250ms t.$primary;
 
   &:not(.s-appbar--flat) {
     box-shadow: map-get(s.$default, 's#{$elevation}');
   }
+}
+
+.s-appbar--absolute {
+  position: absolute;
+  top: 0;
+}
+
+.s-appbar--fixed {
+  position: fixed;
+  top: 0;
 }
 
 .s-appbar__wrapper {

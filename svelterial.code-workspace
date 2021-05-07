@@ -13,8 +13,12 @@
       "path": "packages/grid"
     },
     {
-      "name": "AppBar",
-      "path": "packages/appbar"
+      "name": "Navigation",
+      "path": "packages/navigation"
+    },
+    {
+      "name": "List",
+      "path": "packages/list"
     },
     {
       "name": "Table",
@@ -43,6 +47,10 @@
     {
       "name": "Skeleton",
       "path": "packages/skeleton"
+    },
+    {
+      "name": "Expansion Panels",
+      "path": "packages/expansionpanel"
     },
     {
       "name": "Root",

@@ -1,9 +1,14 @@
 <script>
   /**
-   * The classes to add to the AppBar.
+   * The classes to add to the appbar.
    */
   let klass = '';
   export { klass as class };
+
+  /**
+   * The position of the bar.
+   */
+  export let position = 'relative';
 
   /**
    * If `true`, the bar will have a small border radius.
@@ -37,7 +42,7 @@
 </script>
 
 <header
-  class="s-appbar {klass}"
+  class="s-appbar s-appbar--{position} {klass}"
   class:s-appbar--rounded={rounded}
   class:s-appbar--flat={flat}
   class:s-appbar--dense={dense}

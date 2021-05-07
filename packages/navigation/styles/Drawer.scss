@@ -1,0 +1,64 @@
+@use 'svelterial/settings/transitions' as t;
+
+.s-drawer {
+  background-color: var(--s-body-dimmed);
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 256px;
+  pointer-events: auto;
+  transition: 300ms t.$primary;
+  z-index: 5;
+}
+
+.s-drawer--absolute,
+.s-drawer--fixed {
+  &.s-drawer--left {
+    left: 0;
+  }
+
+  &.s-drawer--right {
+    right: 0;
+  }
+}
+
+.s-drawer--absolute {
+  position: absolute;
+}
+
+.s-drawer--fixed {
+  position: fixed;
+}
+
+.s-drawer--left:not(.s-drawer--active) {
+  transform: translateX(-100%);
+}
+
+.s-drawer--right:not(.s-drawer--active) {
+  transform: translateX(100%);
+}
+
+.s-drawer--border {
+  &.s-drawer--left {
+    border-right: thin solid;
+  }
+
+  &.s-drawer--right {
+    border-left: thin solid;
+  }
+}
+
+.s-drawer--active {
+  transform: translateX(0);
+}
+
+.s-drawer--fluid {
+  height: 100%;
+  width: 100%;
+}
+
+.s-drawer--mini {
+  width: 56px;
+  overflow: hidden;
+}
