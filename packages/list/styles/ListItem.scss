@@ -1,0 +1,88 @@
+@use 'svelterial/settings/transitions' as t;
+
+@import 'svelterial/ListItem';
+
+.s-listitem {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex: 1 1 100%;
+  outline: none;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-right: 16px;
+  padding-left: var(--list-indent, 16px);
+  position: relative;
+  vertical-align: middle;
+  background-color: transparent;
+  line-height: 1.4;
+
+  &::before {
+    background-color: currentColor;
+    border-radius: inherit;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    pointer-events: none;
+    position: absolute;
+    content: '';
+    opacity: 0;
+    transition: opacity 200ms t.$secondary;
+  }
+}
+
+.s-listitem__content {
+  flex: 1 1 auto;
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+.s-listitem__title {
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+.s-listitem__subtitle {
+  color: var(--s-text-secondary);
+  font-size: 0.875rem;
+}
+
+.s-listitem--flat::before {
+  display: none;
+}
+
+.s-listitem--selectable {
+  cursor: pointer;
+
+  &:not(.s-listitem--active):hover::before {
+    opacity: 0.12;
+  }
+}
+
+.s-listitem--active {
+  color: var(--s-secondary-base);
+
+  &::before {
+    opacity: 0.12;
+  }
+}
+
+.s-listitem--dense {
+  line-height: 1rem;
+
+  .s-listitem__content {
+    margin: 0;
+  }
+
+  .s-listitem__title {
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+}
+
+.s-listitem--nav {
+  border-radius: 4px;
+  margin-bottom: 4px;
+}

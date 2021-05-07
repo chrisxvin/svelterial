@@ -1,0 +1,46 @@
+{
+  "name": "@svelterialjs/list",
+  "version": "0.0.0",
+  "description": "A Svelterial package for adding lists.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/svelterialjs/svelterial.git",
+    "directory": "packages/list"
+  },
+  "author": "TheComputerM",
+  "homepage": "https://github.com/svelterialjs/svelterial/tree/main/packages/list#readme",
+  "bugs": {
+    "url": "https://github.com/svelterialjs/svelterial/issues"
+  },
+  "module": "./index.js",
+  "exports": {
+    ".": {
+      "default": "./index.js"
+    },
+    "./package.json": {
+      "default": "./package.json"
+    },
+    "./List.svelte": {
+      "default": "./List.svelte"
+    },
+    "./ListItem.svelte": {
+      "default": "./ListItem.svelte"
+    }
+  },
+  "keywords": [
+    "svelte",
+    "sveltejs",
+    "svelterial",
+    "material",
+    "ui"
+  ],
+  "peerDependencies": {
+    "@svelterialjs/core": "workspace:*"
+  },
+  "devDependencies": {
+    "@svelterialjs/core": "workspace:*"
+  },
+  "types": "./types/index.d.ts",
+  "svelte": "./index.js"
+}
