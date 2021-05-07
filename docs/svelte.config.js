@@ -1,17 +1,34 @@
+import adapter from '@sveltejs/adapter-netlify';
+import { mdsvex } from 'mdsvex';
+import mdsvexConfig from './mdsvex.config.js';
 import preprocess from 'svelte-preprocess';
+import WindiCSS from 'vite-plugin-windicss';
 import svelterial from 'vite-plugin-svelte-svelterial';
+import svelterialConfig from './svelterial.config.js';
+
+import examplesPlugin from './examples-plugin.js';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-  // Consult https://github.com/sveltejs/svelte-preprocess
-  // for more information about preprocessors
-  preprocess: preprocess(),
+  extensions: ['.svelte', '.md'],
+  preprocess: [mdsvex(mdsvexConfig), preprocess()],
 
   kit: {
-    // hydrate the <div id="svelte"> element in src/app.html
+    adapter: adapter(),
     target: '#svelte',
+    files: {
+      assets: 'static',
+    },
     vite: () => ({
-      plugins: [svelterial()],
+      plugins: [
+        WindiCSS.default({
+          scan: {
+            fileExtensions: ['svelte', 'md'],
+          },
+        }),
+        svelterial(svelterialConfig),
+        examplesPlugin,
+      ],
     }),
   },
 };

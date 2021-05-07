@@ -2,5 +2,5 @@ dist
 build
 minimal
 types
-.svelte
+.svelte-kit
 pnpm-lock.yaml

@@ -57,7 +57,9 @@
   "eslintIgnore": [
     "dist",
     "build",
-    "types"
+    "types",
+    "functions",
+    "docs"
   ],
   "lint-staged": {
     "*.scss": "stylelint --syntax scss --fix",

@@ -10,16 +10,25 @@
   },
   "devDependencies": {
     "@mdi/js": "^5.9.55",
+    "@sveltejs/adapter-netlify": "^1.0.0-next.11",
     "@sveltejs/kit": "next",
-    "@svelterialjs/appbar": "workspace:*",
     "@svelterialjs/core": "workspace:*",
+    "@svelterialjs/expansionpanel": "workspace:*",
     "@svelterialjs/grid": "workspace:*",
+    "@svelterialjs/list": "workspace:*",
+    "@svelterialjs/navigation": "workspace:*",
     "@svelterialjs/progress": "workspace:*",
+    "mdsvex": "^0.9.3",
+    "prism-svelte": "^0.4.7",
+    "prismjs": "^1.23.0",
+    "remark-github": "^10.0.1",
     "svelte": "^3.38.2",
     "svelte-preprocess": "^4.7.3",
     "tslib": "^2.2.0",
     "typescript": "^4.2.4",
     "vite": "^2.2.4",
-    "vite-plugin-svelte-svelterial": "^0.0.5"
+    "vite-plugin-svelte-svelterial": "^0.0.7",
+    "vite-plugin-windicss": "^0.15.10",
+    "windicss": "^2.5.14"
   }
 }
