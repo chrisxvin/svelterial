@@ -18,6 +18,8 @@
     "@svelterialjs/list": "workspace:*",
     "@svelterialjs/navigation": "workspace:*",
     "@svelterialjs/progress": "workspace:*",
+    "@typescript-eslint/eslint-plugin": "^4.22.1",
+    "@typescript-eslint/parser": "^4.22.1",
     "mdsvex": "^0.9.3",
     "prism-svelte": "^0.4.7",
     "prismjs": "^1.23.0",
@@ -30,5 +32,14 @@
     "vite-plugin-svelte-svelterial": "^0.0.7",
     "vite-plugin-windicss": "^0.15.10",
     "windicss": "^2.5.14"
+  },
+  "eslintConfig": {
+    "parser": "@typescript-eslint/parser",
+    "plugins": [
+      "@typescript-eslint"
+    ],
+    "settings": {
+      "svelte3/typescript": true
+    }
   }
 }

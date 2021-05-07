@@ -47,6 +47,7 @@
     "tiny-glob": "^0.2.8"
   },
   "eslintConfig": {
+    "root": true,
     "extends": [
       "@svelterialjs"
     ],
@@ -58,8 +59,7 @@
     "dist",
     "build",
     "types",
-    "functions",
-    "docs"
+    "functions"
   ],
   "lint-staged": {
     "*.scss": "stylelint --syntax scss --fix",

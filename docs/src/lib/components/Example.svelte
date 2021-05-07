@@ -1,5 +1,5 @@
 <script context="module">
-  //@ts-ignore
+  // @ts-ignore
   const examples = import.meta.glob('../examples/*/*.svelte');
 </script>
 
@@ -8,7 +8,7 @@
 
   export let file: string;
 
-  let component = examples[`../examples/${file}.svelte`]();
+  const component = examples[`../examples/${file}.svelte`]();
 </script>
 
 {#await component then c}
