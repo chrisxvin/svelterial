@@ -18,6 +18,9 @@
     ".": {
       "default": "./index.js"
     },
+    "./package.json": {
+      "default": "./package.json"
+    },
     "./MaterialApp.svelte": {
       "default": "./MaterialApp.svelte"
     },
