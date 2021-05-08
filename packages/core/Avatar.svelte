@@ -1,6 +1,11 @@
 <script>
   /**
-   * @style {48px} --size The size of the avatar.
+   * @style --size The size of the avatar.
+   * @default 48px
+   */
+
+  /**
+   * The classes to add to the avatar.
    */
   let klass = '';
   export { klass as class };
