@@ -24,9 +24,7 @@
     "lint:js": "eslint . --ext .svelte,.js",
     "lint:js:fix": "pnpm lint:js -- --fix",
     "preinstall": "npx only-allow pnpm",
-    "prepare": "husky install",
-    "readme": "node scripts/readme.js",
-    "types": "node scripts/types.js"
+    "prepare": "husky install"
   },
   "devDependencies": {
     "@changesets/cli": "^2.16.0",
