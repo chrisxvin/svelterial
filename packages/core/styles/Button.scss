@@ -138,7 +138,7 @@ $fontSizes: map-merge(
 }
 
 .s-btn--outlined {
-  border: thin solid var(--s-text-primary);
+  border: thin solid currentColor;
 }
 
 .s-btn--tile {

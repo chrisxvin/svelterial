@@ -19,7 +19,7 @@
 
   /**
    * The variant to use.
-   * @type {"raised" | "text" | "fab" | "icon"}
+   * @type {"raised" | "fab" | "icon"}
    */
   export let variant = 'raised';
 
@@ -33,6 +33,11 @@
    * If `true`, the button will have an outline.
    */
   export let outlined = false;
+
+  /**
+   * If `true`, the button will not have any background color.
+   */
+  export let text = false;
 
   /**
    * If `true`, the button will take up the full width of its container.
@@ -83,6 +88,7 @@
   class={clsx([
     `s-btn s-btn--${variant} s-btn--${size}`,
     outlined && 's-btn--outlined',
+    text && 's-btn--text',
     block && 's-btn--block',
     rounded && 's-btn--rounded',
     tile && 's-btn--tile',
