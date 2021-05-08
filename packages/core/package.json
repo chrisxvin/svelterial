@@ -28,7 +28,7 @@
       "default": "./Button.svelte"
     },
     "./Divider.svelte": {
-      "default": "./Default.svelte"
+      "default": "./Divider.svelte"
     },
     "./Icon.svelte": {
       "default": "./Icon.svelte"
