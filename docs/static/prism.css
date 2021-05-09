@@ -1,0 +1,159 @@
+.theme--light {
+  --prism-foreground: #696969;
+  --prism-background: #fafafa;
+  --prism-selection-background: #cceae7;
+  --prism-comment: #aabfc9;
+  --prism-string: #f6a434;
+  --prism-builtin: #39adb5;
+  --prism-tag: #e53935;
+  --prism-property: #39adb5;
+  --prism-punctuation: #39adb5;
+  --prism-number: #f76d47;
+  --prism-symbol: #7c4dff;
+}
+
+.theme--dark {
+  --prism-foreground: #eee;
+  --prism-background: #2f2f2f;
+  --prism-selection-background: #363636;
+  --prism-comment: #616161;
+  --prism-string: #a5e844;
+  --prism-builtin: #ffcb6b;
+  --prism-tag: #ff6666;
+  --prism-property: #80cbc4;
+  --prism-punctuation: #89ddff;
+  --prism-number: #fd9170;
+  --prism-symbol: #c792ea;
+}
+
+div[class*='language-'],
+pre[class*='language-'],
+code[class*='language-'] {
+  font-family: 'Fira Code', monospace;
+  font-weight: 500;
+  direction: ltr;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  tab-size: 4;
+  hyphens: none;
+  color: var(--prism-foreground) !important;
+}
+
+/* Code blocks */
+div[class*='language-'],
+pre[class*='language-'] {
+  padding: 1rem;
+  margin: 0.5rem 0;
+  border-radius: 0.3rem;
+  overflow: auto;
+  background: var(--prism-background);
+}
+
+/* Inline code */
+:not(pre) > code[class*='language-'] {
+  padding: 0.1rem 0.3rem;
+  border-radius: 0.3rem;
+  background: var(--prism-background);
+}
+
+/* Selection */
+pre[class*='language-']::selection,
+pre[class*='language-'] ::selection,
+code[class*='language-']::selection,
+code[class*='language-'] ::selection {
+  background: var(--prism-selection-background);
+}
+
+/* Tokens */
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: var(--prism-comment);
+  font-style: italic;
+}
+
+.token.string {
+  color: var(--prism-string);
+}
+
+.token.punctuation {
+  color: var(--prism-punctuation);
+}
+
+.token.operator {
+  color: var(--prism-punctuation);
+}
+
+.token.keyword.module,
+.token.keyword.control-flow {
+  color: var(--prism-symbol);
+}
+
+.token.url,
+.token.symbol,
+.token.inserted,
+.token.constant {
+  color: var(--prism-symbol);
+}
+
+.token.string.url {
+  text-decoration: underline;
+}
+
+.token.boolean,
+.language-json .token.boolean {
+  color: var(--prism-symbol);
+}
+
+.token.number,
+.language-json .token.number {
+  color: var(--prism-number);
+}
+
+.token.keyword,
+.token.function {
+  color: var(--prism-symbol);
+}
+
+.token.important,
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+.token.tag,
+.token.deleted,
+.token.atrule,
+.token.selector,
+.token.variable {
+  color: var(--prism-tag);
+}
+
+.token.builtin, .token.class-name {
+  color: var(--prism-builtin);
+}
+
+.token.attr-value,
+.token.attribute {
+  color: var(--prism-string);
+}
+
+.token.attr-name,
+.token.property,
+.token.entity {
+  color: var(--prism-property);
+}
+
+.language-json .token.property {
+  color: var(--prism-property);
+}
+
+.token.regex {
+  color: var(--prism-string);
+}
