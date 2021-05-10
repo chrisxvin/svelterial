@@ -1,73 +1,19 @@
+@use 'sass:map';
 @use 'svelterial/settings' as settings;
-@use 'svelterial/themes?self' as t;
 
-body,
-html {
-  height: 100%;
-}
+// variables:start
+$mode: 'global' !default;
+$fontSize: 16px !default;
+$lineHeight: 1.5 !default;
+$bodyFontFamily: roboto, segoe ui, sans-serif !default;
+$headingFontFamily: $bodyFontFamily !default;
+$headings: () !default;
+$themes: () !default;
 
-@function flatten($map, $prefix: '') {
-  $output: ();
-  @each $name, $value in $map {
-    @if type-of($value) == 'map' {
-      $output: map-merge($output, flatten($value, '#{$prefix}#{$name}-'));
-    } @else {
-      $output: map-merge(
-        $output,
-        (
-          '#{$prefix}#{$name}': $value,
-        )
-      );
-    }
-  }
-  @return $output;
-}
+@import 'svelterial/MaterialApp';
 
-@each $themeName, $theme in t.$default {
-  .theme--#{$themeName} {
-    @each $key, $value in flatten($theme) {
-      --s-#{$key}: #{$value};
-    }
-  }
-}
-
-.s-app {
-  height: 100%;
-  line-height: 1.5;
-  background-color: var(--s-body-bg);
-  color: var(--s-text-primary);
-}
-
-@each $color in ('primary', 'secondary') {
-  .s-#{$color} {
-    background-color: var(--s-#{$color}-base) !important;
-    color: var(--s-#{$color}-text) !important;
-  }
-}
-
-.s-ripple-container {
-  position: relative;
-  overflow: hidden;
-}
-
-.s-ripple {
-  position: absolute;
-  color: inherit;
-  border-radius: 50%;
-  pointer-events: none;
-  width: 100px;
-  height: 100px;
-  margin-top: -50px;
-  margin-left: -50px;
-  transform: scale(0) translate(0, 0);
-}
-
-@if not settings.$minimal {
-  .s-app {
-    font-family: 'Roboto', 'Segoe UI', sans-serif;
-  }
-
-  $headings: (
+$headings: map.deep-merge(
+  (
     'h1': (
       'size': 6rem,
       'weight': 300,
@@ -104,7 +50,122 @@ html {
       'line-height': 2rem,
       'letter-spacing': 0.0125em,
     ),
-  );
+  ),
+  $headings
+);
+
+$themes: map.deep-merge(
+  (
+    light: (
+      primary: (
+        base: #6200ea,
+        text: #ffffff,
+      ),
+      secondary: (
+        base: #03dac6,
+        text: #000000,
+      ),
+      body: (
+        elevated: #f5f5f5,
+        bg: #ffffff,
+        dimmed: #ffffff,
+      ),
+      text: (
+        primary: rgba(0, 0, 0, 0.87),
+        secondary: rgba(0, 0, 0, 0.54),
+        disabled: rgba(0, 0, 0, 0.38),
+      ),
+      disabled: hsla(0, 0%, 0%, 0.26),
+      contrast: '0, 0%, 0%',
+      contrastOffset: 0.04,
+    ),
+  ),
+  $themes
+);
+
+// variables:end
+
+@function flatten($map, $prefix: '') {
+  $output: ();
+  @each $name, $value in $map {
+    @if type-of($value) == 'map' {
+      $output: map-merge($output, flatten($value, '#{$prefix}#{$name}-'));
+    } @else {
+      $output: map-merge(
+        $output,
+        (
+          '#{$prefix}#{$name}': $value,
+        )
+      );
+    }
+  }
+  @return $output;
+}
+
+@each $themeName, $theme in $themes {
+  .theme--#{$themeName} {
+    @each $key, $value in flatten($theme) {
+      --s-#{$key}: #{$value};
+    }
+  }
+}
+
+body,
+html {
+  height: 100%;
+}
+
+.s-app {
+  height: 100%;
+  line-height: $lineHeight;
+  background-color: var(--s-body-bg);
+  color: var(--s-text-primary);
+  font-size: $fontSize;
+  font-family: $bodyFontFamily;
+}
+
+@each $color in ('primary', 'secondary') {
+  .s-#{$color} {
+    background-color: var(--s-#{$color}-base) !important;
+    color: var(--s-#{$color}-text) !important;
+  }
+}
+
+.s-ripple-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.s-ripple {
+  position: absolute;
+  color: inherit;
+  border-radius: 50%;
+  pointer-events: none;
+  width: 100px;
+  height: 100px;
+  margin-top: -50px;
+  margin-left: -50px;
+  transform: scale(0) translate(0, 0);
+}
+
+@mixin elementStyles {
+  p {
+    margin-bottom: settings.$spacer * 4;
+  }
+
+  a {
+    text-decoration: none;
+    color: var(--s-secondary-base);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: $headingFontFamily;
+  }
 
   @each $heading, $map in $headings {
     #{$heading} {
@@ -113,5 +174,15 @@ html {
       line-height: map-get($map, 'line-height');
       letter-spacing: map-get($map, 'letter-spacing');
     }
+  }
+}
+
+@if $mode == 'global' {
+  @include elementStyles;
+}
+
+ @else if $mode == 'scoped' {
+  .s-app {
+    @include elementStyles;
   }
 }
