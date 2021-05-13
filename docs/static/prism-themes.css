@@ -1,7 +1,6 @@
 .theme--light {
   --prism-foreground: #696969;
   --prism-background: #fafafa;
-  --prism-selection-background: #cceae7;
   --prism-comment: #aabfc9;
   --prism-string: #f6a434;
   --prism-builtin: #39adb5;
@@ -15,7 +14,6 @@
 .theme--dark {
   --prism-foreground: #eee;
   --prism-background: #2f2f2f;
-  --prism-selection-background: #363636;
   --prism-comment: #616161;
   --prism-string: #a5e844;
   --prism-builtin: #ffcb6b;
@@ -28,8 +26,8 @@
 
 div[class*='language-'],
 pre[class*='language-'],
-code[class*='language-'] {
-  font-family: 'Fira Code', monospace;
+code {
+  font-family: 'Fira Code', monospace !important;
   font-weight: 500;
   direction: ltr;
   text-align: left;
@@ -52,18 +50,10 @@ pre[class*='language-'] {
 }
 
 /* Inline code */
-:not(pre) > code[class*='language-'] {
+:not(pre) > code {
   padding: 0.1rem 0.3rem;
   border-radius: 0.3rem;
   background: var(--prism-background);
-}
-
-/* Selection */
-pre[class*='language-']::selection,
-pre[class*='language-'] ::selection,
-code[class*='language-']::selection,
-code[class*='language-'] ::selection {
-  background: var(--prism-selection-background);
 }
 
 /* Tokens */
@@ -135,7 +125,8 @@ code[class*='language-'] ::selection {
   color: var(--prism-tag);
 }
 
-.token.builtin, .token.class-name {
+.token.builtin,
+.token.class-name {
   color: var(--prism-builtin);
 }
 
