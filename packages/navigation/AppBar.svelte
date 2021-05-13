@@ -7,6 +7,7 @@
 
   /**
    * The position of the bar.
+   * @type {"relative" | "absolute" | "fixed"}
    */
   export let position = 'relative';
 
