@@ -83,6 +83,10 @@ $fontSizes: map-merge(
     opacity: calc(var(--s-contrastOffset) * 3);
   }
 
+  &:focus {
+    outline: none;
+  }
+
   &:focus-within::before {
     opacity: calc(var(--s-contrastOffset) * 4);
   }
