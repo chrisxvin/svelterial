@@ -1,0 +1,25 @@
+{
+  "name": "@svelterialjs/metadata",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Metadata for the svelterial components.",
+  "module": "index.js",
+  "exports": {
+    ".": {
+      "import": "./index.js"
+    }
+  },
+  "scripts": {
+    "build": "node build.js"
+  },
+  "files": [
+    "index.js"
+  ],
+  "devDependencies": {
+    "svelte-docster": "^1.2.2",
+    "tiny-glob": "^0.2.8"
+  },
+  "eslintIgnore": [
+    "index.js"
+  ]
+}
