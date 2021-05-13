@@ -4,3 +4,4 @@ dist
 minimal
 types
 pnpm-lock.yaml
+storybook-static
