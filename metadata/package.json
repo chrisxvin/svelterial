@@ -16,7 +16,7 @@
     "index.js"
   ],
   "devDependencies": {
-    "svelte-docster": "^1.2.2",
+    "svelte-docster": "^1.2.3",
     "tiny-glob": "^0.2.8"
   },
   "eslintIgnore": [
