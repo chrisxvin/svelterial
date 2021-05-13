@@ -25,7 +25,7 @@ const config = {
           scan: {
             fileExtensions: ['svelte', 'md'],
           },
-          preflight: false,
+          preflight: true,
         }),
         svelterial(svelterialConfig),
         examplesPlugin,

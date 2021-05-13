@@ -1,5 +1,6 @@
 import Prism from 'prismjs';
 import loadLanguages from 'prismjs/components/index.js';
+import { mdiLinkVariant } from '@mdi/js';
 
 loadLanguages(['bash', 'scss', 'typescript']);
 
@@ -22,9 +23,42 @@ export default {
   layout: './src/lib/components/MarkdownLayout.svelte',
   remarkPlugins: [
     [
+      require('remark-class-names'),
+      {
+        classMap: {
+          link: 'md-link',
+        },
+      },
+    ],
+    [
+      require('remark-external-links'),
+      {
+        rel: ['noopener', 'noreferrer'],
+      },
+    ],
+    require('remark-slug'),
+    [
+      require('remark-autolink-headings'),
+      {
+        behavior: 'append',
+        linkProperties: {
+          class: 'md-heading__link',
+        },
+        content: {
+          type: 'element',
+          tagName: 'svg',
+          properties: {
+            viewBox: '0 0 24 24',
+          },
+          children: [
+            { type: 'element', tagName: 'path', properties: { d: mdiLinkVariant } },
+          ],
+        },
+      },
+    ],
+    [
       require('remark-github'),
       {
-        // Use your own repository
         repository: 'https://github.com/svelterialjs/svelterial.git',
       },
     ],
