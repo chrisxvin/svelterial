@@ -5,6 +5,10 @@
       "path": "docs"
     },
     {
+      "name": "Storybook",
+      "path": "storybook"
+    },
+    {
       "name": "Core",
       "path": "packages/core"
     },

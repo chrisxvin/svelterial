@@ -1,0 +1,20 @@
+<script>
+  /**
+   * A Button Component
+   * @component
+   */
+
+  /**
+   * Disable the button
+   * @required
+   */
+  export let disabled = false;
+
+  /**
+   * Button content
+   * @required
+   */
+  export let content = '';
+</script>
+
+<button type="button" {disabled}>{content}</button>
