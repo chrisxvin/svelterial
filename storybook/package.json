@@ -20,6 +20,6 @@
     "dev": "start-storybook -p 6006 --quiet",
     "dev:cache": "pnpm dev -- --no-manager-cache",
     "build": "build-storybook",
-    "deploy": "node deploy.js"
+    "deploy": "pnpm build && node deploy.js"
   }
 }
