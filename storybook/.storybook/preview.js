@@ -1,3 +1,7 @@
+import MaterialApp from '@svelterialjs/core/MaterialApp.svelte';
+
+export const decorators = [() => MaterialApp];
+
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
   controls: {
