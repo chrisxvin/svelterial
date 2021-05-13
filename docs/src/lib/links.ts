@@ -2,4 +2,9 @@ export default {
   github: 'https://github.com/svelterialjs/svelterial',
 };
 
-export const components = ['MaterialApp', 'Buttons'];
+export const components = [
+  {
+    package: 'core',
+    components: ['MaterialApp', 'Alerts', 'Buttons'],
+  },
+];

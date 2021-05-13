@@ -5,11 +5,20 @@
   import Button from '@svelterialjs/core/Button.svelte';
 </script>
 
-<Button>Raised</Button>
-<Button variant="text">Text</Button>
-<Button variant="fab">
-  <Icon path={mdiHome} />
-</Button>
-<Button variant="icon">
-  <Icon path={mdiHome} />
-</Button>
+<div>
+  <Button>Raised</Button>
+  <Button variant="fab">
+    <Icon path={mdiHome} />
+  </Button>
+  <Button variant="icon">
+    <Icon path={mdiHome} />
+  </Button>
+</div>
+
+<style>
+  div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+</style>
