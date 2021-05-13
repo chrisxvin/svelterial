@@ -13,7 +13,7 @@
   }
 </script>
 
-<MaterialApp theme={$theme}>
+<MaterialApp theme={$theme} class="pt-56px">
   <AppBar position="fixed" class="inset-x-0">
     <h5 slot="title" class="ml-8px">Svelterial</h5>
     <div class="flex-grow" />
@@ -25,7 +25,5 @@
       <Icon path={$theme === 'light' ? mdiWeatherNight : mdiWeatherSunny} />
     </Button>
   </AppBar>
-  <main class="pt-56px">
-    <slot />
-  </main>
+  <slot />
 </MaterialApp>
