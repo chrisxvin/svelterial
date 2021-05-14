@@ -4,7 +4,11 @@
 
 <Meta
   title="Introduction"
-  parameters={{ options: { showPanel: false }, layout: 'padded' }} />
+  parameters={{
+    options: { showPanel: false },
+    layout: 'padded',
+    controls: { hideNoControlsWarning: true },
+  }} />
 
 <Story name="Introduction">
   <div class="container">

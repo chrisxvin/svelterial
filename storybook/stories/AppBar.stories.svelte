@@ -16,9 +16,7 @@
       defaultValue: 'Title',
     },
     slot_extension: {
-      table: {
-        disable: true,
-      },
+      control: false,
     },
     slot_icon: {
       defaultValue: 'mdiMenu',
