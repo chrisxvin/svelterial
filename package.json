@@ -57,7 +57,8 @@
     "dist",
     "build",
     "types",
-    "functions"
+    "functions",
+    "storybook-static"
   ],
   "lint-staged": {
     "*.scss": "stylelint --syntax scss --fix",
