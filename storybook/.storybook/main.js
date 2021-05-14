@@ -10,10 +10,7 @@ module.exports = {
     };
     return config;
   },
-  stories: [
-    '../stories/**/*.stories.mdx',
-    '../stories/**/*.stories.@(js|jsx|ts|tsx|svelte)',
-  ],
+  stories: ['../stories/**/*.stories.svelte'],
   addons: ['@storybook/addon-svelte-csf', '@storybook/addon-controls'],
   features: {
     postcss: false,
