@@ -71,5 +71,13 @@ export default (component, settings = {}) => {
     };
   }
 
-  return merge(Object.assign(props, slots), settings);
+  const output = Object.assign(props, slots);
+  const order = Object.keys(output);
+  const merged = merge(output, settings);
+
+  // preserve order of keys such as `class`, `prop1` ... as defined in the svelte file.
+  return order.reduce((acc, i) => {
+    acc[i] = merged[i];
+    return acc;
+  }, {});
 };

@@ -16,6 +16,7 @@ glob('**/*.svelte', { cwd: packages }).forEach((file) => {
     all: undefined,
     module: undefined,
   });
+  console.log(`Generated docs for ${category}/${filename}.`);
 });
 
 fs.writeFileSync(
