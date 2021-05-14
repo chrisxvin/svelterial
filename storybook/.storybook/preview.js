@@ -7,4 +7,10 @@ export const parameters = {
   controls: {
     expanded: true,
   },
+  options: {
+    showPanel: true,
+    storySort: {
+      order: ['Introduction'],
+    },
+  },
 };
