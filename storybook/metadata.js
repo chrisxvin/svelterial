@@ -21,6 +21,7 @@ export default (component, settings = {}) => {
     let type = 'any';
     const typeTag = prop.tags.find(({ tag }) => tag === 'type');
     if (typeTag) ({ type } = typeTag);
+    else if (prop.value === '\'\'') type = 'string';
     else {
       try {
         type = typeof JSON.parse(prop.value);
@@ -71,13 +72,34 @@ export default (component, settings = {}) => {
     };
   }
 
-  const output = Object.assign(props, slots);
+  const styles = {};
+  for (const [name, style] of Object.entries(doc.styles)) {
+    styles[name] = {
+      name,
+      defaultValue: style.default,
+      type: {
+        required: false,
+      },
+      description: style.description,
+      table: {
+        category: 'Styles',
+        defaultValue: {
+          summary: style.default,
+        },
+      },
+      control: {
+        type: 'text',
+      },
+    };
+  }
+
+  const output = Object.assign(props, styles, slots);
   const order = Object.keys(output);
   const merged = merge(output, settings);
 
   // preserve order of keys such as `class`, `prop1` ... as defined in the svelte file.
   return order.reduce((acc, i) => {
-    acc[i] = merged[i];
+    acc[i] = Object.assign({}, merged[i]);
     return acc;
   }, {});
 };
