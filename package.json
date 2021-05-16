@@ -42,7 +42,7 @@
     "stylelint-scss": "^3.19.0",
     "svelte": "^3.38.2",
     "sveltyper": "^1.0.1",
-    "tiny-glob": "^0.2.8"
+    "tiny-glob": "^0.2.9"
   },
   "eslintConfig": {
     "root": true,

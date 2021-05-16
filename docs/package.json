@@ -37,7 +37,7 @@
     "vite-plugin-svelte-svelterial": "^0.0.8",
     "vite-plugin-virtual": "^0.1.1",
     "vite-plugin-windicss": "^0.15.10",
-    "windicss": "^3.0.4"
+    "windicss": "^3.0.5"
   },
   "eslintConfig": {
     "parser": "@typescript-eslint/parser",
