@@ -18,6 +18,7 @@
     "@svelterialjs/core": "workspace:*",
     "@svelterialjs/metadata": "workspace:*",
     "@svelterialjs/navigation": "workspace:*",
+    "@svelterialjs/progress": "workspace:*",
     "@svelterialjs/process": "^0.0.6",
     "babel-loader": "^8.2.2",
     "gh-pages": "^3.1.0",
