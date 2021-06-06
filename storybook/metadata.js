@@ -55,7 +55,7 @@ export default (component, settings = {}) => {
   for (const [name, slot] of Object.entries(doc.slots)) {
     slots[`slot_${name}`] = {
       name,
-      defaultValue: name,
+      defaultValue: '',
       type: {
         required: false,
       },

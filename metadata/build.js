@@ -7,7 +7,7 @@ const packages = path.resolve('../packages');
 const output = {};
 glob('**/*.svelte', { cwd: packages }).forEach((file) => {
   const filename = path.basename(file, '.svelte');
-  const category = path.dirname(file);
+  const [category] = path.dirname(file).split(path.sep);
   if (filename.startsWith('_')) return;
   if (!output[category]) output[category] = {};
   const fullFilePath = path.join(packages, file);
