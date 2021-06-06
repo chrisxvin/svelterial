@@ -1,4 +1,6 @@
-@use 'svelterial/settings/shadows?self' as shadows;
+@use 'sass:math';
+
+//@use 'svelterial/settings/shadows?self' as shadows;
 
 $borderRadius: 4px !default;
 $sizes: () !default;
@@ -97,7 +99,7 @@ $fontSizes: map-merge(
 }
 
 .s-btn:not(.s-btn--flat):not(.s-btn--text) {
-  box-shadow: map-get(shadows.$default, 's#{$elevation}');
+  //box-shadow: map-get(shadows.$default, 's#{$elevation}');
 }
 
 .s-btn__content {
@@ -168,8 +170,8 @@ $fontSizes: map-merge(
 @each $name, $size in $sizes {
   .s-btn--#{$name}:not(.s-btn--fab):not(.s-btn--icon) {
     height: $size;
-    min-width: round($size * 16 / 9);
-    padding: 0 ($size/2.25);
+    min-width: round(math.div($size * 16, 9));
+    padding: 0 math.div($size, 2.25);
   }
 }
 

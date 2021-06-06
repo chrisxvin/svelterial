@@ -21,5 +21,5 @@
   <slot />
 </div>
 
-<style svelterial="./styles/Avatar.scss">
+<style svelterial="../styles/Avatar.scss">
 </style>

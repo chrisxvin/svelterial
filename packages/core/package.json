@@ -14,44 +14,6 @@
     "url": "https://github.com/svelterialjs/svelterial/issues"
   },
   "module": "./index.js",
-  "exports": {
-    ".": {
-      "default": "./index.js"
-    },
-    "./package.json": {
-      "default": "./package.json"
-    },
-    "./MaterialApp.svelte": {
-      "default": "./MaterialApp.svelte"
-    },
-    "./Button.svelte": {
-      "default": "./Button.svelte"
-    },
-    "./Divider.svelte": {
-      "default": "./Divider.svelte"
-    },
-    "./Icon.svelte": {
-      "default": "./Icon.svelte"
-    },
-    "./Avatar.svelte": {
-      "default": "./Avatar.svelte"
-    },
-    "./Alert.svelte": {
-      "default": "./Alert.svelte"
-    },
-    "./Overlay.svelte": {
-      "default": "./Overlay.svelte"
-    },
-    "./utils/Ripple.js": {
-      "default": "./utils/Ripple.js"
-    },
-    "./utils/ForwardEvents.js": {
-      "default": "./utils/ForwardEvents.js"
-    },
-    "./utils/ForwardActions.js": {
-      "default": "./utils/ForwardActions.js"
-    }
-  },
   "keywords": [
     "svelte",
     "sveltejs",

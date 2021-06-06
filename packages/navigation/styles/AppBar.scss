@@ -17,10 +17,10 @@ $elevation: 4 !default;
   max-width: 100%;
   position: relative;
   z-index: 10;
-  transition: 250ms t.$primary;
+  transition: 250ms;
 
   &:not(.s-appbar--flat) {
-    box-shadow: map-get(s.$default, 's#{$elevation}');
+    //box-shadow: map-get(s.$default, 's#{$elevation}');
   }
 }
 

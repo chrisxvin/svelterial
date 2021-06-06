@@ -18,4 +18,4 @@
   <slot />
 </div>
 
-<style svelterial="./styles/Drawer.scss"></style>
+<style svelterial="../styles/Drawer.scss"></style>

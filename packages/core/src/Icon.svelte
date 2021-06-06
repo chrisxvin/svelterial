@@ -46,5 +46,5 @@
   <slot />
 </i>
 
-<style svelterial="./styles/Icon.scss">
+<style svelterial="../styles/Icon.scss">
 </style>

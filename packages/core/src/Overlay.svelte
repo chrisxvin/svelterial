@@ -1,7 +1,7 @@
 <script>
   import { fade } from 'svelte/transition';
   import { current_component } from 'svelte/internal';
-  import ForwardEvents from './utils/ForwardEvents';
+  import ForwardEvents from '../utils/ForwardEvents';
   const events = ForwardEvents(current_component);
 
   /**

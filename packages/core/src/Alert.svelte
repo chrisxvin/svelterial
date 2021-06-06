@@ -58,4 +58,4 @@
   </div>
 </div>
 
-<style svelterial="./styles/Alert.scss"></style>
+<style svelterial="../styles/Alert.scss"></style>

@@ -33,4 +33,4 @@
   <slot name="append" />
 </div>
 
-<style svelterial="./styles/ListItem.scss"></style>
+<style svelterial="../styles/ListItem.scss"></style>

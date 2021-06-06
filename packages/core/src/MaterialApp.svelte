@@ -15,5 +15,5 @@
   <slot />
 </main>
 
-<style svelterial="./styles/MaterialApp.scss">
+<style svelterial="../styles/MaterialApp.scss">
 </style>

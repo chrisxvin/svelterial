@@ -13,21 +13,7 @@
   "bugs": {
     "url": "https://github.com/svelterialjs/svelterial/issues"
   },
-  "module": "./index.js",
-  "exports": {
-    ".": {
-      "default": "./index.js"
-    },
-    "./package.json": {
-      "default": "./package.json"
-    },
-    "./List.svelte": {
-      "default": "./List.svelte"
-    },
-    "./ListItem.svelte": {
-      "default": "./ListItem.svelte"
-    }
-  },
+  "module": "index.js",
   "keywords": [
     "svelte",
     "sveltejs",

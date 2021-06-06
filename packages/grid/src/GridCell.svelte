@@ -20,5 +20,5 @@
   <slot />
 </div>
 
-<style svelterial="./styles/GridCell.scss">
+<style svelterial="../styles/GridCell.scss">
 </style>

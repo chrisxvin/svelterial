@@ -8,7 +8,6 @@ $lineHeight: 1.5 !default;
 $bodyFontFamily: 'Roboto', 'Segoe UI', sans-serif !default;
 $headingFontFamily: $bodyFontFamily !default;
 $headings: () !default;
-$themes: () !default;
 
 @import 'svelterial/MaterialApp';
 
@@ -54,37 +53,33 @@ $headings: map.deep-merge(
   $headings
 );
 
-$themes: map.deep-merge(
-  (
-    light: (
-      primary: (
-        base: #6200ea,
-        text: #ffffff,
-      ),
-      secondary: (
-        base: #03dac6,
-        text: #000000,
-      ),
-      body: (
-        elevated: #f5f5f5,
-        bg: #ffffff,
-        dimmed: #ffffff,
-      ),
-      text: (
-        primary: rgba(0, 0, 0, 0.87),
-        secondary: rgba(0, 0, 0, 0.54),
-        disabled: rgba(0, 0, 0, 0.38),
-      ),
-      disabled: hsla(0, 0%, 0%, 0.26),
-      contrast: '0, 0%, 0%',
-      contrastOffset: 0.04,
+$themes: (
+  light: (
+    primary: (
+      base: #6200ea,
+      text: #ffffff,
     ),
+    secondary: (
+      base: #03dac6,
+      text: #000000,
+    ),
+    body: (
+      elevated: #f5f5f5,
+      bg: #ffffff,
+      dimmed: #ffffff,
+    ),
+    text: (
+      primary: rgba(0, 0, 0, 0.87),
+      secondary: rgba(0, 0, 0, 0.54),
+      disabled: rgba(0, 0, 0, 0.38),
+    ),
+    disabled: hsla(0, 0%, 0%, 0.26),
+    contrast: '0, 0%, 0%',
+    contrastOffset: 0.04,
   ),
-  $themes
 );
 
 // variables:end
-
 @function flatten($map, $prefix: '') {
   $output: ();
   @each $name, $value in $map {
@@ -150,7 +145,7 @@ html {
 
 @mixin elementStyles {
   p {
-    margin-bottom: settings.$spacer * 4;
+    margin-bottom: 2px * 4;
   }
 
   a {

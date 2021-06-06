@@ -52,5 +52,5 @@
   <slot />
 </div>
 
-<style svelterial="./styles/Col.scss">
+<style svelterial="../styles/Col.scss">
 </style>

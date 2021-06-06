@@ -62,5 +62,5 @@
   <slot name="extension" />
 </header>
 
-<style svelterial="./styles/AppBar.scss">
+<style svelterial="../styles/AppBar.scss">
 </style>

@@ -1,10 +1,10 @@
 <script>
-  import A from './helpers/_a.svelte';
-  import BUTTON from './helpers/_button.svelte';
-  import Ripple from './utils/Ripple.js';
+  import A from '../helpers/_a.svelte';
+  import BUTTON from '../helpers/_button.svelte';
+  import Ripple from '../utils/Ripple.js';
 
   import { current_component } from 'svelte/internal';
-  import ForwardEvents from './utils/ForwardEvents';
+  import ForwardEvents from '../utils/ForwardEvents';
   const events = ForwardEvents(current_component);
 
   /**
@@ -103,5 +103,5 @@
   </span>
 </svelte:component>
 
-<style svelterial="./styles/Button.scss">
+<style svelterial="../styles/Button.scss">
 </style>

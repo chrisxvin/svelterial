@@ -14,20 +14,6 @@
     "url": "https://github.com/svelterialjs/svelterial/issues"
   },
   "module": "./index.js",
-  "exports": {
-    ".": {
-      "default": "./index.js"
-    },
-    "./package.json": {
-      "default": "./package.json"
-    },
-    "./AppBar.svelte": {
-      "default": "./AppBar.svelte"
-    },
-    "./Drawer.svelte": {
-      "default": "./Drawer.svelte"
-    }
-  },
   "keywords": [
     "svelte",
     "sveltejs",

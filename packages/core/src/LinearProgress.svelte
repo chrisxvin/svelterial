@@ -79,5 +79,5 @@
   {/if}
 </div>
 
-<style svelterial="./styles/Linear.scss">
+<style svelterial="../styles/Linear.scss">
 </style>

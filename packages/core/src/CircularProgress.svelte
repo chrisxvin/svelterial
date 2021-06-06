@@ -80,5 +80,5 @@
   </div>
 </div>
 
-<style svelterial="./styles/Circular.scss">
+<style svelterial="../styles/Circular.scss">
 </style>

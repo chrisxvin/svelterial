@@ -13,16 +13,16 @@
       "path": "packages/core"
     },
     {
-      "name": "Grid",
-      "path": "packages/grid"
-    },
-    {
       "name": "Navigation",
       "path": "packages/navigation"
     },
     {
       "name": "List",
       "path": "packages/list"
+    },
+    {
+      "name": "Grid",
+      "path": "packages/grid"
     },
     {
       "name": "Table",
@@ -37,10 +37,6 @@
       "path": "packages/tabs"
     },
     {
-      "name": "Progress",
-      "path": "packages/progress"
-    },
-    {
       "name": "Toast",
       "path": "packages/toast"
     },
@@ -51,10 +47,6 @@
     {
       "name": "Skeleton",
       "path": "packages/skeleton"
-    },
-    {
-      "name": "Expansion Panels",
-      "path": "packages/expansionpanel"
     },
     {
       "name": "Root",
