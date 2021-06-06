@@ -3,8 +3,7 @@ import { mdsvex } from 'mdsvex';
 import mdsvexConfig from './mdsvex.config.js';
 import preprocess from 'svelte-preprocess';
 import WindiCSS from 'vite-plugin-windicss';
-import svelterial from 'vite-plugin-svelte-svelterial';
-import svelterialConfig from './svelterial.config.js';
+import svelterial from 'vite-plugin-svelte-svelterial/dist/index.mjs';
 
 import examplesPlugin from './plugins/examples.js';
 
@@ -27,7 +26,7 @@ const config = {
           },
           preflight: true,
         }),
-        svelterial(svelterialConfig),
+        svelterial(),
         examplesPlugin,
       ],
     }),
