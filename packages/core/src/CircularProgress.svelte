@@ -1,7 +1,7 @@
 <script>
   /**
-   * @style --progress-color The color of the progress bar.
-   * @default var(--s-primary-base)
+   * @style {var(--s-primary-base)} --progress-color The color of the progress bar.
+   * @default
    */
 
   /**

@@ -5,14 +5,9 @@
   const events = ForwardEvents(current_component);
 
   /**
-   * @style --overlay-opacity The opacity of the overlay.
-   * @default 0.46
-   *
-   * @style --overlay-color The background colot of the overlay.
-   * @default rgb(33,33,33)
-   *
-   * @style --overlay-index The z-index of the overlay.
-   * @default 5
+   * @style {0.46} --overlay-opacity The opacity of the overlay.
+   * @style {rgb(33,33,33)} --overlay-color The background colot of the overlay.
+   * @style {5} --overlay-index The z-index of the overlay.
    */
 
   /**

@@ -1,7 +1,6 @@
 <script>
   /**
-   * @style --avatar-size The size of the avatar.
-   * @default 48px
+   * @style {48px} --avatar-size The size of the avatar.
    */
 
   /**

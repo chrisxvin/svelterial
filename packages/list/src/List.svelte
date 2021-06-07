@@ -1,5 +1,9 @@
 <script>
   /**
+   * @style {12px} --list-indent Indentation of the list.
+   */
+
+  /**
    * The classes to add to the list.
    */
   let klass = '';

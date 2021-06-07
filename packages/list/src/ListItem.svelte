@@ -52,7 +52,9 @@
   class:s-listitem--rounded={rounded}
   class:s-listitem--active={active}
   use:Ripple={ripple}>
-  <slot name="prepend" />
+  <div class="s-listitem__prepend">
+    <slot name="prepend" />
+  </div>
   <div class="s-listitem__content">
     <div class="s-listitem__title">
       <slot />
@@ -61,7 +63,9 @@
       <slot name="subtitle" />
     </div>
   </div>
-  <slot name="append" />
+  <div class="s-listitem__append">
+    <slot name="append" />
+  </div>
 </div>
 
 <style svelterial="../styles/ListItem.scss"></style>
