@@ -7,8 +7,8 @@
   text-align: center;
   vertical-align: middle;
   overflow: hidden;
-  width: var(--size, 48px);
-  height: var(--size, 48px);
+  width: var(--avatar-size, 48px);
+  height: var(--avatar-size, 48px);
   border-radius: 50%;
 
   .s-icon,

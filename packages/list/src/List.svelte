@@ -1,4 +1,7 @@
 <script>
+  /**
+   * The classes to add to the list.
+   */
   let klass = '';
   export { klass as class };
 </script>

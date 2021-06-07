@@ -1,6 +1,6 @@
 <script>
   /**
-   * @style --size The size of the avatar.
+   * @style --avatar-size The size of the avatar.
    * @default 48px
    */
 
@@ -10,7 +10,14 @@
   let klass = '';
   export { klass as class };
 
+  /**
+   * If `true`, then avatar will be rounded.
+   */
   export let rounded = false;
+
+  /**
+   * If `true`, then avatar will have no border radius.
+   */
   export let tile = false;
 </script>
 
