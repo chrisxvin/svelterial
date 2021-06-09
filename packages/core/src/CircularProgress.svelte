@@ -1,7 +1,6 @@
 <script>
   /**
    * @style {var(--s-primary-base)} --progress-color The color of the progress bar.
-   * @default
    */
 
   /**
@@ -52,6 +51,7 @@
 
 <div
   role="progressbar"
+  aria-label="ProgressBar"
   aria-valuemin="0"
   aria-valuemax="100"
   aria-valuenow={value}
