@@ -19,14 +19,17 @@
     "sveltejs",
     "svelterial",
     "material",
+    "material-components",
+    "component-library",
+    "svelte-material",
     "ui"
   ],
   "peerDependencies": {
-    "@svelterialjs/core": "workspace:*"
+    "@svelterialjs/core": "workspace:^"
   },
   "devDependencies": {
     "@svelterialjs/core": "workspace:*"
   },
-  "types": "./types/index.d.ts",
-  "svelte": "./index.js"
+  "types": "types/index.d.ts",
+  "svelte": "index.js"
 }

@@ -1,5 +1,8 @@
 <script>
   import Ripple from '@svelterialjs/core/utils/Ripple.js';
+  import { current_component } from 'svelte/internal';
+  import ForwardEvents from '@svelterialjs/core/utils/ForwardEvents.js';
+  const events = ForwardEvents(current_component);
 
   /**
    * The classes to add to the list item.
@@ -45,13 +48,15 @@
 
 <div
   class="s-listitem {klass}"
+  tabindex={selectable ? 0 : null}
   class:s-listitem--dense={dense}
   class:s-listitem--nav={nav}
   class:s-listitem--selectable={selectable}
   class:s-listitem--flat={flat}
   class:s-listitem--rounded={rounded}
   class:s-listitem--active={active}
-  use:Ripple={ripple}>
+  use:Ripple={ripple}
+  use:events>
   <div class="s-listitem__prepend">
     <slot name="prepend" />
   </div>

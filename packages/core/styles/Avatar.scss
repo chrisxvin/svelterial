@@ -10,15 +10,21 @@
   width: var(--avatar-size, 48px);
   height: var(--avatar-size, 48px);
   border-radius: 50%;
+  background-color: var(--s-body-elevated);
 
-  .s-icon,
-  img,
-  svg {
-    color: inherit;
-    border-radius: inherit;
-    display: inline-flex;
-    height: inherit;
-    width: inherit;
+  & > {
+    .s-icon,
+    img,
+    svg {
+      color: inherit;
+      border-radius: inherit;
+      display: inline-flex;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
   }
 }
 

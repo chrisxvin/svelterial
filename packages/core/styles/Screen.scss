@@ -1,0 +1,8 @@
+@use '../utils/settings';
+
+.s-screenobserver {
+  display: none;
+  @each $name, $value in settings.$breakpoints {
+    --#{$name}: #{$value};
+  }
+}

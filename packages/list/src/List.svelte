@@ -1,6 +1,6 @@
 <script>
   /**
-   * @style {12px} --list-indent Indentation of the list.
+   * @style {0px} --list-indent Indentation of the list.
    */
 
   /**
@@ -22,8 +22,6 @@
 <style svelterial>
   .s-list {
     margin: 0;
-    padding-top: 8px;
-    padding-bottom: 8px;
     position: relative;
   }
 

@@ -1,5 +1,4 @@
-@use 'svelterial/settings/transitions' as t;
-@use 'svelterial/settings/shadows?self' as s;
+@use '../../core/utils/settings';
 
 $height: 56px !default;
 $denseHeight: 48px !default;
@@ -17,21 +16,20 @@ $elevation: 4 !default;
   max-width: 100%;
   position: relative;
   z-index: 10;
-  transition: 250ms;
+  transition: 300ms map-get(settings.$transitions, 'primary');
+  inset: var(--appbar-inset, 0 0 auto 0);
 
   &:not(.s-appbar--flat) {
-    //box-shadow: map-get(s.$default, 's#{$elevation}');
+    @include settings.elevation($elevation);
   }
 }
 
 .s-appbar--absolute {
   position: absolute;
-  top: 0;
 }
 
 .s-appbar--fixed {
   position: fixed;
-  top: 0;
 }
 
 .s-appbar__wrapper {

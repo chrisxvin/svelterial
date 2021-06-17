@@ -1,0 +1,180 @@
+@use '../../core/utils/settings';
+@use 'sass:math';
+
+$dirtyOffsetX: 20px !default;
+$disabledOpacity: 0.6 !default;
+$thumbDenseHeight: 18px !default;
+$thumbDenseWidth: 18px !default;
+$thumbElevation: 4 !default;
+$thumbHeight: 20px !default;
+$thumbTop: calc(50% - 10px) !default;
+$thumbWidth: 20px !default;
+$trackBorderRadius: 8px !default;
+$trackDenseHeight: 12px !default;
+$trackDenseWidth: 32px !default;
+$trackDenseTop: calc(50% - 12px) !default;
+$trackDenseInsetHeight: 22px !default;
+$trackDenseInsetWidth: 44px !default;
+$trackHeight: 14px !default;
+$trackInsetBorderRadius: 14px !default;
+$trackInsetHeight: 28px !default;
+$trackInsetOpacity: 0.32 !default;
+$trackInsetWidth: 48px !default;
+$trackOpacity: 0.6 !default;
+$trackTop: calc(50% - 7px) !default;
+$trackWidth: 36px !default;
+$trackX: 2px !default;
+$width: 38px !default;
+
+.s-switch__track,
+.s-switch__thumb {
+  background-color: currentColor;
+  pointer-events: none;
+}
+
+.s-switch__track {
+  color: rgba(0, 0, 0, 0.38);
+  border-radius: $trackBorderRadius;
+  width: $trackWidth;
+  height: $trackHeight;
+  left: $trackX;
+  position: absolute;
+  opacity: $trackOpacity;
+  right: $trackX;
+  top: $trackTop;
+  transition: background-color 200ms map-get(settings.$transitions, 'primary');
+  will-change: background-color;
+}
+
+.s-switch__thumb {
+  color: #ffffff;
+  border-radius: 50%;
+  top: $thumbTop;
+  height: $thumbHeight;
+  position: relative;
+  width: $thumbWidth;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 200ms map-get(settings.$transitions, 'primary');
+  will-change: transform;
+  @include settings.elevation(4);
+
+  &::before {
+    background: currentColor;
+    transform: scale(2);
+    opacity: 0.2;
+    border-radius: inherit;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    display: none;
+    transform-origin: center center;
+    content: '';
+  }
+}
+
+.s-switch {
+  display: flex;
+  margin-bottom: 8px;
+  align-items: center;
+  position: relative;
+
+  label {
+    margin-left: 8px;
+  }
+}
+
+.s-switch--inset {
+  width: $trackInsetWidth;
+
+  .s-switch__track {
+    width: $trackInsetWidth;
+    border-radius: $trackInsetBorderRadius;
+    height: $trackInsetHeight;
+    left: -4px;
+    opacity: $trackInsetOpacity;
+    top: calc(50% - #{math.div($trackInsetHeight, 2)});
+  }
+
+  .s-switch__thumb {
+    box-shadow: none;
+  }
+}
+
+.s-switch--disabled {
+  opacity: $disabledOpacity;
+  pointer-events: none;
+
+  .s-switch__thumb {
+    color: #fafafa;
+
+    &::before {
+      display: none;
+    }
+  }
+
+  .s-switch__track {
+    color: rgba(0, 0, 0, 0.12);
+  }
+}
+
+.s-switch--dense {
+  .s-switch__thumb {
+    width: $thumbDenseWidth;
+    height: $thumbDenseHeight;
+  }
+
+  .s-switch__track {
+    height: $trackDenseHeight;
+    width: $trackDenseWidth;
+  }
+
+  &.s-switch--inset {
+    .s-switch__track {
+      height: $trackDenseInsetHeight;
+      width: $trackDenseInsetWidth;
+      top: $trackDenseTop;
+      left: -3px;
+    }
+  }
+}
+
+.s-switch--checked {
+  color: var(--switch-color, var(--s-primary-base));
+}
+
+.s-switch__wrapper {
+  width: $width;
+  display: inline-flex;
+  flex: 0 0 auto;
+  height: 24px;
+  position: relative;
+
+  &:hover {
+    .s-switch__thumb::before {
+      display: block;
+    }
+  }
+
+  & > input {
+    position: absolute;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    user-select: none;
+    cursor: pointer;
+
+    &:checked ~ {
+      :where(.s-switch__track, .s-switch__thumb) {
+        color: inherit;
+      }
+
+      .s-switch__thumb {
+        transform: translate($dirtyOffsetX);
+      }
+    }
+  }
+}

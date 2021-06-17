@@ -1,0 +1,105 @@
+$expansion-panel-border-radius: $border-radius-root !default;
+$expansion-panel-active-margin: 16px !default;
+$expansion-panel-header-font-size: 0.9375rem !default;
+$expansion-panel-header-min-height: 48px !default;
+$expansion-panel-active-header-min-height: 64px !default;
+$expansion-panel-header-padding: 16px 24px !default;
+$expansion-panel-content-padding: 0 24px 16px !default;
+$expansion-panel-popout-max-width: calc(
+  100% - #{$expansion-panel-active-margin * 2}
+) !default;
+$expansion-panel-popout-active-max-width: calc(
+  100% + #{$expansion-panel-active-margin}
+) !default;
+$expansion-panel-inset-max-width: 100% !default;
+$expansion-panel-inset-active-max-width: calc(
+  100% - #{$expansion-panel-active-margin * 2}
+) !default;
+
+.s-expansion-panels {
+  border-radius: $expansion-panel-border-radius;
+  display: flex;
+  flex: 0 1 auto;
+  position: relative;
+  max-width: 100%;
+  transition: $primary-transition;
+  flex-wrap: wrap;
+  justify-content: center;
+  list-style-type: none;
+  padding: 0;
+  width: 100%;
+  z-index: 1;
+
+  > *:first-child {
+    border-top-left-radius: inherit;
+    border-top-right-radius: inherit;
+  }
+
+  > *:last-child {
+    border-bottom-left-radius: inherit;
+    border-bottom-right-radius: inherit;
+  }
+
+  &.accordion {
+    > .s-expansion-panel {
+      margin-top: 0 !important;
+
+      &::after {
+        opacity: 1 !important;
+      }
+    }
+  }
+
+  &.popout {
+    > .s-expansion-panel {
+      max-width: $expansion-panel-popout-max-width;
+
+      &.active {
+        max-width: $expansion-panel-popout-active-max-width;
+      }
+    }
+  }
+
+  &.inset {
+    > .s-expansion-panel {
+      max-width: $expansion-panel-inset-max-width;
+
+      &.active {
+        max-width: $expansion-panel-inset-active-max-width;
+      }
+    }
+  }
+
+  &.flat {
+    > .s-expansion-panel {
+      &::after {
+        border-top: none;
+      }
+
+      &::before {
+        box-shadow: none;
+      }
+    }
+  }
+
+  &.tile {
+    border-radius: 0;
+
+    > .s-expansion-panel::before {
+      border-radius: 0;
+    }
+  }
+
+  &:not(.accordion):not(.tile) {
+    > .s-expansion-panel {
+      &.active {
+        border-radius: $expansion-panel-border-radius;
+
+        + .s-expansion-panel {
+          border-top-left-radius: $expansion-panel-border-radius;
+          border-top-right-radius: $expansion-panel-border-radius;
+        }
+      }
+    }
+  }
+}

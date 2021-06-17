@@ -6,9 +6,14 @@
   export { klass as class };
 
   /**
-   * If `true`, then drawer will take the space of the container.
+   * The width of the drawer.
    */
-  export let fluid = false;
+  export let width = '256px';
+
+  /**
+   * The width of the drawer.
+   */
+  export let height = '100vh';
 
   /**
    * If `true`, then drawer will have a small width.
@@ -19,7 +24,7 @@
    * The position of the bar.
    * @type {"relative" | "absolute" | "fixed"}
    */
-  export let position = 'absolute';
+  export let position = 'relative';
 
   /**
    * The edge of the screen where the drawer is anchored.
@@ -40,10 +45,10 @@
 
 <div
   class="s-drawer s-drawer--{position} s-drawer--{edge} {klass}"
-  class:s-drawer--fluid={fluid}
   class:s-drawer--mini={mini}
   class:s-drawer--border={border}
-  class:s-drawer--active={active}>
+  class:s-drawer--active={active}
+  style="--drawer-width:{width};--drawer-height:{height};">
   <slot />
 </div>
 

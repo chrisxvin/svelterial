@@ -1,15 +1,15 @@
 {
-  "name": "@svelterialjs/table",
+  "name": "@svelterialjs/grid",
   "version": "0.0.0",
-  "description": "A Svelterial package for adding tables.",
+  "description": "A Svelterial package for adding grids.",
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/svelterialjs/svelterial.git",
-    "directory": "packages/table"
+    "directory": "packages/grid"
   },
   "author": "TheComputerM",
-  "homepage": "https://github.com/svelterialjs/svelterial/tree/main/packages/table#readme",
+  "homepage": "https://github.com/svelterialjs/svelterial/tree/main/packages/grid#readme",
   "bugs": {
     "url": "https://github.com/svelterialjs/svelterial/issues"
   },
@@ -19,6 +19,9 @@
     "sveltejs",
     "svelterial",
     "material",
+    "material-components",
+    "component-library",
+    "svelte-material",
     "ui"
   ],
   "types": "types/index.d.ts",

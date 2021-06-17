@@ -1,5 +1,9 @@
 <script>
   /**
+   * @style {0 0 auto} --appbar-inset inset value for the appbar.
+   */
+
+  /**
    * The classes to add to the appbar.
    */
   let klass = '';

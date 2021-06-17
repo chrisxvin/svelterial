@@ -1,15 +1,16 @@
-@use 'svelterial/settings/transitions' as t;
+@use '../../core/utils/settings';
 
 .s-drawer {
   background-color: var(--s-body-dimmed);
+  contain: layout;
   overflow-x: hidden;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  width: 256px;
+  overflow-y: auto;
+  flex-shrink: 0;
+  width: var(--drawer-width);
+  height: var(--drawer-height);
+  max-height: 100vh;
   pointer-events: auto;
-
-  //transition: 300ms t.$primary;
+  transition: 300ms map-get(settings.$transitions, 'primary');
   z-index: 5;
 }
 
@@ -33,11 +34,13 @@
 }
 
 .s-drawer--left:not(.s-drawer--active) {
-  transform: translateX(-100%);
+  // transform: translateX(-100%);
+  margin-left: calc(-1 * var(--drawer-width));
 }
 
 .s-drawer--right:not(.s-drawer--active) {
-  transform: translateX(100%);
+  // transform: translateX(100%);
+  margin-right: calc(-1 * var(--drawer-width));
 }
 
 .s-drawer--border {
@@ -51,15 +54,11 @@
 }
 
 .s-drawer--active {
-  transform: translateX(0);
-}
-
-.s-drawer--fluid {
-  height: 100%;
-  width: 100%;
+  // transform: translateX(0);
+  margin-left: 0;
+  margin-right: 0;
 }
 
 .s-drawer--mini {
-  width: 56px;
-  overflow: hidden;
+  width: 48px;
 }

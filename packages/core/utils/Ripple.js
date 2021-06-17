@@ -9,8 +9,8 @@ function RippleStart(e, _opts = {}) {
   e.stopImmediatePropagation();
   const opts = Object.assign(
     {
-      color: 'currentColor',
       class: '',
+      color: 'currentColor',
       opacity: 0.1,
       centered: false,
       spreadingDuration: '.4s',

@@ -1,15 +1,15 @@
 {
-  "name": "@svelterialjs/table",
+  "name": "@svelterialjs/form",
   "version": "0.0.0",
-  "description": "A Svelterial package for adding tables.",
+  "description": "A Svelterial package for adding form components",
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/svelterialjs/svelterial.git",
-    "directory": "packages/table"
+    "directory": "packages/form"
   },
   "author": "TheComputerM",
-  "homepage": "https://github.com/svelterialjs/svelterial/tree/main/packages/table#readme",
+  "homepage": "https://github.com/svelterialjs/svelterial/tree/main/packages/form#readme",
   "bugs": {
     "url": "https://github.com/svelterialjs/svelterial/issues"
   },
@@ -19,8 +19,17 @@
     "sveltejs",
     "svelterial",
     "material",
+    "material-components",
+    "component-library",
+    "svelte-material",
     "ui"
   ],
+  "peerDependencies": {
+    "@svelterialjs/core": "workspace:^"
+  },
+  "dependencies": {
+    "uid": "^2.0.0"
+  },
   "types": "types/index.d.ts",
   "svelte": "index.js"
 }

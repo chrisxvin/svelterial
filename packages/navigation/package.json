@@ -1,7 +1,7 @@
 {
   "name": "@svelterialjs/navigation",
   "version": "0.0.0",
-  "description": "A Svelterial package for adding navigation components.",
+  "description": "A Svelterial package for adding navigation components",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -13,7 +13,7 @@
   "bugs": {
     "url": "https://github.com/svelterialjs/svelterial/issues"
   },
-  "module": "./index.js",
+  "module": "index.js",
   "keywords": [
     "svelte",
     "sveltejs",
@@ -24,6 +24,6 @@
     "svelte-material",
     "ui"
   ],
-  "types": "./types/index.d.ts",
-  "svelte": "./index.js"
+  "types": "types/index.d.ts",
+  "svelte": "index.js"
 }

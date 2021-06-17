@@ -1,15 +1,15 @@
 {
-  "name": "@svelterialjs/table",
+  "name": "@svelterialjs/collapse",
   "version": "0.0.0",
-  "description": "A Svelterial package for adding tables.",
+  "description": "A Svelterial package for adding accordions/collapsibles.",
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/svelterialjs/svelterial.git",
-    "directory": "packages/table"
+    "directory": "packages/collapse"
   },
   "author": "TheComputerM",
-  "homepage": "https://github.com/svelterialjs/svelterial/tree/main/packages/table#readme",
+  "homepage": "https://github.com/svelterialjs/svelterial/tree/main/packages/collapse#readme",
   "bugs": {
     "url": "https://github.com/svelterialjs/svelterial/issues"
   },
@@ -22,5 +22,11 @@
     "ui"
   ],
   "types": "types/index.d.ts",
-  "svelte": "index.js"
+  "svelte": "index.js",
+  "peerDependencies": {
+    "@svelterialjs/core": "workspace:^"
+  },
+  "devDependencies": {
+    "@svelterialjs/core": "workspace:*"
+  }
 }

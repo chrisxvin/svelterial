@@ -20,9 +20,5 @@
   <slot />
 </div>
 
-<style svelterial>
-  .s-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(var(--s-minSize), 1fr));
-  }
+<style svelterial="../styles/FluidGrid.scss">
 </style>
