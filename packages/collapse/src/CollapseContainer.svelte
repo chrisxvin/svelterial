@@ -3,79 +3,67 @@
 </script>
 
 <script>
-  import { createEventDispatcher, setContext } from 'svelte';
+  import { setContext } from 'svelte';
   import { writable } from 'svelte/store';
+  import { createSelect } from '@svelterialjs/core/utils/Group';
 
-  // Classes to add to panel container.
+  /**
+   * The classes to add to the collapse container.
+   */
   let klass = '';
   export { klass as class };
 
-  // 0 based indices of the active panels.
-  export let value = [];
+  /**
+   * 0 based indices of the active panel(s).
+   */
+  export let value = writable(null);
 
-  // Make multiple panels active at the same time.
-  export let multiple = false;
+  /**
+   * If `true`, multiple panels can be active at the same time.
+   */
+  export let multiple = true;
 
-  // Make is necessary for at least one panel to be selected.
+  /**
+   * If `true`, it is necessary for at least one panel to be selected.
+   */
   export let mandatory = false;
 
-  // Accordion style panels.
+  /**
+   * If `true`, the active panels will not have space between others.
+   */
   export let accordion = false;
 
-  // Make panels popout when active.
+  /**
+   * If `true`, then panels will popout when active.
+   */
   export let popout = false;
 
-  // Make panels inset when active.
+  /**
+   * If `true`, then panels will do the opposite of popout when active.
+   */
   export let inset = false;
 
-  // Remove shadow from panels.
-  export let flat = false;
-
-  // Remove border radius from panels.
-  export let tile = false;
-
-  const dispatch = createEventDispatcher();
-  const values = writable(value);
-
-  $: values.set(value);
-
+  value.select = createSelect(value.update);
   let startIndex = -1;
 
   setContext(COLLAPSE_CONTAINER, {
-    values,
-    selectPanel: (index) => {
-      if (value.includes(index)) {
-        if (!(mandatory && value.length === 1)) {
-          value.splice(value.indexOf(index), 1);
-          value = value;
-          dispatch('change', { index, active: false });
-        }
-      } else {
-        if (multiple) {
-          value.push(index);
-          value = value;
-        } else {
-          value = [index];
-        }
-        dispatch('change', { index, active: true });
-      }
-    },
+    value,
     index: () => {
       startIndex += 1;
       return startIndex;
     },
+    multiple,
+    mandatory,
   });
 </script>
 
 <div
-  class="s-expansion-panels {klass}"
-  class:accordion
-  class:popout
-  class:inset
-  class:flat
-  class:tile>
+  class="s-collapse {klass}"
+  class:s-collapse--accordion={accordion}
+  class:s-collapse--popout={popout}
+  class:s-collapse--inset={inset}>
   <slot />
 </div>
 
-<style svelterial="./styles/CollapseContainer.scss">
+<style svelterial="../styles/CollapseContainer.scss">
 </style>

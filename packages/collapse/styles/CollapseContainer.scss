@@ -1,104 +1,132 @@
-$expansion-panel-border-radius: $border-radius-root !default;
-$expansion-panel-active-margin: 16px !default;
-$expansion-panel-header-font-size: 0.9375rem !default;
-$expansion-panel-header-min-height: 48px !default;
-$expansion-panel-active-header-min-height: 64px !default;
-$expansion-panel-header-padding: 16px 24px !default;
-$expansion-panel-content-padding: 0 24px 16px !default;
-$expansion-panel-popout-max-width: calc(
-  100% - #{$expansion-panel-active-margin * 2}
-) !default;
-$expansion-panel-popout-active-max-width: calc(
-  100% + #{$expansion-panel-active-margin}
-) !default;
-$expansion-panel-inset-max-width: 100% !default;
-$expansion-panel-inset-active-max-width: calc(
-  100% - #{$expansion-panel-active-margin * 2}
-) !default;
+@use '../../core/utils/settings';
 
-.s-expansion-panels {
-  border-radius: $expansion-panel-border-radius;
+.s-collapse-item {
+  flex: 1 0 100%;
+  position: relative;
+  transition: 300ms map-get(settings.$transitions, 'primary');
+  @include settings.elevation(2);
+
+  :first-child {
+    border-top-left-radius: inherit;
+    border-top-right-radius: inherit;
+  }
+
+  :last-child {
+    border-bottom-left-radius: inherit;
+    border-bottom-right-radius: inherit;
+  }
+
+  &:not(:first-child)::after {
+    border-top: thin solid;
+    border-color: #d3d3d3;
+    content: '';
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: 0.2s border-color ease-in, 0.2s opacity ease-in;
+  }
+}
+
+.s-collapse-item__icon {
+  user-select: none;
+  margin-left: auto;
+}
+
+.s-collapse-item__content {
+  display: flex;
+  padding: 8px 24px;
+  flex: 1 1 auto;
+  max-width: 100%;
+}
+
+.s-collapse-item__header {
+  cursor: pointer;
+  align-items: center;
+  background-color: #ffffff;
+  border-width: 0;
+  border-radius: inherit;
+  display: flex;
+  font-size: 0.9375rem;
+  height: 48px;
+  padding: 16px 24px;
+  position: relative;
+  width: 100%;
+
+  &::before {
+    background-color: currentColor;
+    border-radius: inherit;
+    bottom: 0;
+    content: '';
+    left: 0;
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: opacity 300ms map-get(settings.$transitions, 'primary');
+  }
+
+  &:hover::before {
+    opacity: 0.04;
+  }
+}
+
+.s-collapse-item--disabled {
+  color: var(--theme-text-disabled);
+}
+
+:where(.s-collapse-item--disabled, .s-collapse-item--readonly) .s-collapse-item__header {
+  pointer-events: none;
+}
+
+.s-collapse-item--active {
+  &:last-child {
+    > .s-collapse-item__header::before {
+      border-radius: 0;
+    }
+  }
+}
+
+.s-collapse {
+  border-radius: 4px;
   display: flex;
   flex: 0 1 auto;
   position: relative;
   max-width: 100%;
-  transition: $primary-transition;
+  transition: 300ms map-get(settings.$transitions, 'primary');
   flex-wrap: wrap;
   justify-content: center;
   list-style-type: none;
   padding: 0;
   width: 100%;
   z-index: 1;
+}
 
-  > *:first-child {
-    border-top-left-radius: inherit;
-    border-top-right-radius: inherit;
+.s-collapse--popout {
+  > .s-collapse-item {
+    max-width: calc(100% - 32px);
   }
 
-  > *:last-child {
-    border-bottom-left-radius: inherit;
-    border-bottom-right-radius: inherit;
+  > .s-collapse-item--active {
+    max-width: calc(100% - 16px);
   }
+}
 
-  &.accordion {
-    > .s-expansion-panel {
-      margin-top: 0 !important;
+.s-collapse--inset {
+  .s-collapse-item--active {
+    max-width: calc(100% - 32px);
+  }
+}
+
+.s-collapse:not(.s-collapse--accordion) {
+  .s-collapse-item--active {
+    &:not(:first-child),
+    + .s-collapse-item {
+      margin-top: 16px;
 
       &::after {
-        opacity: 1 !important;
-      }
-    }
-  }
-
-  &.popout {
-    > .s-expansion-panel {
-      max-width: $expansion-panel-popout-max-width;
-
-      &.active {
-        max-width: $expansion-panel-popout-active-max-width;
-      }
-    }
-  }
-
-  &.inset {
-    > .s-expansion-panel {
-      max-width: $expansion-panel-inset-max-width;
-
-      &.active {
-        max-width: $expansion-panel-inset-active-max-width;
-      }
-    }
-  }
-
-  &.flat {
-    > .s-expansion-panel {
-      &::after {
-        border-top: none;
-      }
-
-      &::before {
-        box-shadow: none;
-      }
-    }
-  }
-
-  &.tile {
-    border-radius: 0;
-
-    > .s-expansion-panel::before {
-      border-radius: 0;
-    }
-  }
-
-  &:not(.accordion):not(.tile) {
-    > .s-expansion-panel {
-      &.active {
-        border-radius: $expansion-panel-border-radius;
-
-        + .s-expansion-panel {
-          border-top-left-radius: $expansion-panel-border-radius;
-          border-top-right-radius: $expansion-panel-border-radius;
-        }
+        opacity: 0;
       }
     }
   }

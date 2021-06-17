@@ -21,12 +21,12 @@
     "material",
     "ui"
   ],
-  "types": "types/index.d.ts",
-  "svelte": "index.js",
   "peerDependencies": {
     "@svelterialjs/core": "workspace:^"
   },
   "devDependencies": {
     "@svelterialjs/core": "workspace:*"
-  }
+  },
+  "types": "types/index.d.ts",
+  "svelte": "index.js"
 }
