@@ -22,6 +22,9 @@
       <li>
         Press <kbd>A</kbd> to toggle controls and settings.
       </li>
+      <li>
+        Press <kbd>S</kbd> to toggle the sidebar.
+      </li>
     </ul>
   </div>
 </Story>

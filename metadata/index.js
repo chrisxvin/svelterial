@@ -1,4 +1,3 @@
-const fs = require('fs');
 const path = require('path');
 const doc = require('svelte-docster');
 const glob = require('tiny-glob/sync');
@@ -16,10 +15,7 @@ glob('**/*.svelte', { cwd: packages }).forEach((file) => {
     all: undefined,
     module: undefined,
   });
-  console.log(`Generated docs for ${category}/${filename}.`);
+  // console.log(`Generated docs for ${category}/${filename}.`);
 });
 
-fs.writeFileSync(
-  path.resolve('./index.js'),
-  `export default JSON.parse(${JSON.stringify(JSON.stringify(output))});`,
-);
+module.exports = output;

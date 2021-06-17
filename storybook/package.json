@@ -8,22 +8,30 @@
     "dev:cache": "pnpm dev -- --no-manager-cache"
   },
   "devDependencies": {
-    "@babel/core": "^7.14.3",
+    "@babel/core": "^7.14.6",
     "@mdi/js": "^5.9.55",
+    "@storybook/addon-a11y": "^6.2.9",
     "@storybook/addon-controls": "^6.2.9",
-    "@storybook/addon-svelte-csf": "^1.0.0",
+    "@storybook/addon-measure": "^1.2.4",
+    "@storybook/addon-storysource": "^6.2.9",
+    "@storybook/addon-svelte-csf": "^1.1.0",
+    "@storybook/addon-viewport": "^6.2.9",
     "@storybook/addons": "^6.2.9",
     "@storybook/svelte": "^6.2.9",
     "@storybook/theming": "^6.2.9",
     "@svelterialjs/core": "workspace:*",
+    "@svelterialjs/form": "workspace:*",
+    "@svelterialjs/grid": "workspace:*",
+    "@svelterialjs/list": "workspace:*",
     "@svelterialjs/metadata": "workspace:*",
     "@svelterialjs/navigation": "workspace:*",
-    "@svelterialjs/list": "workspace:*",
+    "@svelterialjs/collapse": "workspace:*",
     "@svelterialjs/process": "^0.0.8",
     "babel-loader": "^8.2.2",
-    "gh-pages": "^3.2.0",
+    "gh-pages": "^3.2.1",
     "merge-anything": "^4.0.1",
     "svelte": "^3.38.2",
-    "svelte-loader": "^3.1.1"
+    "svelte-loader": "^3.1.2",
+    "webpack-virtual-modules": "^0.4.3"
   }
 }

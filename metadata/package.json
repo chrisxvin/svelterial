@@ -3,23 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "description": "Metadata for the svelterial components.",
-  "module": "index.js",
-  "exports": {
-    ".": {
-      "import": "./index.js"
-    }
-  },
-  "scripts": {
-    "build": "node build.js"
-  },
-  "files": [
-    "index.js"
-  ],
+  "main": "index.js",
   "devDependencies": {
-    "svelte-docster": "^2.0.0",
+    "svelte-docster": "^2.0.1",
     "tiny-glob": "^0.2.9"
-  },
-  "eslintIgnore": [
-    "index.js"
-  ]
+  }
 }

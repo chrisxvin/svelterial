@@ -1,16 +1,14 @@
 <script>
-  import { Meta, Template, Story } from '@storybook/addon-svelte-csf';
-  import args from '../metadata';
-  import Alert from '@svelterialjs/core/Alert.svelte';
-  import Button from '@svelterialjs/core/Button.svelte';
-  import Icon from '@svelterialjs/core/Icon.svelte';
+  import { Meta, Story } from '@storybook/addon-svelte-csf';
+  import metadata from '../metadata';
+  import { Alert, Button, Icon } from '@svelterialjs/core';
   import { mdiHome, mdiClose } from '@mdi/js';
 </script>
 
 <Meta
   title="Components/Core/Alert"
   component={Alert}
-  argTypes={args('core/Alert', {
+  argTypes={metadata('core/Alert', {
     class: {
       defaultValue: 's-primary',
     },
@@ -32,13 +30,12 @@
     },
   })} />
 
-<Template let:args id="basic">
+<Story name="Basic" let:args>
   <Alert {...args}>
     {args.slot_default}
   </Alert>
-</Template>
-
-<Template let:args id="icons">
+</Story>
+<Story name="With Icons" let:args>
   <Alert {...args}>
     <Icon slot="prepend" path={mdiHome} />
     <p style="padding: 0 4px">
@@ -48,7 +45,4 @@
       <Icon path={mdiClose} />
     </Button>
   </Alert>
-</Template>
-
-<Story template="basic" name="Basic" />
-<Story template="icons" name="With Icons" />
+</Story>

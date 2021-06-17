@@ -1,9 +1,8 @@
 <script>
-  import { Meta, Template, Story } from '@storybook/addon-svelte-csf';
-  import args from '../metadata';
-  import AppBar from '@svelterialjs/navigation/AppBar.svelte';
-  import Button from '@svelterialjs/core/Button.svelte';
-  import Icon from '@svelterialjs/core/Icon.svelte';
+  import { Meta, Story } from '@storybook/addon-svelte-csf';
+  import metadata from '../metadata';
+  import { Button, Icon } from '@svelterialjs/core';
+  import { AppBar } from '@svelterialjs/navigation';
   import { mdiMenu, mdiGithub, mdiStar, mdiRocket } from '@mdi/js';
 </script>
 
@@ -11,7 +10,7 @@
   parameters={{ layout: 'fullscreen' }}
   title="Components/Navigation/AppBar"
   component={AppBar}
-  argTypes={args('navigation/AppBar', {
+  argTypes={metadata('navigation/AppBar', {
     slot_title: {
       defaultValue: 'Title',
     },
@@ -26,15 +25,12 @@
         type: 'select',
       },
     },
-    slot_default: {
-      defaultValue: '',
-    },
   })} />
 
-<Template let:args>
+<Story id="a" name="AppBar" let:args>
   <AppBar {...args}>
     <svelte:fragment slot="icon">
-      <Button variant="fab" text>
+      <Button aria-label="Nav Hamburger" variant="fab" text>
         <Icon path={args.slot_icon} />
       </Button>
     </svelte:fragment>
@@ -44,6 +40,7 @@
     {args.slot_default}
     <div style="flex-grow:1;" />
     <Button
+      aria-label="Nav Link"
       variant="icon"
       text
       href="https://github.com/svelterialjs/svelterial"
@@ -51,6 +48,4 @@
       <Icon path={mdiStar} />
     </Button>
   </AppBar>
-</Template>
-
-<Story name="Basic" />
+</Story>

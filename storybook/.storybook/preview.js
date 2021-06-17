@@ -1,4 +1,4 @@
-import MaterialApp from '@svelterialjs/core/MaterialApp.svelte';
+import MaterialApp from '@svelterialjs/core/src/MaterialApp.svelte';
 
 export const decorators = [() => MaterialApp];
 
@@ -8,7 +8,6 @@ export const parameters = {
     expanded: true,
   },
   options: {
-    showPanel: true,
     storySort: {
       order: ['Introduction'],
     },

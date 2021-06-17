@@ -1,4 +1,5 @@
-import metadata from '@svelterialjs/metadata';
+/* eslint-disable quotes */
+import metadata from 'svelterial-metadata';
 import { merge } from 'merge-anything';
 
 function getControlType(type) {
@@ -18,11 +19,17 @@ export default (component, settings = {}) => {
   const doc = metadata[category][filename];
   const props = {};
   for (const [name, prop] of Object.entries(doc.props)) {
-    let type = 'any';
+    let defaultValue, type;
     const typeTag = prop.tags.find(({ tag }) => tag === 'type');
+    const isPropAString = prop.value.startsWith(`'`) && prop.value.endsWith("'");
+
+    /**
+     * Getting the type of value.
+     */
     if (typeTag) ({ type } = typeTag);
-    else if (prop.value === '\'\'') type = 'string';
-    else {
+    else if (isPropAString) {
+      type = 'string';
+    } else {
       try {
         type = typeof JSON.parse(prop.value);
       } catch {
@@ -30,8 +37,24 @@ export default (component, settings = {}) => {
       }
     }
 
+    /**
+     * Getting the defaultValue of prop.
+     */
+    try {
+      if (type === 'string') {
+        defaultValue = prop.value.slice(1, -1);
+      } else if (type === 'object') {
+        defaultValue = new Function(`return ${prop.value}`)();
+      } else {
+        defaultValue = JSON.parse(prop.value);
+      }
+    } catch {
+      defaultValue = undefined;
+    }
+
     props[name] = {
       name,
+      defaultValue,
       type: {
         required: prop.required,
       },

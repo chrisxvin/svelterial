@@ -1,14 +1,14 @@
 <script>
-  import { Meta, Template, Story } from '@storybook/addon-svelte-csf';
-  import args from '../metadata';
-  import Icon from '@svelterialjs/core/Icon.svelte';
+  import { Meta, Story } from '@storybook/addon-svelte-csf';
+  import metadata from '../metadata';
+  import Icon from '@svelterialjs/core/src/Icon.svelte';
   import { mdiHome, mdiGithub, mdiHuman, mdiFire } from '@mdi/js';
 </script>
 
 <Meta
   title="Components/Core/Icon"
   component={Icon}
-  argTypes={args('core/Icon', {
+  argTypes={metadata('core/Icon', {
     path: {
       defaultValue: 'mdiHome',
       options: ['mdiHome', 'mdiGithub', 'mdiHuman', 'mdiFire'],
@@ -24,8 +24,6 @@
     },
   })} />
 
-<Template let:args>
+<Story id="default" name="Icon" let:args>
   <Icon {...args} />
-</Template>
-
-<Story name="SVG" />
+</Story>

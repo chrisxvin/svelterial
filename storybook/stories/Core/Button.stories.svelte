@@ -1,15 +1,15 @@
 <script>
-  import { Meta, Template, Story } from '@storybook/addon-svelte-csf';
-  import args from '../metadata';
-  import Button from '@svelterialjs/core/Button.svelte';
-  import Icon from '@svelterialjs/core/Icon.svelte';
+  import { Meta, Story } from '@storybook/addon-svelte-csf';
+  import metadata from '../metadata';
+  import Button from '@svelterialjs/core/src/Button.svelte';
+  import Icon from '@svelterialjs/core/src/Icon.svelte';
   import { mdiHome } from '@mdi/js';
 </script>
 
 <Meta
   title="Components/Core/Button"
   component={Button}
-  argTypes={args('core/Button', {
+  argTypes={metadata('core/Button', {
     size: {
       defaultValue: 'default',
       options: ['x-small', 'small', 'default', 'large', 'x-large'],
@@ -31,17 +31,14 @@
     },
   })} />
 
-<Template let:args id="base">
+<Story name="Raised" args={{ variant: 'raised' }} let:args>
   <Button {...args}>
     {args.slot_default}
   </Button>
-</Template>
+</Story>
 
-<Template let:args id="icon">
+<Story name="FAB | Icon" args={{ variant: 'fab' }} let:args>
   <Button {...args}>
     <Icon path={mdiHome} />
   </Button>
-</Template>
-
-<Story template="base" name="Raised" args={{ variant: 'raised' }} />
-<Story template="icon" name="FAB and Icon" args={{ variant: 'fab' }} />
+</Story>
