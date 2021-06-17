@@ -17,6 +17,10 @@
       "path": "packages/navigation"
     },
     {
+      "name": "Form",
+      "path": "packages/form"
+    },
+    {
       "name": "List",
       "path": "packages/list"
     },
@@ -29,24 +33,12 @@
       "path": "packages/table"
     },
     {
-      "name": "Forms",
-      "path": "packages/forms"
+      "name": "Collapse",
+      "path": "packages/collapse"
     },
     {
       "name": "Tabs",
       "path": "packages/tabs"
-    },
-    {
-      "name": "Toast",
-      "path": "packages/toast"
-    },
-    {
-      "name": "Lightbox",
-      "path": "packages/lightbox"
-    },
-    {
-      "name": "Skeleton",
-      "path": "packages/skeleton"
     },
     {
       "name": "Root",
