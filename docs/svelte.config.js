@@ -3,7 +3,7 @@ import { mdsvex } from 'mdsvex';
 import mdsvexConfig from './mdsvex.config.js';
 import preprocess from 'svelte-preprocess';
 import WindiCSS from 'vite-plugin-windicss';
-import svelterial from 'vite-plugin-svelte-svelterial/dist/index.mjs';
+import svelterial from 'vite-plugin-svelte-svelterial';
 
 import examplesPlugin from './plugins/examples.js';
 

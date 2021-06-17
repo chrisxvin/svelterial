@@ -1,8 +1,6 @@
 <script lang="ts">
-  import Overlay from '@svelterialjs/core/Overlay.svelte';
   import Drawer from '@svelterialjs/navigation/Drawer.svelte';
-  import Button from '@svelterialjs/core/Button.svelte';
-  import Icon from '@svelterialjs/core/Icon.svelte';
+  import { Button, Overlay, Icon } from '@svelterialjs/core';
   import { mdiMenu } from '@mdi/js';
   import { onMount } from 'svelte';
 

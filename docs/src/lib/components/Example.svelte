@@ -6,8 +6,7 @@
 <script lang="ts">
   import Markup from './Markup.svelte';
   import { slide } from 'svelte/transition';
-  import Button from '@svelterialjs/core/Button.svelte';
-  import Icon from '@svelterialjs/core/Icon.svelte';
+  import { Button, Icon } from '@svelterialjs/core';
   import { mdiContentCopy, mdiCodeTags } from '@mdi/js';
 
   export let file: string;

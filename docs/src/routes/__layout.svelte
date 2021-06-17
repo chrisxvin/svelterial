@@ -1,9 +1,7 @@
 <script lang="ts">
   import 'virtual:windi.css';
-  import MaterialApp from '@svelterialjs/core/MaterialApp.svelte';
+  import { MaterialApp, Button, Icon } from '@svelterialjs/core';
   import AppBar from '@svelterialjs/navigation/AppBar.svelte';
-  import Button from '@svelterialjs/core/Button.svelte';
-  import Icon from '@svelterialjs/core/Icon.svelte';
   import { mdiGithub, mdiWeatherSunny, mdiWeatherNight } from '@mdi/js';
   import links from '$lib/links';
   import { theme } from '$lib/stores';
