@@ -2,13 +2,14 @@
   import { writable } from 'svelte/store';
   import { createSelect } from '@svelterialjs/core/utils/Group.js';
   import ListItem from './ListItem.svelte';
-  import { onDestroy } from 'svelte';
 
   export let items = [];
-  export let value = writable(null);
+  items = items.map((x) => (Array.isArray(x) ? x : [x, x]));
+
   export let multiple = false;
   export let mandatory = false;
   export let max = Infinity;
+  export let value = writable(multiple ? [] : null);
   /**
    * @type {object}
    */
@@ -19,13 +20,16 @@
    */
   export let activeProps = { active: true };
 
-  const [select, destroySelect, isActive] = createSelect(value);
-  onDestroy(destroySelect);
+  value.select = createSelect(value.update);
+
+  function isActive(val) {
+    return Array.isArray($value) ? $value.includes(val) : val === $value;
+  }
 </script>
 
 {#each items as [val, item]}
   <ListItem
-    on:click={select(val, { multiple, mandatory, max })}
+    on:click={value.select(val, { multiple, mandatory, max })}
     {...props}
     {...isActive(val, $value) ? activeProps : {}}>
     <slot name="prepend" slot="prepend" />

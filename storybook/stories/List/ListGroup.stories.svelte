@@ -2,8 +2,8 @@
   import { Meta, Story } from '@storybook/addon-svelte-csf';
   import metadata from '../metadata';
   import { List, ListGroup } from '@svelterialjs/list';
-  import { writable } from 'svelte/store';
-  const value = writable(null);
+
+  let value;
 </script>
 
 <Meta
@@ -40,7 +40,7 @@
       <span slot="title">
         Value: {$value}
       </span>
-      <ListGroup {value} let:item {...args}>
+      <ListGroup {...args} bind:value let:item>
         {item}
       </ListGroup>
     </List>
@@ -52,5 +52,4 @@
     width: 300px;
     border: 1px solid #d3d3d3;
   }
-
 </style>
