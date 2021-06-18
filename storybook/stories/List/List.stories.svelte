@@ -11,10 +11,8 @@
     slot_default: {
       control: false,
     },
-    slot_title: {
-      defaultValue: 'Title',
-    },
-  })} />
+  })}
+  args={{ slot_title: 'Title' }} />
 
 <Story id="a" name="List" let:args>
   <div class="container">

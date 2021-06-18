@@ -26,10 +26,8 @@
     use: {
       control: false,
     },
-    slot_default: {
-      defaultValue: 'Button',
-    },
-  })} />
+  })}
+  args={{ slot_default: 'Button' }} />
 
 <Story name="Raised" args={{ variant: 'raised' }} let:args>
   <Button {...args}>

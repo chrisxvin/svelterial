@@ -11,9 +11,6 @@
   title="Components/Navigation/AppBar"
   component={AppBar}
   argTypes={metadata('navigation/AppBar', {
-    slot_title: {
-      defaultValue: 'Title',
-    },
     slot_extension: {
       control: false,
     },
@@ -25,7 +22,8 @@
         type: 'select',
       },
     },
-  })} />
+  })}
+  args={{ slot_title: 'Title' }} />
 
 <Story id="a" name="AppBar" let:args>
   <AppBar {...args}>

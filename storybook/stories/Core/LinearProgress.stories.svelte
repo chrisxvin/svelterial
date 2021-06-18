@@ -7,7 +7,8 @@
 <Meta
   title="Components/Core/LinearProgress"
   component={LinearProgress}
-  argTypes={metadata('core/LinearProgress')} />
+  argTypes={metadata('core/LinearProgress')}
+  args={{ slot_default: '' }} />
 
 <Story id="a" name="LinearProgress" let:args>
   <div>

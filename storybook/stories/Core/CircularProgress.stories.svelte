@@ -7,7 +7,8 @@
 <Meta
   title="Components/Core/CircularProgress"
   component={CircularProgress}
-  argTypes={metadata('core/CircularProgress')} />
+  argTypes={metadata('core/CircularProgress')}
+  args={{ slot_default: '' }} />
 
 <Story id="a" name="CircularProgress" let:args>
   <CircularProgress {...args}>

@@ -15,19 +15,19 @@
   })} />
 
 <Story name="SVG Icon" let:args>
-  <Avatar {...args} --avatar-size={args['--avatar-size']}>
+  <Avatar {...args}>
     <Icon path={mdiHome} />
   </Avatar>
 </Story>
 
 <Story name="Image" let:args>
-  <Avatar {...args} --avatar-size={args['--avatar-size']}>
+  <Avatar {...args}>
     <img src="https://picsum.photos/200" alt="Avatar" />
   </Avatar>
 </Story>
 
 <Story name="Text" let:args>
-  <Avatar {...args} --avatar-size={args['--avatar-size']}>
+  <Avatar {...args}>
     <h6>MH</h6>
   </Avatar>
 </Story>

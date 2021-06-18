@@ -7,7 +7,8 @@
 <Meta
   title="Components/Core/Overlay"
   component={Overlay}
-  argTypes={metadata('core/Overlay')} />
+  argTypes={metadata('core/Overlay')}
+  args={{ slot_default: '' }} />
 
 <Story id="overlay" name="Overlay" let:args>
   <div>
