@@ -1,93 +1,89 @@
 @use '../../core/utils/settings';
 
-$checkbox-disabled-opacity: 0.6 !default;
-$checkbox-size: 16px !default;
-
 .s-checkbox {
   display: flex;
   align-items: center;
-  position: relative;
 
   > label {
     padding-left: 12px;
   }
 }
 
-.s-checkbox__background {
-  width: 100%;
-  height: 100%;
-  align-items: center;
-  display: inline-flex;
-  border: 2px solid #666666;
-  border-radius: 2px;
-  color: inherit;
-  background-color: transparent;
-  transition: background-color 250ms map-get(settings.$transitions, 'primary');
-  pointer-events: none;
-}
-
 .s-checkbox__wrapper {
-  overflow: visible;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  flex: 0 0 auto;
-  height: $checkbox-size;
-  width: $checkbox-size;
   position: relative;
-  user-select: none;
-  border-radius: 100%;
+  width: 16px;
+  height: 16px;
+  overflow: visible;
 
   &::before {
-    border-radius: inherit;
     content: '';
+    background-color: black;
+    opacity: 0;
+    display: block;
+    position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-color: currentColor;
+    border-radius: 100%;
     transform: scale(2);
-    opacity: 0;
+    transform-origin: center center;
+    pointer-events: none;
   }
-
-  color: var(--s-primary-base);
-  cursor: pointer;
 
   &:hover::before {
-    opacity: 0.16;
+    opacity: 0.12;
   }
+}
 
-  input {
+.s-checkbox__box {
+  color: #666666;
+  border: 2px solid currentColor;
+  border-radius: 2px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  transition: background-color 250ms map-get(settings.$transitions, 'primary');
+
+  > svg {
     position: absolute;
-    width: $checkbox-size * 2;
-    height: $checkbox-size * 2;
-    cursor: inherit;
-    opacity: 0;
-    margin: 0;
-    padding: 0;
-
-    &:where(:checked, :indeterminate) ~ .s-checkbox__background {
-      background-color: currentColor;
-      border-color: currentColor;
-    }
-  }
-
-  svg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 100%;
-    height: 100%;
+    top: -2px;
+    left: -2px;
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
     color: #ffffff;
     fill: currentColor;
+  }
+}
 
-    path {
-      stroke: currentColor;
+.s-checkbox__icon {
+  stroke: currentColor;
+}
+
+.s-checkbox__input {
+  margin: 0;
+  padding: 0;
+  transform: scale(1.5);
+  width: 16px;
+  height: 16px;
+  opacity: 0;
+  cursor: pointer;
+
+  &:where(:checked, :indeterminate) {
+    & + .s-checkbox__box {
+      color: var(--s-primary-base);
+      background-color: currentColor;
     }
+  }
+
+  &:checked + .s-checkbox__box .s-checkbox__icon {
+    d: path('M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z');
+  }
+
+  &:indeterminate + .s-checkbox__box .s-checkbox__icon {
+    d: path('M5,11L5,13L19,13L19,11L5,11Z');
   }
 }

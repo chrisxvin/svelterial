@@ -96,6 +96,12 @@ importers:
       svelte-docster: 2.0.1
       tiny-glob: 0.2.9
 
+  packages/chips:
+    specifiers:
+      '@svelterialjs/core': workspace:*
+    devDependencies:
+      '@svelterialjs/core': link:../core
+
   packages/collapse:
     specifiers:
       '@svelterialjs/core': workspace:*
