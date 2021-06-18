@@ -19,7 +19,7 @@ export default (component, settings = {}) => {
   const doc = metadata[category][filename];
   const props = {};
   for (const [name, prop] of Object.entries(doc.props)) {
-    let defaultValue, type;
+    let type;
     const typeTag = prop.tags.find(({ tag }) => tag === 'type');
     const isPropAString = prop.value.startsWith(`'`) && prop.value.endsWith("'");
 
@@ -37,24 +37,8 @@ export default (component, settings = {}) => {
       }
     }
 
-    /**
-     * Getting the defaultValue of prop.
-     */
-    try {
-      if (type === 'string') {
-        defaultValue = prop.value.slice(1, -1);
-      } else if (type === 'object') {
-        defaultValue = new Function(`return ${prop.value}`)();
-      } else {
-        defaultValue = JSON.parse(prop.value);
-      }
-    } catch {
-      defaultValue = undefined;
-    }
-
     props[name] = {
       name,
-      defaultValue,
       type: {
         required: prop.required,
       },
@@ -78,7 +62,6 @@ export default (component, settings = {}) => {
   for (const [name, slot] of Object.entries(doc.slots)) {
     slots[`slot_${name}`] = {
       name,
-      defaultValue: '',
       type: {
         required: false,
       },
@@ -99,7 +82,6 @@ export default (component, settings = {}) => {
   for (const [name, style] of Object.entries(doc.styles)) {
     styles[name] = {
       name,
-      defaultValue: style.default,
       type: {
         required: false,
       },

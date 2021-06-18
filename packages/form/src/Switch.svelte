@@ -1,4 +1,9 @@
 <script>
+  import ForwardEvents from '@svelterialjs/core/utils/ForwardEvents.js';
+  import { current_component } from 'svelte/internal';
+
+  const events = ForwardEvents(current_component);
+
   /**
    * @style {var(--s-primary-base)} --switch-color The color for a checked switch.
    */
@@ -42,17 +47,21 @@
    */
   export let id = `s-switch-${uid(4)}`;
 
-  function groupUpdate() {
-    if (Array.isArray(group) && value) {
-      const i = group.indexOf(value);
-      if (i < 0) {
-        group.push(value);
-      } else {
-        group.splice(i, 1);
-      }
+  function updateGroup() {
+    if (Array.isArray(group) && value != null) {
+      if (group.includes(value)) group.splice(group.indexOf(value), 1);
+      else group.push(value);
       group = group;
     }
   }
+
+  function updateState() {
+    if (Array.isArray(group) && value != null) {
+      checked = group.includes(value);
+    }
+  }
+
+  $: updateState(group);
 </script>
 
 <div class="s-switch {klass}">
@@ -62,14 +71,15 @@
     class:s-switch--inset={inset}
     class:s-switch--checked={checked}>
     <input
+      class="s-switch__input"
       type="checkbox"
       role="switch"
       aria-checked={checked}
       bind:checked
       {id}
       {value}
-      on:change={groupUpdate}
-      on:change />
+      on:change={updateGroup}
+      use:events />
     <div class="s-switch__track" />
     <div class="s-switch__thumb" />
   </div>

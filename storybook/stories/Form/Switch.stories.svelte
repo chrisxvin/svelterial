@@ -13,7 +13,7 @@
   argTypes={metadata('form/Switch')}
   args={{ slot_default: 'Click Me' }}
   let:args>
-  <Switch {...args} --switch-color={args['--switch-color']}>
+  <Switch {...args}>
     {args.slot_default}
   </Switch>
 </Story>

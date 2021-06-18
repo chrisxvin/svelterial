@@ -8,8 +8,14 @@
 
 <Meta title="Components/Form/Checkbox" component={Checkbox} />
 
-<Story name="Single" argTypes={metadata('form/Checkbox')} let:args>
-  <Checkbox {...args}>Test</Checkbox>
+<Story
+  name="Single"
+  argTypes={metadata('form/Checkbox')}
+  args={{ slot_default: 'Click Me' }}
+  let:args>
+  <Checkbox {...args}>
+    {args.slot_default}
+  </Checkbox>
 </Story>
 
 <Story name="Group">
