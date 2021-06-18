@@ -11,7 +11,7 @@
 
   /**
    * The value for the switch
-   * @type {null | string | number}
+   * @type {any}
    */
   export let value = null;
 
@@ -37,23 +37,13 @@
   export let dense = false;
 
   /**
-   * If `true`, the switch becomes disabled.
-   */
-  export let disabled = false;
-
-  /**
    * ID for the input element for the switch.
    * @type {string}
    */
   export let id = `s-switch-${uid(4)}`;
 
-  const hasValidGroup = Array.isArray(group);
-  if (hasValidGroup && value) {
-    if (group.indexOf(value) >= 0) checked = true;
-  }
-
   function groupUpdate() {
-    if (hasValidGroup && value) {
+    if (Array.isArray(group) && value) {
       const i = group.indexOf(value);
       if (i < 0) {
         group.push(value);
@@ -70,7 +60,6 @@
     class="s-switch__wrapper"
     class:s-switch--dense={dense}
     class:s-switch--inset={inset}
-    class:s-switch--disabled={disabled}
     class:s-switch--checked={checked}>
     <input
       type="checkbox"
@@ -78,7 +67,6 @@
       aria-checked={checked}
       bind:checked
       {id}
-      {disabled}
       {value}
       on:change={groupUpdate}
       on:change />

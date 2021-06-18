@@ -104,22 +104,22 @@ $width: 38px !default;
   }
 }
 
-.s-switch--disabled {
-  opacity: $disabledOpacity;
-  pointer-events: none;
+// .s-switch--disabled {
+//   opacity: $disabledOpacity;
+//   pointer-events: none;
 
-  .s-switch__thumb {
-    color: #fafafa;
+//   .s-switch__thumb {
+//     color: #fafafa;
 
-    &::before {
-      display: none;
-    }
-  }
+//     &::before {
+//       display: none;
+//     }
+//   }
 
-  .s-switch__track {
-    color: rgba(0, 0, 0, 0.12);
-  }
-}
+//   .s-switch__track {
+//     color: rgba(0, 0, 0, 0.12);
+//   }
+// }
 
 .s-switch--dense {
   .s-switch__thumb {
