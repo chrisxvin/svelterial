@@ -1,0 +1,32 @@
+{
+  "name": "@svelterialjs/chips",
+  "version": "0.0.0",
+  "description": "A Svelterial package for adding material chips.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/svelterialjs/svelterial.git",
+    "directory": "packages/chips"
+  },
+  "author": "TheComputerM",
+  "homepage": "https://github.com/svelterialjs/svelterial/tree/main/packages/chips#readme",
+  "bugs": {
+    "url": "https://github.com/svelterialjs/svelterial/issues"
+  },
+  "module": "index.js",
+  "keywords": [
+    "svelte",
+    "sveltejs",
+    "svelterial",
+    "material",
+    "ui"
+  ],
+  "peerDependencies": {
+    "@svelterialjs/core": "workspace:^"
+  },
+  "devDependencies": {
+    "@svelterialjs/core": "workspace:*"
+  },
+  "types": "types/index.d.ts",
+  "svelte": "index.js"
+}
