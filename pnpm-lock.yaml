@@ -135,6 +135,12 @@ importers:
   packages/table:
     specifiers: {}
 
+  packages/tooltip:
+    specifiers:
+      '@popperjs/core': ^2.9.2
+    dependencies:
+      '@popperjs/core': 2.9.2
+
   storybook:
     specifiers:
       '@babel/core': ^7.14.6
@@ -156,6 +162,7 @@ importers:
       '@svelterialjs/metadata': workspace:*
       '@svelterialjs/navigation': workspace:*
       '@svelterialjs/process': ^0.0.8
+      '@svelterialjs/tooltip': workspace:*
       babel-loader: ^8.2.2
       gh-pages: ^3.2.2
       merge-anything: ^4.0.1
@@ -182,6 +189,7 @@ importers:
       '@svelterialjs/metadata': link:../metadata
       '@svelterialjs/navigation': link:../packages/navigation
       '@svelterialjs/process': 0.0.8_svelte@3.38.2
+      '@svelterialjs/tooltip': link:../packages/tooltip
       babel-loader: 8.2.2_@babel+core@7.14.6
       gh-pages: 3.2.2
       merge-anything: 4.0.1
@@ -1988,7 +1996,6 @@ packages:
 
   /@popperjs/core/2.9.2:
     resolution: {integrity: sha512-VZMYa7+fXHdwIq1TDhSXoVmSPEGM/aa+6Aiq3nVVJ9bXr24zScr+NlKFKC3iPljA7ho/GAZr+d2jOf5GIRC30Q==}
-    dev: true
 
   /@reach/router/1.3.4:
     resolution: {integrity: sha512-+mtn9wjlB9NN2CNnnC/BRYtwdKBfSyyasPYraNAyvaV1occr/5NnB4CVzjEZipNHwYebQwcndGUmpFzxAUoqSA==}

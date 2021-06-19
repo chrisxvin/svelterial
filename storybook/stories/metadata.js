@@ -21,13 +21,12 @@ export default (component, settings = {}) => {
   for (const [name, prop] of Object.entries(doc.props)) {
     let type;
     const typeTag = prop.tags.find(({ tag }) => tag === 'type');
-    const isPropAString = prop.value.startsWith(`'`) && prop.value.endsWith("'");
 
     /**
      * Getting the type of value.
      */
     if (typeTag) ({ type } = typeTag);
-    else if (isPropAString) {
+    else if (prop.value && /^['"`].+?['"`]$/.test(prop.value)) {
       type = 'string';
     } else {
       try {
@@ -92,9 +91,7 @@ export default (component, settings = {}) => {
           summary: style.default,
         },
       },
-      control: {
-        type: 'text',
-      },
+      control: false,
     };
   }
 

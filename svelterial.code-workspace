@@ -41,6 +41,10 @@
       "path": "packages/collapse"
     },
     {
+      "name": "Tooltip",
+      "path": "packages/tooltip"
+    },
+    {
       "name": "Tabs",
       "path": "packages/tabs"
     },

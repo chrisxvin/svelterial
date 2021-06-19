@@ -1,0 +1,32 @@
+{
+  "name": "@svelterialjs/tooltip",
+  "version": "0.0.0",
+  "description": "A Svelterial package containing tooltips and popovers.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/svelterialjs/svelterial.git",
+    "directory": "packages/tooltip"
+  },
+  "author": "TheComputerM",
+  "homepage": "https://github.com/svelterialjs/svelterial/tree/main/packages/tooltip#readme",
+  "bugs": {
+    "url": "https://github.com/svelterialjs/svelterial/issues"
+  },
+  "module": "index.js",
+  "keywords": [
+    "svelte",
+    "sveltejs",
+    "svelterial",
+    "material",
+    "material-components",
+    "component-library",
+    "svelte-material",
+    "ui"
+  ],
+  "dependencies": {
+    "@popperjs/core": "^2.9.2"
+  },
+  "types": "types/index.d.ts",
+  "svelte": "index.js"
+}

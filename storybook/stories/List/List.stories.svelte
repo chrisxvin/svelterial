@@ -16,7 +16,7 @@
 
 <Story id="a" name="List" let:args>
   <div class="container">
-    <List --list-indent={args['--list-indent']}>
+    <List>
       <span slot="title">
         {args.slot_title}
       </span>

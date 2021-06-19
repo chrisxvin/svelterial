@@ -27,6 +27,7 @@
     "@svelterialjs/metadata": "workspace:*",
     "@svelterialjs/navigation": "workspace:*",
     "@svelterialjs/process": "^0.0.8",
+    "@svelterialjs/tooltip": "workspace:*",
     "babel-loader": "^8.2.2",
     "gh-pages": "^3.2.2",
     "merge-anything": "^4.0.1",
