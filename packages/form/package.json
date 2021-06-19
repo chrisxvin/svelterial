@@ -30,6 +30,9 @@
   "dependencies": {
     "uid": "^2.0.0"
   },
+  "devDependencies": {
+    "@svelterialjs/core": "workspace:*"
+  },
   "types": "types/index.d.ts",
   "svelte": "index.js"
 }

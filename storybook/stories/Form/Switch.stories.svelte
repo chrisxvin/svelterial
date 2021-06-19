@@ -3,7 +3,7 @@
   import { Switch } from '@svelterialjs/form';
   import metadata from '../metadata';
 
-  let group = [];
+  let group = [2];
 </script>
 
 <Meta title="Components/Form/Switch" component={Switch} />

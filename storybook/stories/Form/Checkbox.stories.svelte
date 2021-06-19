@@ -3,7 +3,7 @@
   import { Checkbox } from '@svelterialjs/form';
   import metadata from '../metadata';
 
-  let group = [];
+  let group = [2];
 </script>
 
 <Meta title="Components/Form/Checkbox" component={Checkbox} />
