@@ -41,10 +41,6 @@ $size: 18px;
 
 .s-radio__circle {
   color: #666666;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  flex: 0 0 auto;
   border: 2px solid currentColor;
   border-radius: 100%;
   width: 100%;
@@ -60,6 +56,7 @@ $size: 18px;
     background-color: currentColor;
     transform: scale(0);
     will-change: transform;
+    transition: transform 100ms map-get(settings.$transitions, 'secondary');
   }
 }
 
