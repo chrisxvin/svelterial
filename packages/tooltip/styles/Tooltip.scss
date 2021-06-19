@@ -1,5 +1,10 @@
 @use '../../core/utils/settings';
 
+$fontSize: 12px;
+$padding: 0.25rem 0.5rem;
+$borderRadius: 4px;
+$elevation: 3;
+
 .s-tooltip__container {
   display: contents;
 }
@@ -7,10 +12,10 @@
 .s-tooltip {
   background-color: #6d6d6d;
   color: #ffffff;
-  font-size: 12px;
-  padding: 4px 8px;
-  border-radius: 4px;
-  @include settings.elevation(3);
+  font-size: $fontSize;
+  padding: $padding;
+  border-radius: $borderRadius;
+  @include settings.elevation($elevation);
 
   clip-path: circle(0%);
   opacity: 0;

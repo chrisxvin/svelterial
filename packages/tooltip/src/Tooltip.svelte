@@ -6,6 +6,9 @@
   import { createPopper } from '@popperjs/core';
   import { onMount } from 'svelte';
 
+  let klass = '';
+  export { klass as class };
+
   /**
    * @type {string}
    */
@@ -42,17 +45,11 @@
 
     function show() {
       tooltip.classList.add('s-tooltip--visible');
-      // instance.setOptions({
-      //   modifiers: [{ name: 'eventListeners', enabled: true }]
-      // });
       instance.update();
     }
 
     function hide() {
       tooltip.classList.remove('s-tooltip--visible');
-      // instance.setOptions({
-      //   modifiers: [{ name: 'eventListeners', enabled: false }],
-      // });
     }
 
     const showEvents = ['mouseenter', 'focus'];
@@ -80,7 +77,7 @@
 <div class="s-tooltip__container" bind:this={container}>
   <slot />
 </div>
-<div class="s-tooltip" role="tooltip" bind:this={tooltip}>
+<div class="s-tooltip {klass}" role="tooltip" bind:this={tooltip}>
   {tip}
 </div>
 
