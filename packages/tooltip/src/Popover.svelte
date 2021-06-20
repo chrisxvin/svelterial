@@ -43,12 +43,6 @@
         },
       },
       {
-        name: 'flip',
-        options: {
-          fallbackPlacements: ['bottom', 'top', 'left', 'right'],
-        },
-      },
-      {
         name: 'arrow',
         options: {
           element: arrow,
