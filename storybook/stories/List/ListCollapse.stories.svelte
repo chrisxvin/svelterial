@@ -1,9 +1,7 @@
 <script>
   import { Meta, Story } from '@storybook/addon-svelte-csf';
   import metadata from '../metadata';
-  import { Icon } from '@svelterialjs/core';
   import { ListCollapse, ListItem } from '@svelterialjs/list';
-  import { mdiChevronDown } from '@mdi/js';
 </script>
 
 <Meta
@@ -21,14 +19,8 @@
 <Story name="Basic" args={{ indent: '24px' }} let:args>
   <div class="container">
     <ListCollapse {...args}>
-      <svelte:fragment slot="trigger" let:active>
-        <ListItem selectable>
-          <Icon
-            slot="prepend"
-            --icon-rotate="{active ? 180 : 0}deg"
-            path={mdiChevronDown} />
-          Hello
-        </ListItem>
+      <svelte:fragment slot="trigger">
+        <ListItem selectable>Click Me</ListItem>
       </svelte:fragment>
       {#each Array(3) as _, i}
         <ListItem>
@@ -39,20 +31,11 @@
   </div>
 </Story>
 
-<Story
-  name="Triggers"
-  args={{ indent: '24px', triggers: ['mouseover:show'] }}
-  let:args>
+<Story name="Triggers" args={{ indent: '24px', triggers: ['mouseover:show'] }} let:args>
   <div class="container">
     <ListCollapse {...args}>
-      <svelte:fragment slot="trigger" let:active>
-        <ListItem selectable>
-          <Icon
-            slot="prepend"
-            --icon-rotate="{active ? 180 : 0}deg"
-            path={mdiChevronDown} />
-          Hello
-        </ListItem>
+      <svelte:fragment slot="trigger">
+        <ListItem selectable>Click Me</ListItem>
       </svelte:fragment>
       {#each Array(3) as _, i}
         <ListItem>
