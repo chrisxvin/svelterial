@@ -1,6 +1,6 @@
 <script>
   import { writable } from 'svelte/store';
-  import { createSelect } from '@svelterialjs/core/utils/Group.js';
+  import { createSelect, isActive } from '@svelterialjs/core/utils/Group.js';
   import ListItem from './ListItem.svelte';
 
   export let items = [];
@@ -21,17 +21,13 @@
   export let activeProps = { active: true };
 
   value.select = createSelect(value.update);
-
-  function isActive(val) {
-    return Array.isArray($value) ? $value.includes(val) : val === $value;
-  }
 </script>
 
 {#each items as [val, item]}
   <ListItem
     on:click={value.select(val, { multiple, mandatory, max })}
     {...props}
-    {...isActive(val, $value) ? activeProps : {}}>
+    {...isActive($value, val) ? activeProps : {}}>
     <slot name="prepend" slot="prepend" />
     <slot {item} />
     <slot name="subtitle" slot="subtitle" />

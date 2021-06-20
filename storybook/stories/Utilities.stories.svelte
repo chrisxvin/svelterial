@@ -2,8 +2,12 @@
   import { Meta, Story } from '@storybook/addon-svelte-csf';
   import Ripple from '@svelterialjs/core/utils/Ripple';
   import Screen from '@svelterialjs/core/utils/Screen.svelte';
+  import { createSelect, isActive } from '@svelterialjs/core/utils/Group';
+  import { writable } from 'svelte/store';
 
   let screen = {};
+  const group = writable(0);
+  group.select = createSelect(group.update);
 </script>
 
 <Meta
@@ -68,6 +72,29 @@
   <Screen on:change={(e) => (screen = e.detail)} />
   <h5>name: {screen.name}</h5>
   <h5>bodySize: {screen.bodySize}px</h5>
+</Story>
+
+<Story name="Group" args={{ multiple: false, mandatory: false, max: Infinity }} let:args>
+  <div class="grid">
+    <div
+      class="card"
+      on:click={group.select(1, args)}
+      class:s-primary={isActive($group, 1)}>
+      Select 1
+    </div>
+    <div
+      class="card"
+      on:click={group.select(2, args)}
+      class:s-primary={isActive($group, 2)}>
+      Select 2
+    </div>
+    <div
+      class="card"
+      on:click={group.select(3, args)}
+      class:s-primary={isActive($group, 3)}>
+      Select 3
+    </div>
+  </div>
 </Story>
 
 <style>

@@ -21,3 +21,7 @@ export function createSelect(update) {
     });
   };
 }
+
+export function isActive($value, val) {
+  return Array.isArray($value) ? $value.includes(val) : val === $value;
+}
