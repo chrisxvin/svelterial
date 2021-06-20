@@ -1,8 +1,8 @@
-<!-- <script>
+<script>
   import { Meta, Story } from '@storybook/addon-svelte-csf';
   import metadata from '../metadata';
   import { Icon } from '@svelterialjs/core';
-  import { List, ListCollapse, ListItem } from '@svelterialjs/list';
+  import { ListCollapse, ListItem } from '@svelterialjs/list';
   import { mdiChevronDown } from '@mdi/js';
 </script>
 
@@ -18,25 +18,47 @@
     },
   })} />
 
-<Story name="Level 1" let:args>
+<Story name="Basic" args={{ indent: '24px' }} let:args>
   <div class="container">
     <ListCollapse {...args}>
-      <svelte:fragment slot="trigger" let:toggle>
-        <ListItem selectable on:click={toggle}>
+      <svelte:fragment slot="trigger" let:active>
+        <ListItem selectable>
           <Icon
             slot="prepend"
-            --icon-rotate="{args.active ? 180 : 0}deg"
+            --icon-rotate="{active ? 180 : 0}deg"
             path={mdiChevronDown} />
           Hello
         </ListItem>
       </svelte:fragment>
-      <List --list-indent="24px">
-        {#each Array(3) as _, i}
-          <ListItem>
-            Item {i + 1}
-          </ListItem>
-        {/each}
-      </List>
+      {#each Array(3) as _, i}
+        <ListItem>
+          Item {i + 1}
+        </ListItem>
+      {/each}
+    </ListCollapse>
+  </div>
+</Story>
+
+<Story
+  name="Triggers"
+  args={{ indent: '24px', triggers: ['mouseover:show'] }}
+  let:args>
+  <div class="container">
+    <ListCollapse {...args}>
+      <svelte:fragment slot="trigger" let:active>
+        <ListItem selectable>
+          <Icon
+            slot="prepend"
+            --icon-rotate="{active ? 180 : 0}deg"
+            path={mdiChevronDown} />
+          Hello
+        </ListItem>
+      </svelte:fragment>
+      {#each Array(3) as _, i}
+        <ListItem>
+          Item {i + 1}
+        </ListItem>
+      {/each}
     </ListCollapse>
   </div>
 </Story>
@@ -46,4 +68,4 @@
     width: 300px;
     border: 1px solid #d3d3d3;
   }
-</style> -->
+</style>
