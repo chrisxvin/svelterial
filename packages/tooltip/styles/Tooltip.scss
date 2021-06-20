@@ -4,14 +4,16 @@ $fontSize: 12px;
 $padding: 0.25rem 0.5rem;
 $borderRadius: 4px;
 $elevation: 3;
+$background: #6d6d6d;
+$color: #ffffff;
 
 .s-tooltip__container {
   display: contents;
 }
 
 .s-tooltip {
-  background-color: #6d6d6d;
-  color: #ffffff;
+  background-color: $background;
+  color: $color;
   font-size: $fontSize;
   padding: $padding;
   border-radius: $borderRadius;
@@ -19,13 +21,15 @@ $elevation: 3;
 
   clip-path: circle(0%);
   opacity: 0;
+  visibility: hidden;
   transition: 200ms map-get(settings.$transitions, 'primary');
-  transition-property: opacity, clip-path;
+  transition-property: opacity, clip-path, visibility;
   transition-delay: 0s;
 }
 
 .s-tooltip--visible {
   clip-path: circle(100%);
   opacity: 1;
+  visibility: visible;
   transition-delay: var(--tooltip-delay, 0s);
 }

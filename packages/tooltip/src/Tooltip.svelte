@@ -56,18 +56,18 @@
     const hideEvents = ['mouseleave', 'blur'];
 
     showEvents.forEach((event) => {
-      container.addEventListener(event, show, { passive: true });
+      target.addEventListener(event, show, { passive: true });
     });
     hideEvents.forEach((event) => {
-      container.addEventListener(event, hide, { passive: true });
+      target.addEventListener(event, hide, { passive: true });
     });
 
     return () => {
       showEvents.forEach((event) => {
-        container.removeEventListener(event, show);
+        target.removeEventListener(event, show);
       });
       hideEvents.forEach((event) => {
-        container.removeEventListener(event, hide);
+        target.removeEventListener(event, hide);
       });
       instance.destroy();
     };

@@ -1,0 +1,58 @@
+@use '../../core/utils/settings';
+
+.s-popover__container {
+  display: contents;
+}
+
+.s-popover__arrow {
+  visibility: hidden;
+
+  &::before {
+    visibility: visible;
+    content: '';
+    background-color: #ffffff;
+    transform: rotate(45deg);
+    left: 0;
+    top: 0;
+    position: absolute;
+  }
+}
+
+.s-popover__arrow,
+.s-popover__arrow::before {
+  width: 10px;
+  height: 10px;
+  z-index: -1;
+}
+
+.s-popover {
+  line-height: 1.6;
+  max-width: 300px;
+  font-size: 0.875rem;
+  padding: 0.75rem 1rem;
+  color: #4f4f4f;
+  border-radius: 0.5rem;
+  @include settings.elevation(4);
+
+  display: none;
+
+  &[data-popper-placement^='top'] > .s-popover__arrow {
+    bottom: -4px;
+  }
+
+  &[data-popper-placement^='bottom'] > .s-popover__arrow {
+    top: -4px;
+  }
+
+  &[data-popper-placement^='left'] > .s-popover__arrow {
+    right: -4px;
+  }
+
+  &[data-popper-placement^='right'] > .s-popover__arrow {
+    left: -4px;
+  }
+}
+
+.s-popover--active {
+  display: block;
+}
