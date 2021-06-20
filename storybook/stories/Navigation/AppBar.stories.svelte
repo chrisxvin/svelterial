@@ -23,7 +23,7 @@
       },
     },
   })}
-  args={{ slot_title: 'Title' }} />
+  args={{ slot_title: 'Title', slot_default: '' }} />
 
 <Story id="a" name="AppBar" let:args>
   <AppBar {...args}>

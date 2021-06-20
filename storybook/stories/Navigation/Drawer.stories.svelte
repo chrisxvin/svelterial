@@ -23,7 +23,8 @@
         type: 'select',
       },
     },
-  })} />
+  })}
+  args={{ slot_default: '' }} />
 
 <Story id="a" name="Drawer" let:args>
   <Drawer {...args}>
