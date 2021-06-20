@@ -34,7 +34,7 @@ module.exports = {
       },
     },
     '@storybook/addon-a11y',
-    '@storybook/addon-measure',
+    // '@storybook/addon-measure',
     '@storybook/addon-svelte-csf',
   ],
   features: {
