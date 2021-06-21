@@ -1,7 +1,7 @@
 {
   "name": "@svelterialjs/navigation",
   "version": "0.0.0",
-  "description": "A Svelterial package for adding navigation components",
+  "description": "A Svelterial package for adding navigation components.",
   "license": "MIT",
   "repository": {
     "type": "git",

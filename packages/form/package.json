@@ -1,7 +1,7 @@
 {
   "name": "@svelterialjs/form",
   "version": "0.0.0",
-  "description": "A Svelterial package for adding form components",
+  "description": "A Svelterial package for adding form components.",
   "license": "MIT",
   "repository": {
     "type": "git",
