@@ -1,0 +1,48 @@
+@use '../../core/utils/settings';
+
+.s-slide-group {
+  display: flex;
+}
+
+.s-slide-group__content {
+  display: flex;
+  flex: 1 0 auto;
+  position: relative;
+  transition: transform 200ms map-get(settings.$transitions, 'primary');
+  white-space: nowrap;
+}
+
+.s-slide-group__wrapper {
+  contain: content;
+  display: flex;
+  flex: 1 1 auto;
+  overflow: hidden;
+  touch-action: none;
+}
+
+:where(.s-slide-group__next, .s-slide-group__prev) {
+  align-items: center;
+  display: flex;
+  flex: 0 1 52px;
+  min-width: 52px;
+  justify-content: center;
+  cursor: pointer;
+
+  &.is-disabled {
+    pointer-events: none;
+    opacity: 0.5;
+  }
+}
+
+.s-slide-group__next {
+  order: 2;
+}
+
+.s-slide-group__controls {
+  display: contents;
+
+  &.is-hidden-disabled > :where(.s-slide-group__next, .s-slide-group__prev).is-disabled {
+    opacity: 0;
+    visibility: hidden;
+  }
+}

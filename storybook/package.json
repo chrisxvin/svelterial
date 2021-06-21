@@ -26,6 +26,7 @@
     "@svelterialjs/list": "workspace:*",
     "@svelterialjs/metadata": "workspace:*",
     "@svelterialjs/navigation": "workspace:*",
+    "@svelterialjs/slide-group": "workspace:*",
     "@svelterialjs/process": "^0.0.8",
     "@svelterialjs/tooltip": "workspace:*",
     "babel-loader": "^8.2.2",

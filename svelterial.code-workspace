@@ -33,6 +33,10 @@
       "path": "packages/table"
     },
     {
+      "name": "Slide Group",
+      "path": "packages/slide-group"
+    },
+    {
       "name": "Chips",
       "path": "packages/chips"
     },

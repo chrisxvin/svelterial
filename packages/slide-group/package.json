@@ -1,0 +1,35 @@
+{
+  "name": "@svelterialjs/slide-group",
+  "version": "0.0.0",
+  "description": "A Svelterial package for adding slide groups.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/svelterialjs/svelterial.git",
+    "directory": "packages/slide-group"
+  },
+  "author": "TheComputerM",
+  "homepage": "https://github.com/svelterialjs/svelterial/tree/main/packages/slide-group#readme",
+  "bugs": {
+    "url": "https://github.com/svelterialjs/svelterial/issues"
+  },
+  "module": "index.js",
+  "keywords": [
+    "svelte",
+    "sveltejs",
+    "svelterial",
+    "material",
+    "material-components",
+    "component-library",
+    "svelte-material",
+    "ui"
+  ],
+  "peerDependencies": {
+    "@svelterialjs/core": "workspace:^"
+  },
+  "devDependencies": {
+    "@svelterialjs/core": "workspace:*"
+  },
+  "types": "types/index.d.ts",
+  "svelte": "index.js"
+}
