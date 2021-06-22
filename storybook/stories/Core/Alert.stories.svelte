@@ -9,18 +9,14 @@
   title="Components/Core/Alert"
   component={Alert}
   argTypes={metadata('core/Alert', {
-    class: {
-      defaultValue: 's-primary',
-    },
     border: {
-      defaultValue: false,
       options: [false, 'top', 'bottom', 'left', 'right'],
       control: {
         type: 'select',
       },
     },
     slot_default: {
-      defaultValue: 'Alert Content',
+      control: false,
     },
     slot_prepend: {
       control: false,
@@ -28,20 +24,25 @@
     slot_append: {
       control: false,
     },
-  })} />
+  })}
+  args={{ class: 's-primary' }} />
 
 <Story name="Basic" let:args>
   <Alert {...args}>
-    {args.slot_default}
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo in iure neque, ipsa,
+    obcaecati earum itaque doloribus est dicta dolore suscipit illo modi corrupti
+    similique repellat deleniti sunt recusandae autem.
   </Alert>
 </Story>
+
 <Story name="With Icons" let:args>
   <Alert {...args}>
     <Icon slot="prepend" path={mdiHome} />
-    <p style="padding: 0 4px">
-      {args.slot_default}
-    </p>
-    <Button slot="append" variant="icon" text>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit corrupti deserunt magnam
+    delectus debitis officia dicta blanditiis voluptatum omnis quo doloribus adipisci quis
+    illo necessitatibus consequuntur illum natus inventore, quod quos ipsum. Quae possimus
+    id aliquam illo temporibus natus nemo!
+    <Button slot="append" variant="icon" size="small" text>
       <Icon path={mdiClose} />
     </Button>
   </Alert>

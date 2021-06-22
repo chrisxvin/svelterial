@@ -46,16 +46,18 @@
   class:s-alert--text={text}
   class:s-alert--tile={tile}
   class:s-alert--colored-border={coloredBorder}>
-  <div class="s-alert__wrapper">
+  <div class="s-alert__prepend">
     <slot name="prepend" />
-    <div class="s-alert__content">
-      <slot />
-    </div>
-    <slot name="append" />
-    {#if border}
-      <div class="s-alert__border is-border-{border}" />
-    {/if}
   </div>
+  <div class="s-alert__content">
+    <slot />
+  </div>
+  <div class="s-alert__append">
+    <slot name="append" />
+  </div>
+  {#if border}
+    <div class="s-alert__border is-border-{border}" />
+  {/if}
 </div>
 
 <style svelterial="../styles/Alert.scss"></style>
