@@ -8,7 +8,7 @@ glob('./packages/*/package.json', {}).forEach((_pkg) => {
   const pkg = JSON.parse(fs.readFileSync(pkgPath).toString());
   const { description, name } = pkg;
   const folder = path.basename(path.dirname(pkgPath));
-  output.push(`[**${name}**](${folder}) - ${description}`);
+  output.push(`- [**${name}**](${folder}) - ${description}`);
 });
 
 fs.writeFileSync(path.resolve('./packages/README.md'), output.join('\n'));
