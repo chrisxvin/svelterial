@@ -1,41 +1,38 @@
-$breadcrumbs-flex: 0 1 auto !default;
-$breadcrumbs-padding: 18px 12px !default;
-$breadcrumbs-even-child-padding: 0 12px !default;
-$breadcrumbs-item-font-size: 14px !default;
-$breadcrumbs-item-large-font-size: 16px !default;
-$breadcrumbs-margin: 0 !default;
-$breadcrumbs-padding: 0 14px !default;
+$flex: 0 1 auto !default;
+$padding: 18px 12px !default;
+$evenChildPadding: 0 12px !default;
+$itemFontSize: 14px !default;
+$itemLargeFontSize: 16px !default;
+$margin: 0 !default;
+$padding: 0 14px !default;
 
 .s-breadcrumbs {
   align-items: center;
   display: flex;
   flex-wrap: wrap;
-  flex: $breadcrumbs-flex;
+  flex: $flex;
   list-style-type: none;
-  margin: $breadcrumbs-margin;
-  padding: $breadcrumbs-padding;
+  margin: $margin;
+  padding: $padding;
 }
 
 .s-breadcrumbs__divider {
   color: var(--s-text-disabled);
+  padding: $evenChildPadding;
 }
 
 .s-breadcrumbs__item {
   align-items: center;
   display: inline-flex;
-  font-size: $breadcrumbs-item-font-size;
+  font-size: $itemFontSize;
 
   .s-icon {
-    font-size: $breadcrumbs-item-large-font-size;
-  }
-
-  &:nth-child(even) {
-    padding: $breadcrumbs-even-child-padding;
+    font-size: $itemLargeFontSize;
   }
 }
 
 .s-breadcrumbs--large .s-breadcrumbs__item {
-  font-size: $breadcrumbs-item-large-font-size;
+  font-size: $itemLargeFontSize;
 }
 
 .s-breadcrumbs__content {
