@@ -7,4 +7,3 @@ export { default as Overlay } from './src/Overlay.svelte';
 export { default as Alert } from './src/Alert.svelte';
 export { default as LinearProgress } from './src/LinearProgress.svelte';
 export { default as CircularProgress } from './src/CircularProgress.svelte';
-export { default as Badge } from './src/Badge.svelte';
