@@ -46,7 +46,7 @@
     </div>
     Click on this button to find more about your account.
   </Popover>
-  <Overlay absolute --overlay-index="1" on:click={next} />
+  <Overlay --overlay-index="1" on:click={next} />
 </Story>
 
 <style>
