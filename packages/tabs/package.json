@@ -1,0 +1,29 @@
+{
+  "name": "@svelterialjs/tabs",
+  "version": "0.0.0",
+  "description": "A Svelterial package containing tabs and windows.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/svelterialjs/svelterial.git",
+    "directory": "packages/tabs"
+  },
+  "author": "TheComputerM",
+  "homepage": "https://github.com/svelterialjs/svelterial/tree/main/packages/tabs#readme",
+  "bugs": {
+    "url": "https://github.com/svelterialjs/svelterial/issues"
+  },
+  "module": "index.js",
+  "keywords": [
+    "svelte",
+    "sveltejs",
+    "svelterial",
+    "material",
+    "material-components",
+    "component-library",
+    "svelte-material",
+    "ui"
+  ],
+  "types": "types/index.d.ts",
+  "svelte": "index.js"
+}

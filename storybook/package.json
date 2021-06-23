@@ -29,6 +29,7 @@
     "@svelterialjs/slide-group": "workspace:*",
     "@svelterialjs/process": "^0.0.8",
     "@svelterialjs/tooltip": "workspace:*",
+    "@svelterialjs/tabs": "workspace:*",
     "babel-loader": "^8.2.2",
     "gh-pages": "^3.2.2",
     "merge-anything": "^4.0.1",

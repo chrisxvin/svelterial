@@ -66,7 +66,7 @@ importers:
     devDependencies:
       '@mdi/js': 5.9.55
       '@sveltejs/adapter-static': 1.0.0-next.13
-      '@sveltejs/kit': 1.0.0-next.115_svelte@3.38.2
+      '@sveltejs/kit': 1.0.0-next.116_svelte@3.38.2
       '@svelterialjs/core': link:../packages/core
       '@typescript-eslint/eslint-plugin': 4.28.0_4ec1e0eca7c6e4115e1e7a13008fdec2
       '@typescript-eslint/parser': 4.28.0_eslint@7.29.0+typescript@4.3.4
@@ -93,7 +93,7 @@ importers:
       svelte-docster: ^2.0.1
       tiny-glob: ^0.2.9
     devDependencies:
-      svelte-docster: 2.0.1
+      svelte-docster: 2.0.1_svelte@3.38.2
       tiny-glob: 0.2.9
 
   packages/chips:
@@ -141,6 +141,9 @@ importers:
   packages/table:
     specifiers: {}
 
+  packages/tabs:
+    specifiers: {}
+
   packages/tooltip:
     specifiers:
       '@popperjs/core': ^2.9.2
@@ -169,6 +172,7 @@ importers:
       '@svelterialjs/navigation': workspace:*
       '@svelterialjs/process': ^0.0.8
       '@svelterialjs/slide-group': workspace:*
+      '@svelterialjs/tabs': workspace:*
       '@svelterialjs/tooltip': workspace:*
       babel-loader: ^8.2.2
       gh-pages: ^3.2.2
@@ -197,6 +201,7 @@ importers:
       '@svelterialjs/navigation': link:../packages/navigation
       '@svelterialjs/process': 0.0.8_svelte@3.38.2
       '@svelterialjs/slide-group': link:../packages/slide-group
+      '@svelterialjs/tabs': link:../packages/tabs
       '@svelterialjs/tooltip': link:../packages/tooltip
       babel-loader: 8.2.2_@babel+core@7.14.6
       gh-pages: 3.2.2
@@ -3069,24 +3074,24 @@ packages:
     resolution: {integrity: sha512-zaXJlWK9JfrjrE6nG5etB8kf4DSkbE3H8Ql6gmCk3WjdvpY85a60TMYBU9OK2iunkqpHnPYiMUGEnOGYmWlLYA==}
     dev: true
 
-  /@sveltejs/kit/1.0.0-next.115_svelte@3.38.2:
-    resolution: {integrity: sha512-XbkL9hI7LI0Dfum9crtBIeENqdJEjMfDaX3qQTTgdYkhlb4KNNYErmDWo8bJNJKEfdV0BJBVN/I0wiat3cd/yA==}
-    engines: {node: ^12.20 || ^14.13.1 || >= 16}
+  /@sveltejs/kit/1.0.0-next.116_svelte@3.38.2:
+    resolution: {integrity: sha512-BpqiZMgCjxZUpDYnRZ3Z2H0PQtj7ak+EHOTJYOCUzDUK4iT4Jd36ljlzTEQgEJKrBTKZJgs0yFH1Zc9AAdftoA==}
+    engines: {node: ^12.20 || >=14.13}
     hasBin: true
     peerDependencies:
       svelte: ^3.38.2
     dependencies:
-      '@sveltejs/vite-plugin-svelte': 1.0.0-next.11_svelte@3.38.2+vite@2.3.7
+      '@sveltejs/vite-plugin-svelte': 1.0.0-next.11_svelte@3.38.2+vite@2.3.8
       cheap-watch: 1.0.3
       sade: 1.7.4
       svelte: 3.38.2
-      vite: 2.3.7
+      vite: 2.3.8
     transitivePeerDependencies:
       - rollup
       - supports-color
     dev: true
 
-  /@sveltejs/vite-plugin-svelte/1.0.0-next.11_svelte@3.38.2+vite@2.3.7:
+  /@sveltejs/vite-plugin-svelte/1.0.0-next.11_svelte@3.38.2+vite@2.3.8:
     resolution: {integrity: sha512-EYR1I145k5rflVqhPwk3442m3bkYimTKSHM9uO5KdomXzt+GS9ZSBJQE3/wy1Di9V8OnGa3oKpckI3OZsHkTIA==}
     engines: {node: ^12.20 || ^14.13.1 || >= 16}
     peerDependencies:
@@ -3099,7 +3104,7 @@ packages:
       require-relative: 0.8.7
       svelte: 3.38.2
       svelte-hmr: 0.14.4_svelte@3.38.2
-      vite: 2.3.7
+      vite: 2.3.8
     transitivePeerDependencies:
       - rollup
       - supports-color
@@ -10946,12 +10951,6 @@ packages:
     resolution: {integrity: sha1-fRh9tcbNu9ZNdaMvkbiZi94yc8M=}
     dev: true
 
-  /svelte-docster/2.0.1:
-    resolution: {integrity: sha512-J00AvzKMbbToGd1OzJzoWRWMNqhKmsKWo66xTz5hxmUMyApJPzI/7IVUNKUsbaTOO0Q/9VVKBvTdEjiiBtmDlg==}
-    peerDependencies:
-      svelte: ^3.38.2
-    dev: true
-
   /svelte-docster/2.0.1_svelte@3.38.2:
     resolution: {integrity: sha512-J00AvzKMbbToGd1OzJzoWRWMNqhKmsKWo66xTz5hxmUMyApJPzI/7IVUNKUsbaTOO0Q/9VVKBvTdEjiiBtmDlg==}
     peerDependencies:
@@ -11830,8 +11829,8 @@ packages:
       - supports-color
     dev: true
 
-  /vite/2.3.7:
-    resolution: {integrity: sha512-Y0xRz11MPYu/EAvzN94+FsOZHbSvO6FUvHv127CyG7mV6oDoay2bw+g5y9wW3Blf8OY3chaz3nc/DcRe1IQ3Nw==}
+  /vite/2.3.8:
+    resolution: {integrity: sha512-QiEx+iqNnJntSgSF2fWRQvRey9pORIrtNJzNyBJXwc+BdzWs83FQolX84cTBo393cfhObrtWa6180dAa4NLDiQ==}
     engines: {node: '>=12.0.0'}
     hasBin: true
     dependencies:
