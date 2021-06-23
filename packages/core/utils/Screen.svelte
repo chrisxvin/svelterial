@@ -1,36 +1,39 @@
 <script context="module">
+  /** @type {string[][]} */
   let breakpoints;
-</script>
 
-<script>
-  import { createEventDispatcher, onMount } from 'svelte';
-
-  let elem;
-  const dispatch = createEventDispatcher();
-
-  function observe() {
-    const observer = new ResizeObserver((entries) => {
-      const bodySize = entries[0].contentRect.width;
-      const [name] = breakpoints.find(([, size]) => parseInt(size) <= bodySize);
-      dispatch('change', { name, bodySize });
-    });
-    observer.observe(document.body);
-    return observer.disconnect;
-  }
-
-  onMount(() => {
+  /**
+   * @param {Element} node
+   * @param {string[]} range
+   */
+  function Observer(node, range) {
     if (!breakpoints) {
-      const style = getComputedStyle(elem);
-      breakpoints = ['xs', 'sm', 'md', 'lg', 'xl'].reduceRight((acc, i) => {
-        acc.push([i, style.getPropertyValue(`--${i}`)]);
+      const style = getComputedStyle(node);
+      breakpoints = range.reduceRight((acc, i) => {
+        acc.push([i, parseInt(style.getPropertyValue(`--${i}`))]);
         return acc;
       }, []);
     }
-    observe();
-  });
+
+    const observer = new ResizeObserver((entries) => {
+      const bodySize = entries[0].contentRect.width;
+      const [name] = breakpoints.find(([, size]) => size <= bodySize);
+      node.dispatchEvent(new CustomEvent('change', { detail: { name, bodySize } }));
+    });
+
+    observer.observe(document.body);
+
+    return {
+      destroy: observer.disconnect,
+    };
+  }
 </script>
 
-<div class="s-screenobserver" bind:this={elem} />
+<script>
+  export let range = ['xs', 'sm', 'md', 'lg', 'xl'];
+</script>
+
+<div class="s-screenobserver" on:change use:Observer={range} />
 
 <style svelterial="../styles/Screen.scss">
 </style>
