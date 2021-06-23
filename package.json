@@ -40,7 +40,7 @@
     "stylelint": "^13.13.1",
     "stylelint-config-standard": "^22.0.0",
     "stylelint-scss": "^3.19.0",
-    "svelte": "^3.38.2",
+    "svelte": "^3.38.3",
     "sveltyper": "^1.0.2",
     "tiny-glob": "^0.2.9"
   },
