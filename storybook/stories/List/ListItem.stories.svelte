@@ -10,7 +10,7 @@
   title="Components/List/ListItem"
   component={ListItem}
   argTypes={metadata('list/ListItem')}
-  args={{ slot_default: 'This is the ListItem content.' }} />
+  args={{ slot_default: 'This is the ListItem content.', slot_subtitle: 'Subtitle' }} />
 
 <Story name="Basic" let:args>
   <ListItem {...args}>

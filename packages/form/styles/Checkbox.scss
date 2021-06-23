@@ -54,11 +54,12 @@ $size: 1em;
     height: $size;
     color: #ffffff;
     fill: currentColor;
-  }
-}
 
-.s-checkbox__icon {
-  stroke: currentColor;
+    > path {
+      stroke: currentColor;
+      display: none;
+    }
+  }
 }
 
 .s-checkbox__input {
@@ -78,11 +79,11 @@ $size: 1em;
     }
   }
 
-  &:checked + .s-checkbox__box .s-checkbox__icon {
-    d: path('M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z');
+  &:checked + .s-checkbox__box .s-checkbox__checked {
+    display: block;
   }
 
-  &:indeterminate + .s-checkbox__box .s-checkbox__icon {
-    d: path('M5,11L5,13L19,13L19,11L5,11Z');
+  &:indeterminate + .s-checkbox__box .s-checkbox__indeterminate {
+    display: block;
   }
 }
