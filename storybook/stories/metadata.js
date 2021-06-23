@@ -71,9 +71,7 @@ export default (component, settings = {}) => {
           summary: slot.type,
         },
       },
-      control: {
-        type: 'text',
-      },
+      control: false,
     };
   }
 
