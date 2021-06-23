@@ -8,11 +8,7 @@
 <Meta
   title="Components/Tooltip/Tooltip"
   component={Tooltip}
-  argTypes={metadata('tooltip/Tooltip', {
-    slot_default: {
-      control: false,
-    },
-  })}
+  argTypes={metadata('tooltip/Tooltip')}
   args={{ tip: 'Hello World' }} />
 
 <Story name="Basic" let:args>

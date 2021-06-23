@@ -7,11 +7,7 @@
 <Meta
   title="Components/List/List"
   component={List}
-  argTypes={metadata('list/List', {
-    slot_default: {
-      control: false,
-    },
-  })}
+  argTypes={metadata('list/List')}
   args={{ slot_title: 'Title' }} />
 
 <Story id="a" name="List" let:args>

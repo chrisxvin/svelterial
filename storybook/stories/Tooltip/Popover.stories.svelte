@@ -8,11 +8,7 @@
 <Meta
   title="Components/Tooltip/Popover"
   component={Popover}
-  argTypes={metadata('tooltip/Popover', {
-    slot_default: {
-      control: false,
-    },
-  })} />
+  argTypes={metadata('tooltip/Popover')} />
 
 <Story name="Basic" let:args>
   <Popover {...args}>

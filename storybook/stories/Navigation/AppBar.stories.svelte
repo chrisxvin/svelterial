@@ -11,9 +11,6 @@
   title="Components/Navigation/AppBar"
   component={AppBar}
   argTypes={metadata('navigation/AppBar', {
-    slot_extension: {
-      control: false,
-    },
     slot_icon: {
       defaultValue: 'mdiMenu',
       options: ['mdiMenu', 'mdiGithub', 'mdiRocket'],

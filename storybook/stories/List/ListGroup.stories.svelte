@@ -9,20 +9,7 @@
 <Meta
   title="Components/List/ListGroup"
   component={ListGroup}
-  argTypes={metadata('list/ListGroup', {
-    slot_default: {
-      control: false,
-    },
-    slot_prepend: {
-      control: false,
-    },
-    slot_append: {
-      control: false,
-    },
-    slot_subtitle: {
-      control: false,
-    },
-  })} />
+  argTypes={metadata('list/ListGroup')} />
 
 <Story
   id="a"

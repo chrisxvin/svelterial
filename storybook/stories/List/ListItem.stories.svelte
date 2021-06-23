@@ -9,14 +9,7 @@
 <Meta
   title="Components/List/ListItem"
   component={ListItem}
-  argTypes={metadata('list/ListItem', {
-    slot_prepend: {
-      control: false,
-    },
-    slot_append: {
-      control: false,
-    },
-  })}
+  argTypes={metadata('list/ListItem')}
   args={{ slot_default: 'This is the ListItem content.' }} />
 
 <Story name="Basic" let:args>

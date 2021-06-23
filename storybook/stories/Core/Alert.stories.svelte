@@ -15,15 +15,6 @@
         type: 'select',
       },
     },
-    slot_default: {
-      control: false,
-    },
-    slot_prepend: {
-      control: false,
-    },
-    slot_append: {
-      control: false,
-    },
   })}
   args={{ class: 's-primary' }} />
 

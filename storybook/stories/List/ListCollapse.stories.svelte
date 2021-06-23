@@ -7,14 +7,7 @@
 <Meta
   title="Components/List/ListCollapse"
   component={ListCollapse}
-  argTypes={metadata('list/ListCollapse', {
-    slot_default: {
-      control: false,
-    },
-    slot_trigger: {
-      control: false,
-    },
-  })} />
+  argTypes={metadata('list/ListCollapse')} />
 
 <Story name="Basic" args={{ indent: '24px' }} let:args>
   <div class="container">

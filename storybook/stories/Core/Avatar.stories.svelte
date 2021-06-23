@@ -8,11 +8,7 @@
 <Meta
   title="Components/Core/Avatar"
   component={Avatar}
-  argTypes={metadata('core/Avatar', {
-    slot_default: {
-      control: false,
-    },
-  })} />
+  argTypes={metadata('core/Avatar')} />
 
 <Story name="SVG Icon" let:args>
   <Avatar {...args}>
