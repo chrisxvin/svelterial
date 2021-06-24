@@ -36,25 +36,27 @@ export default (component, settings = {}) => {
       }
     }
 
-    props[name] = {
-      name,
-      type: {
-        required: prop.required,
-      },
-      description: prop.description,
-      table: {
-        category: 'Props',
+    if (prop.kind === 'let') {
+      props[name] = {
+        name,
         type: {
-          summary: type,
+          required: prop.required,
         },
-        defaultValue: {
-          summary: prop.value,
+        description: prop.description,
+        table: {
+          category: 'Props',
+          type: {
+            summary: type,
+          },
+          defaultValue: {
+            summary: prop.value,
+          },
         },
-      },
-      control: {
-        type: getControlType(type),
-      },
-    };
+        control: {
+          type: getControlType(type),
+        },
+      };
+    }
   }
 
   const slots = {};
