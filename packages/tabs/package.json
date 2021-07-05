@@ -25,8 +25,8 @@
     "ui"
   ],
   "peerDependencies": {
-    "@svelterialjs/slide-group": "workspace:^",
-    "@svelterialjs/core": "workspace:^"
+    "@svelterialjs/core": "workspace:^",
+    "@svelterialjs/slide-group": "workspace:^"
   },
   "devDependencies": {
     "@svelterialjs/slide-group": "workspace:*"
