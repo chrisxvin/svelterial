@@ -27,7 +27,7 @@
     const eventsMap = {
       toggle,
       show,
-      hide
+      hide,
     };
     const trigger = container.querySelector('.s-listitem');
     events.forEach(([e, fn]) => {
@@ -39,7 +39,6 @@
       });
     };
   });
-
 </script>
 
 <div class="s-listcollapse__trigger" bind:this={container}>
@@ -58,5 +57,4 @@
   .s-listcollapse__trigger {
     display: contents;
   }
-
 </style>

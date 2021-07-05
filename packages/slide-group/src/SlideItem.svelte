@@ -12,7 +12,7 @@
 
   let klass = '';
   export { klass as class };
-  export let disabled = null;
+  export let disabled = false;
 
   function selectItem() {
     if (!disabled) select(item, index);
@@ -22,3 +22,9 @@
 <div bind:this={item} class="s-slide-item {klass}" on:click={selectItem}>
   <slot active={isActive($value, index)} />
 </div>
+
+<style>
+  :global(.s-slide-item) {
+    display: contents;
+  }
+</style>

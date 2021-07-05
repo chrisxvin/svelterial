@@ -3,7 +3,7 @@
 </script>
 
 <script>
-  import { setContext, afterUpdate } from 'svelte';
+  import { setContext, afterUpdate, getContext } from 'svelte';
   import { writable } from 'svelte/store';
   import { createSelect } from '@svelterialjs/core/utils/Group';
   import Icon from '@svelterialjs/core/src/Icon.svelte';
@@ -56,15 +56,20 @@
 
   value.select = createSelect(value.update);
 
-  const prevIcon = 'M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z';
-  const nextIcon = 'M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z';
+  const { arrow } = getContext('SVELTERIAL_ICONS');
+
   let startIndex = -1;
   let offset = 0;
   setContext(SLIDE_GROUP, {
+    /**
+     * @param {Element} item
+     * @param {number} index
+     */
     select: (item, index) => {
       value.select(index, { multiple, mandatory, max });
-      const left = item.offsetLeft;
-      const width = item.offsetWidth;
+      const child = item.firstChild;
+      const left = child.offsetLeft;
+      const width = child.offsetWidth;
 
       if (centerActive) offset = left + (width - wrapperWidth) / 2;
       else if (left + 1.25 * width > wrapperWidth + offset) {
@@ -110,7 +115,7 @@
     <div class="s-slide-group__controls" class:is-hidden-disabled={hideDisabledControls}>
       <div class="s-slide-group__prev" class:is-disabled={offset === 0} on:click={prev}>
         <slot name="previous">
-          <Icon path={prevIcon} />
+          <Icon path={arrow} />
         </slot>
       </div>
       <div
@@ -118,7 +123,7 @@
         class:is-disabled={offset === contentWidth - wrapperWidth}
         on:click={next}>
         <slot name="next">
-          <Icon path={nextIcon} />
+          <Icon path={arrow} --icon-rotate="180deg" />
         </slot>
       </div>
     </div>
