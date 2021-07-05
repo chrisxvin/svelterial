@@ -1,0 +1,13 @@
+.s-tabs-bar {
+  width: 100%;
+  display: flex;
+  min-height: 48px;
+  position: relative;
+}
+
+.s-tabs-slider {
+  position: absolute;
+  bottom: 0;
+  height: 2px;
+  background-color: red;
+}

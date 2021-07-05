@@ -2,22 +2,24 @@
   import { WINDOW } from './Window.svelte';
   import { getContext } from 'svelte';
 
-  const { value, axis, direction, getIndex } = getContext(WINDOW);
+  const { value, axis, direction, duration, easing, getIndex } = getContext(WINDOW);
   const index = getIndex();
 
   const slideIn = () => ({
-    duration: 300,
+    duration,
+    easing,
     css: (t) => `transform: translate${axis}(${100 * (1 - t) * $direction}%);`,
   });
 
   const slideOut = () => ({
-    duration: 300,
+    duration,
+    easing,
     css: (t) => `transform: translate${axis}(${100 * (t - 1) * $direction}%);`,
   });
 </script>
 
 {#if $value === index}
-  <div class="s-window-item" in:slideIn out:slideOut>
+  <div class="s-window-item" in:slideIn|local out:slideOut|local>
     <slot />
   </div>
 {/if}
