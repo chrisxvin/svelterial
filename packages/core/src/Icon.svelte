@@ -37,7 +37,7 @@
   class="s-icon {klass}"
   class:is-spinning={spin}
   class:s-icon-disabled={disabled}
-  style="font-size: {size};">
+  style="font-size:{size};">
   {#if path}
     <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} {viewBox}>
       <path d={path} />
